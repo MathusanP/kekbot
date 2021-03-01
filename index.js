@@ -8,7 +8,7 @@ const command = require('./Commands')
 
 bot.on("ready", () => {
     console.log(`kekbot has started, with ${bot.users.cache.size} users, in ${bot.channels.cache.size} channels of ${bot.guilds.cache.size} guilds.`);
-    bot.user.setActivity(`V1.9 - kekhelp`);
+    bot.user.setActivity(`V2.0 - kekhelp`);
   }); 
 
  
@@ -35,7 +35,7 @@ bot.on("message", msg => {
 
 bot.on("message", msg => {
     if(msg.content === `${prefix}join`) {
-        msg.channel.send("`Here is our discord:` https://discord.gg/pdxkeAe")
+        msg.channel.send("`Here is our community discord:` https://discord.gg/pdxkeAe . `Our support discord is`: https://discord.gg/pyznqufsaz")
     } 
 
 });    
@@ -59,7 +59,7 @@ bot.on("guildCreate", guild => {
 
   bot.on("message", msg => {
     if(msg.content === `${prefix}-v`) {
-        msg.channel.send("`version 1.9`")
+        msg.channel.send("`version 2.0`")
     } 
 
 });    
@@ -69,7 +69,7 @@ bot.login(token)
 
 bot.on("message", msg => {
     if(msg.content === `${prefix}-V`) {
-        msg.channel.send("`Version 1.9`")
+        msg.channel.send("`Version 2.0`")
     } 
 
 });    
@@ -145,16 +145,7 @@ bot.on("message", async message => {
     });    
     
     bot.login(token)
-    
 
-    bot.on("message", msg => {
-        if(msg.content === `${prefix}update`) {
-            msg.channel.send("Whats new? Embeds are now introduced! Although kekhelp is the only command using a embed, more commands will have embeds in the future!")
-        } 
-    
-    });    
-    
-    bot.login(token)
  
 
     bot.on('message', message => {
@@ -182,7 +173,7 @@ command(bot, 'help', (message) => {
     const embed = new Discord.MessageEmbed()
       .setTitle('Here are diffrent help categories, Most commands are lowercase!.')
       .setFooter('This bot is still in the making, More commands are still yet to come!')
-      .setColor('#03b5fc')
+      .setColor('RANDOM')
       .addFields(
         {
           name: 'Facts',
@@ -202,11 +193,11 @@ command(bot, 'help', (message) => {
         { name: 'Support',
           value: 'kekhelp support',
           incline: true,
-
-      },
-
+        },
+        { name: 'Images',
+          value: 'kekhelp images'
+        },
       )
-
     message.channel.send(embed)
   })
 
@@ -288,7 +279,7 @@ command(bot, 'help facts', (message) => {
     const embed = new Discord.MessageEmbed()
       .setTitle('Here are diffrent types of animal facts available.')
       .setFooter('This bot is still in the making, More commands are still yet to come!')
-      .setColor('#E1931D')
+      .setColor('RANDOM')
       .addFields(
         {
           name: 'kekparrotfact',
@@ -323,7 +314,7 @@ command(bot, 'help fun', (message) => {
   const embed = new Discord.MessageEmbed()
     .setTitle('Here are diffrent types of animal facts available.')
     .setFooter('This bot is still in the making, More commands are still yet to come!')
-    .setColor('#E1931D')
+    .setColor('RANDOM')
     .addFields(
       {
         name: 'kek8ball',
@@ -360,7 +351,7 @@ command(bot, 'help moderation', (message) => {
     const embed = new Discord.MessageEmbed()
       .setTitle('Here are the moderation commands.')
       .setFooter('This bot is still in the making, More commands are still yet to come!')
-      .setColor('#000000')
+      .setColor('RANDOM')
       .addFields(
         {
           name: 'kekkick',
@@ -430,7 +421,7 @@ command(bot, 'help support', (message) => {
   const embed = new Discord.MessageEmbed()
     .setTitle('Here are diffrent types of animal facts available.')
     .setFooter('This bot is still in the making, More commands are still yet to come!')
-    .setColor('#fc5203')
+    .setColor('RANDOM')
     .addFields(
       {
         name: 'kekinv',
@@ -497,5 +488,41 @@ bot.on('message', message => {
 
 
 })
+
+bot.login(token)
+
+
+command(bot, 'help images', (message) => {
+
+  const embed = new Discord.MessageEmbed()
+    .setTitle('Images commands.')
+    .setFooter('This bot is still in the making, More commands are still yet to come!')
+    .setColor('RANDOM')
+    .addFields(
+      {
+        name: 'kekcat',
+        value: 'Shows a picture of a cat from r/cats',
+        inline: true,
+      },
+      {
+        name: '???',
+        value: 'Coming soon!',
+        inline: true,
+      },
+      
+      {
+        name: '???',
+        value: 'Coming soon!',
+        inline: true,
+      },
+      { 
+        name: '???',
+        value: 'Coming soon!',
+        inline: true,
+      }
+    )
+  message.channel.send(embed)
+})
+
 
 bot.login(token)
