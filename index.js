@@ -526,3 +526,13 @@ command(bot, 'help images', (message) => {
 
 
 bot.login(token)
+
+
+bot.on("message", msg => {
+  if(msg.content === `ching`) {
+    return msg.reply("chong")
+  } 
+
+}); 
+
+bot.login(token)
