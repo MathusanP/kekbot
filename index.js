@@ -5,6 +5,11 @@ const bot = new Discord.Client()
 const {prefix,token} = require("./botconfig.json")
 bot.commands = new Discord.Collection();
 const command = require('./Commands')
+const mongoose = require('mongoose')
+
+mongoose.connect('mongodb+srv://kekbot:kekbot6@kekbot.2g0yc.mongodb.net/test', {useNewUrlParser: true, useUnifiedTopology: true})
+
+
 
 bot.on("ready", () => {
     console.log(`kekbot has started, with ${bot.users.cache.size} users, in ${bot.channels.cache.size} channels of ${bot.guilds.cache.size} guilds.`);
@@ -342,9 +347,13 @@ command(bot, 'help fun', (message) => {
         name: 'kekquote',
         value: 'Fetches a quote from r/quotes',
         inline: true,
-      }    
-    
-    )
+      },  
+      {
+        name:'kekdice',
+        value:'Rolls a dice',
+        inline:true,
+      },
+      )
   message.channel.send(embed)
 })
 
@@ -478,8 +487,6 @@ bot.on('message', async (message) => {
     process.on('unhandledRejection', error => console.error('Uncaught Promise Rejection', error));
   })
 
-bot.login(token);
-
 
 bot.on('message', message => {
 
@@ -533,3 +540,17 @@ command(bot, 'help images', (message) => {
 
 
 bot.login(token)
+
+
+//*partials: ['MESSAGE', 'CHANNEL', 'REACTION']
+//mongoose.set('useFindAndModify', false);
+
+//require('./utils/loadEvents')(bot);
+
+//bot.commands = new Discord.Collection();
+//bot.aliases = new Discord.Collection();
+//bot.snipes = new Discord.Collection();
+
+//loadCommands(bot);
+
+//bot.login(token)
