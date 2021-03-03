@@ -336,7 +336,14 @@ command(bot, 'help fun', (message) => {
         name: 'kekmeme (in beta)',
         value: 'Fetches a meme from R/memes',
         inline: true,
-      }
+      },
+    
+      {
+        name: 'kekquote',
+        value: 'Fetches a quote from r/quotes',
+        inline: true,
+      }    
+    
     )
   message.channel.send(embed)
 })
@@ -501,12 +508,12 @@ command(bot, 'help images', (message) => {
     .addFields(
       {
         name: 'kekcat',
-        value: 'Shows a picture of a cat from r/cats',
+        value: 'Shows a picture of a cat from r/cats!',
         inline: true,
       },
       {
-        name: '???',
-        value: 'Coming soon!',
+        name: 'kekdog',
+        value: 'Showed dog pics from r/dogs!',
         inline: true,
       },
       
