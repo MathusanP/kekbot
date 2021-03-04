@@ -7,7 +7,7 @@ module.exports.run = async (bot, message, args) => {
     let member = message.author
     
     const dicerollEmbed = new Discord.MessageEmbed()
-        .setTitle(`I rolled a **${result}**`)
+        .setTitle(`You rolled a **${result}**`)
         .setColor("RANDOM")
         .setFooter(`${member.username}`)
         .setTimestamp();

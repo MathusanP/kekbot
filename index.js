@@ -373,9 +373,14 @@ command(bot, 'help moderation', (message) => {
           name: 'kekkick',
           value: 'Kicks the mentioned user if the person who kicks has the correct permissions',
           inline: true,
-        }
+        },
+      {
+          name: 'keksnipe',
+          value: 'Snipes the last deleted message (This command is in beta)',
+          inline: true
+      }
       )
-    message.channel.send(embed)
+      message.channel.send(embed)
   })
 
 
@@ -542,15 +547,15 @@ command(bot, 'help images', (message) => {
 bot.login(token)
 
 
-//*partials: ['MESSAGE', 'CHANNEL', 'REACTION']
-//mongoose.set('useFindAndModify', false);
+partials: ['MESSAGE', 'CHANNEL', 'REACTION']
+mongoose.set('useFindAndModify', false);
 
-//require('./utils/loadEvents')(bot);
+require('./utils/loadEvents')(bot);
 
-//bot.commands = new Discord.Collection();
-//bot.aliases = new Discord.Collection();
-//bot.snipes = new Discord.Collection();
+bot.commands = new Discord.Collection();
+bot.aliases = new Discord.Collection();
+bot.snipes = new Discord.Collection();
 
-//loadCommands(bot);
+loadCommands(bot);
 
-//bot.login(token)
+bot.login(token)
