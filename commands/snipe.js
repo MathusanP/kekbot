@@ -6,7 +6,7 @@ module.exports.run = async (bot, message, args) => {
     const embed = new Discord.MessageEmbed()
     .setAuthor(msg.member.user.displayAvatarURL())
     .setDescription(msg.content)
-    .setFooter('suckes to be sniped lmbfao')
+    .setFooter('sucks to be sniped lmbfao')
     .setTimestamp();
     message.channel.send(embed);
     process.on('unhandledRejection', error => console.error('Uncaught Promise Rejection', error));
