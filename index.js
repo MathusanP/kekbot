@@ -556,13 +556,8 @@ command(bot, 'w', (message) => {
 
 
 const embed = new Discord.MessageEmbed()
-.setTitle('A Polar bear pic')
-.setAuthor(message.author.username)
 .setImage(logo)
-.setFooter('Credit:  Polarbearsinternational')
-.setColor('#008080')
-
-
+.setColor('RANDOM')
 message.channel.send(embed)
 })
 bot.login(token)
