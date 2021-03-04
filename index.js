@@ -83,14 +83,7 @@ bot.login(token)
 
 
 
-bot.on("message", msg => {
-    if(msg.content === `${prefix}info`) {
-        msg.channel.send("`You can contact us by:  Gmail: kekbot6@gmail.com or Instagram: bagelwastaken`")
-    } 
 
-});    
-
-bot.login(token)
 
 
 bot.on("message", msg => {
@@ -551,9 +544,6 @@ partials: ['MESSAGE', 'CHANNEL', 'REACTION']
 mongoose.set('useFindAndModify', false);
 
 require('./utils/loadEvents')(bot);
-
-bot.commands = new Discord.Collection();
-bot.aliases = new Discord.Collection();
 bot.snipes = new Discord.Collection();
 
 loadCommands(bot);
