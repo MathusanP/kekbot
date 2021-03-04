@@ -549,3 +549,20 @@ bot.snipes = new Discord.Collection();
 loadCommands(bot);
 
 bot.login(token)
+
+command(bot, 'w', (message) => {
+  const logo =
+    'https://www.streamscheme.com/wp-content/uploads/2020/07/kekw-emote.jpg'
+
+
+const embed = new Discord.MessageEmbed()
+.setTitle('A Polar bear pic')
+.setAuthor(message.author.username)
+.setImage(logo)
+.setFooter('Credit:  Polarbearsinternational')
+.setColor('#008080')
+
+
+message.channel.send(embed)
+})
+bot.login(token)
