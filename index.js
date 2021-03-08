@@ -550,7 +550,7 @@ loadCommands(bot);
 
 bot.login(token)
 
-command(bot, 'w', (message) => {
+command(bot, 'kekw', (message) => {
   const logo =
     'https://www.streamscheme.com/wp-content/uploads/2020/07/kekw-emote.jpg'
 
@@ -561,3 +561,14 @@ const embed = new Discord.MessageEmbed()
 message.channel.send(embed)
 })
 bot.login(token)
+
+const eventFiles = fs.readdirSync('./events').filter(file => file.endsWith('.js'));
+
+for (const file of eventFiles) {
+    const event = require(`./events/${file}`);
+    if (event.once) {
+        bot.once(event.name, (...args) => event.execute(...args, client));
+    } else {
+        bot.on(event.name, (...args) => event.execute(...args, client));
+    }
+}
