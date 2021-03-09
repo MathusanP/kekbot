@@ -81,25 +81,6 @@ bot.on("message", msg => {
 
 bot.login(token)
 
-
-
-
-
-
-bot.on("message", msg => {
-    if(msg.content === `${prefix}play`) {
-        msg.channel.send("`command in progress... (coming soon!)`")
-    } 
-
-});    
-
-bot.login(token)
-       
-
-
-
-
-
 bot.on("message", async message => {
     if(message.content === "kekping") {
         const m = await message.channel.send("Awaiting ping...");
@@ -570,17 +551,6 @@ const embed = new Discord.MessageEmbed()
 message.channel.send(embed)
 })
 bot.login(token)
-
-const eventFiles = fs.readdirSync('./events').filter(file => file.endsWith('.js'));
-
-for (const file of eventFiles) {
-    const event = require(`./events/${file}`);
-    if (event.once) {
-        bot.once(event.name, (...args) => event.execute(...args, client));
-    } else {
-        bot.on(event.name, (...args) => event.execute(...args, client));
-    }
-}
 
 bot.on("message", msg =>  {
   if (msg.content === `kektip`) {
