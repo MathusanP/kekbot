@@ -13,7 +13,7 @@ mongoose.connect('mongodb+srv://kekbot:kekbot6@kekbot.2g0yc.mongodb.net/test', {
 
 bot.on("ready", () => {
     console.log(`kekbot has started, with ${bot.users.cache.size} users, in ${bot.channels.cache.size} channels of ${bot.guilds.cache.size} guilds.`);
-    bot.user.setActivity(`V2.0 - kekhelp`);
+    bot.user.setActivity(`V2.1 - kekhelp`);
   }); 
 
  
@@ -64,7 +64,7 @@ bot.on("guildCreate", guild => {
 
   bot.on("message", msg => {
     if(msg.content === `${prefix}-v`) {
-        msg.channel.send("`version 2.0`")
+        msg.channel.send("`version 2.1`")
     } 
 
 });    
@@ -74,7 +74,7 @@ bot.login(token)
 
 bot.on("message", msg => {
     if(msg.content === `${prefix}-V`) {
-        msg.channel.send("`Version 2.0`")
+        msg.channel.send("`Version 2.1`")
     } 
 
 });    
@@ -346,8 +346,13 @@ command(bot, 'help fun', (message) => {
         value:'Rolls a dice',
         inline:true,
       },
-      )
-  message.channel.send(embed)
+      {
+        name:'kekwholesome',
+        value: 'Fetches a wholesome meme',
+        inline:true,
+      },
+    )  
+      message.channel.send(embed)
 })
 
 
@@ -451,9 +456,13 @@ command(bot, 'help support', (message) => {
       {
         name: 'kekinfo',
         value: 'Sends our email address and instagram so you can contact us if there are any concerns!',
-      }
+      },
+    {
+      name: 'kektip',
+      value: 'Sends tips about the bot',
+      inline:true,
+    }
     )
-
   message.channel.send(embed)
 })
 
@@ -550,7 +559,7 @@ loadCommands(bot);
 
 bot.login(token)
 
-command(bot, 'kekw', (message) => {
+command(bot, 'w', (message) => {
   const logo =
     'https://www.streamscheme.com/wp-content/uploads/2020/07/kekw-emote.jpg'
 
@@ -572,3 +581,16 @@ for (const file of eventFiles) {
         bot.on(event.name, (...args) => event.execute(...args, client));
     }
 }
+
+bot.on("message", msg =>  {
+  if (msg.content === `kektip`) {
+    const tips = require("./tips.json");
+    msg.channel.send(
+        `${
+            tips[Math.floor(Math.random() * [tips.length])]
+        }`
+    )
+    }
+  })
+
+bot.login(token)
