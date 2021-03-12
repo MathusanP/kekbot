@@ -151,7 +151,7 @@ command(bot, 'help', (message) => {
 
     const embed = new Discord.MessageEmbed()
       .setTitle('Here are diffrent help categories, Most commands are lowercase!.')
-      .setFooter('This bot is still in the making, More commands are still yet to come!')
+      .setFooter('You can support us using keksupport')
       .setColor('RANDOM')
       .addFields(
         {
@@ -169,8 +169,8 @@ command(bot, 'help', (message) => {
           value: 'kekhelp moderation',
           inline: true,
         },
-        { name: 'Support',
-          value: 'kekhelp support',
+        { name: 'contact',
+          value: 'kekhelp contact',
           incline: true,
         },
         { name: 'Images',
@@ -257,7 +257,7 @@ command(bot, 'help facts', (message) => {
 
     const embed = new Discord.MessageEmbed()
       .setTitle('Here are diffrent types of animal facts available.')
-      .setFooter('This bot is still in the making, More commands are still yet to come!')
+      .setFooter('You can support us using keksupport')
       .setColor('RANDOM')
       .addFields(
         {
@@ -292,7 +292,7 @@ command(bot, 'help fun', (message) => {
 
   const embed = new Discord.MessageEmbed()
     .setTitle('Here are diffrent types of animal facts available.')
-    .setFooter('This bot is still in the making, More commands are still yet to come!')
+    .setFooter('You can support us using keksupport')
     .setColor('RANDOM')
     .addFields(
       {
@@ -416,7 +416,7 @@ bot.on("message", msg => {
 bot.login(token)
 
 
-command(bot, 'help support', (message) => {
+command(bot, 'help contact', (message) => {
 
   const embed = new Discord.MessageEmbed()
     .setTitle('Here are diffrent types of animal facts available.')
@@ -562,5 +562,15 @@ bot.on("message", msg =>  {
     )
     }
   })
+
+bot.login(token)
+
+
+bot.on("message", msg => {
+  if(msg.content === `${prefix}support`) {
+      msg.channel.send("If you wish to support us, you can support us on patreon, this would be greatly appreciated! https://www.patreon.com/kekbotwastaken")
+  } 
+
+});    
 
 bot.login(token)
