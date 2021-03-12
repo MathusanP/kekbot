@@ -1,6 +1,6 @@
 {
   "name": "kekbot",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "Discord kekbot#5882",
   "main": "index.js",
   "dependencies": {
@@ -31,7 +31,7 @@
     "kek"
   ],
   "author": "Mathusan (deku_prime#1475)",
-  "license": "UNLICENSED",
+  "license": "ISC",
   "repository": {
     "type": "git",
     "url": "kekbot"
