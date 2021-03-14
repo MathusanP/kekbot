@@ -6,14 +6,15 @@ const {prefix,token} = require("./botconfig.json")
 bot.commands = new Discord.Collection();
 const command = require('./Commands')
 const mongoose = require('mongoose')
+const db = require('quick.db')
 
 mongoose.connect('mongodb+srv://kekbot:kekbot6@kekbot.2g0yc.mongodb.net/test', {useNewUrlParser: true, useUnifiedTopology: true})
 
 
 
-bot.on("ready", () => {
+bot.on("ready", ()  => {
     console.log(`kekbot has started, with ${bot.users.cache.size} users, in ${bot.channels.cache.size} channels of ${bot.guilds.cache.size} guilds.`);
-    bot.user.setActivity(`V2.1 - kekhelp`);
+    bot.user.setActivity(`V2.2 - kekhelp`);
   }); 
 
  
@@ -64,7 +65,7 @@ bot.on("guildCreate", guild => {
 
   bot.on("message", msg => {
     if(msg.content === `${prefix}-v`) {
-        msg.channel.send("`version 2.1`")
+        msg.channel.send("`version 2.2`")
     } 
 
 });    
@@ -74,7 +75,7 @@ bot.login(token)
 
 bot.on("message", msg => {
     if(msg.content === `${prefix}-V`) {
-        msg.channel.send("`Version 2.1`")
+        msg.channel.send("`Version 2.2`")
     } 
 
 });    
@@ -171,12 +172,18 @@ command(bot, 'help', (message) => {
         },
         { name: 'contact',
           value: 'kekhelp contact',
-          incline: true,
+          inline: true,
         },
         { name: 'Images',
-          value: 'kekhelp images'
+          value: 'kekhelp images',
+          inline: true,
         },
-      )
+        {
+          name: 'Utility',
+          value: 'kekhelp utils',
+          inline: true
+        }
+          )
     message.channel.send(embed)
   })
 
@@ -454,26 +461,13 @@ bot.login(token)
 partials: ['MESSAGE', 'CHANNEL', 'REACTION']
 
 const { loadCommands } = require('./utils/loadCommands');
+const { Db } = require('mongodb')
+const message = require('./events/message')
 
 bot.commands = new Discord.Collection();
 bot.aliases = new Discord.Collection();
 
 loadCommands(bot);
-
-bot.on('message', async (message) => {
-    if (message.author.bot) return;
-
-	const messageArray = message.content.split(' ');
-	const cmd = messageArray[0];
-    const args = messageArray.slice(1);
-    
-    const prefix = "kek";
-
-	if (!message.content.startsWith(prefix)) return;
-    const commandfile = bot.commands.get(cmd.slice(prefix.length)) || bot.commands.get(bot.aliases.get(cmd.slice(prefix.length)));
-    commandfile.run(bot, message, args);
-    process.on('unhandledRejection', error => console.error('Uncaught Promise Rejection', error));
-  })
 
 
 bot.on('message', message => {
@@ -572,5 +566,93 @@ bot.on("message", msg => {
   } 
 
 });    
+
+bot.login(token)
+
+
+bot.on("message", async message => {
+let afk =  new db.table("AFKs")
+    authorStatus = await afk.fetch(message.author.id)
+    mentioned = message.mentions.members.first()
+
+  if (mentioned) {
+    let status = await afk.fetch(mentioned.id);
+    
+    if (status) {
+      const embed = new Discord.MessageEmbed()
+      .setColor('RANDOM')
+      .setDescription(`This user (${mentioned.user.tag}) is AFK: **${status}**`)
+      message.channel.send(embed).then(i => i.delete({timeout: 5000}));
+    }
+  }
+})
+
+
+bot.on("message", async msg => {
+    if(msg.content.startsWith(`kekafk`)) {
+    const status = new db.table("Afks");
+    let afk = await status.fetch(msg.author.id)
+    const embed = new Discord.MessageEmbed().setColor('RANDOM')
+    const args = msg.content.trim().split(/ +/g);
+    if (!afk) {
+      embed.setDescription(`**${msg.author.tag}** is now AFK.`)
+      status.set(msg.author.id, args.join(" ") || `AFK`);
+    } else {
+      embed.setDescription("You are no longer AFK")
+      status.delete(msg.author.id);
+    } 
+    msg.channel.send(embed)
+}}); 
+
+bot.login(token)
+
+bot.on("message", msg => {
+  if(msg.content === `kekvote`) {
+      msg.channel.send("You can vote for kekbot at https://discordbotlist.com/bots/kekbot")
+  } 
+
+});
+
+
+bot.on("message", msg => {
+  if(msg.content === `kekweb`) {
+      msg.channel.send("Here is our website! https://kekweb.bagelwastaken.repl.co/")
+  } 
+
+});  
+
+
+command(bot, 'help utils', (message) => {
+
+  const embed = new Discord.MessageEmbed()
+    .setTitle('Utilities.')
+    .setFooter('This bot is still in the making, More commands are still yet to come!')
+    .setColor('RANDOM')
+    .addFields(
+      {
+        name: 'kekinfo {@user}',
+        value: 'It shows a description of the person',
+        inline: true,
+      },
+      {
+        name: 'kekafk {reason}',
+        value: 'Makes you afk, anyone who pinges you will be notified that your afk , use kekafk to leave afk',
+        inline: true,
+      },
+      
+      {
+        name: 'kekpurge',
+        value: 'Coming soon!',
+        inline: true,
+      },
+      { 
+        name: 'keksay',
+        value: 'Coming soon!',
+        inline: true,
+      }
+    )
+  message.channel.send(embed)
+})
+
 
 bot.login(token)
