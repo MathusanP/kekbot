@@ -108,16 +108,6 @@ bot.on("message", async message => {
     bot.login(token)
 
     bot.on("message", msg => {
-        if(msg.content === `kekpurge`) {
-          return msg.reply("coming soon")
-        } 
-    
-    }); 
-    
-    bot.login(token)
-
-
-    bot.on("message", msg => {
         if(msg.content === `${prefix}birthday`) {
             msg.channel.send("I was made by <@315393628891512832> on 19th of july 2020")
         } 
@@ -641,8 +631,8 @@ command(bot, 'help utils', (message) => {
       },
       
       {
-        name: 'kekpurge',
-        value: 'Coming soon!',
+        name: 'kekpurge {amount}',
+        value: 'Bulk deletes messages!',
         inline: true,
       },
       { 
@@ -656,3 +646,5 @@ command(bot, 'help utils', (message) => {
 
 
 bot.login(token)
+
+
