@@ -646,5 +646,3 @@ command(bot, 'help utils', (message) => {
 
 
 bot.login(token)
-
-
