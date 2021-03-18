@@ -1,20 +1,23 @@
 const path = require('path')
 const fs = require ('fs')
 const Discord = require("discord.js")
-const bot = new Discord.Client()
 const {prefix,token} = require("./botconfig.json")
-bot.commands = new Discord.Collection();
 const command = require('./Commands')
 const mongoose = require('mongoose')
 const db = require('quick.db')
+const Commando = require('discord.js-commando')
+const bot = new Commando.CommandoClient({
+  owner: '315393628891512832',
+  commandPrefix: prefix
+})
+bot.commands = new Discord.Collection();
+
+
 
 mongoose.connect('mongodb+srv://kekbot:kekbot6@kekbot.2g0yc.mongodb.net/test', {useNewUrlParser: true, useUnifiedTopology: true})
-
-
-
 bot.on("ready", ()  => {
     console.log(`kekbot has started, with ${bot.users.cache.size} users, in ${bot.channels.cache.size} channels of ${bot.guilds.cache.size} guilds.`);
-    bot.user.setActivity(`V2.2 - kekhelp`);
+    bot.user.setActivity(`V2.3 - kekhelp`);
   }); 
 
  
@@ -65,7 +68,7 @@ bot.on("guildCreate", guild => {
 
   bot.on("message", msg => {
     if(msg.content === `${prefix}-v`) {
-        msg.channel.send("`version 2.2`")
+        msg.channel.send("`version 2.3`")
     } 
 
 });    
@@ -75,7 +78,7 @@ bot.login(token)
 
 bot.on("message", msg => {
     if(msg.content === `${prefix}-V`) {
-        msg.channel.send("`Version 2.2`")
+        msg.channel.send("`Version 2.3`")
     } 
 
 });    
@@ -172,8 +175,13 @@ command(bot, 'help', (message) => {
           name: 'Utility',
           value: 'kekhelp utils',
           inline: true
+        },
+        {
+          name: 'Minigames',
+          value: 'kekhelp games',
+          inline: true
         }
-          )
+        )
     message.channel.send(embed)
   })
 
@@ -560,22 +568,6 @@ bot.on("message", msg => {
 bot.login(token)
 
 
-bot.on("message", async message => {
-let afk =  new db.table("AFKs")
-    authorStatus = await afk.fetch(message.author.id)
-    mentioned = message.mentions.members.first()
-
-  if (mentioned) {
-    let status = await afk.fetch(mentioned.id);
-    
-    if (status) {
-      const embed = new Discord.MessageEmbed()
-      .setColor('RANDOM')
-      .setDescription(`This user (${mentioned.user.tag}) is AFK: **${status}**`)
-      message.channel.send(embed).then(i => i.delete({timeout: 5000}));
-    }
-  }
-})
 
 
 bot.on("message", async msg => {
@@ -642,6 +634,33 @@ command(bot, 'help utils', (message) => {
       }
     )
   message.channel.send(embed)
+})
+
+
+bot.login(token)
+
+
+bot.registry
+.registerGroups([
+  ['games', 'Commands to handle games'],
+])
+.registerCommandsIn(path.join(__dirname, 'cmds'))
+
+
+command(bot, 'help games', (message) => {
+
+  const embed = new Discord.MessageEmbed()
+    .setTitle('Here are the minigames available!')
+    .setFooter('All minigames are currently in beta, expect them to be buggy!')
+    .setColor('RANDOM')
+    .addFields(
+      {
+        name: 'kekspeedtype',
+        value: 'Compete with your friends to enter the words that gets displayed by the bot! (in beta)',
+        inline: true,
+      },
+    )
+    message.channel.send(embed)
 })
 
 

@@ -1,11 +1,11 @@
 const { prefix } = require('./botconfig.json')
 
-module.exports = (client, aliases, callback) => {
+module.exports = (bot, aliases, callback) => {
   if (typeof aliases === 'string') {
     aliases = [aliases]
   }
 
-  client.on('message', (message) => {
+  bot.on('message', (message) => {
     const { content } = message
 
     aliases.forEach((alias) => {
