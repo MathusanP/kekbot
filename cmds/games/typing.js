@@ -65,7 +65,7 @@ const gameLoop = () => {
 
       if (game.counter <= 0) {
         game.stage = 'IN_GAME'
-        game.counter = 27
+        game.counter = 30
 
         selectWord(game)
 

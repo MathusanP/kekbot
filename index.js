@@ -20,7 +20,7 @@ bot.on("ready", ()  => {
     bot.user.setActivity(`V2.3 - kekhelp`);
   }); 
 
- 
+
 
 bot.login(token)
 
@@ -180,9 +180,19 @@ command(bot, 'help', (message) => {
           name: 'Minigames',
           value: 'kekhelp games',
           inline: true
-        }
-        )
-    message.channel.send(embed)
+        },
+        {
+          name: 'development',
+          value: 'kekhelp dev',
+          inline: true
+        },
+        {
+          name: 'Coming soon....',
+          value: '???',
+          inline: true
+        } 
+      ) 
+          message.channel.send(embed)
   })
 
 
@@ -643,6 +653,8 @@ bot.login(token)
 bot.registry
 .registerGroups([
   ['games', 'Commands to handle games'],
+  ['misc', 'Mainly dev command will be stored here or commands I can not categorise']
+
 ])
 .registerCommandsIn(path.join(__dirname, 'cmds'))
 
@@ -657,6 +669,26 @@ command(bot, 'help games', (message) => {
       {
         name: 'kekspeedtype',
         value: 'Compete with your friends to enter the words that gets displayed by the bot! (in beta)',
+        inline: true,
+      },
+    )
+    message.channel.send(embed)
+})
+
+
+bot.login(token)
+
+
+command(bot, 'help dev', (message) => {
+
+  const embed = new Discord.MessageEmbed()
+    .setTitle('Here are the minigames available!')
+    .setFooter('All minigames are currently in beta, expect them to be buggy!')
+    .setColor('RANDOM')
+    .addFields(
+      {
+        name: 'kekdocs {Enter the name of the doccumentation you want to view}',
+        value: 'Searches the docs for the item you searched and gives you a link to view it!',
         inline: true,
       },
     )

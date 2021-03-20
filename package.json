@@ -5,6 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "@discordjs/opus": "^0.3.3",
+    "axios": "^0.21.1",
     "better-sqlite3": "^7.1.2",
     "colors": "^1.4.0",
     "discord-ytdl-core": "^5.0.0",
