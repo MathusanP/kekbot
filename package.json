@@ -20,6 +20,7 @@
     "moment": "^2.29.1",
     "mongodb": "^3.6.4",
     "mongoose": "^5.11.18",
+    "node-fetch": "^2.6.1",
     "opus": "0.0.0",
     "opusscript": "0.0.7",
     "quick.db": "^7.0.0-b22",
