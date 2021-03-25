@@ -17,7 +17,7 @@ bot.commands = new Discord.Collection();
 mongoose.connect('mongodb+srv://kekbot:kekbot6@kekbot.2g0yc.mongodb.net/test', {useNewUrlParser: true, useUnifiedTopology: true})
 bot.on("ready", ()  => {
     console.log(`kekbot has started, with ${bot.users.cache.size} users, in ${bot.channels.cache.size} channels of ${bot.guilds.cache.size} guilds.`);
-    bot.user.setActivity(`V2.3 - kekhelp`);
+    bot.user.setActivity(`V2.4 - kekhelp`);
   }); 
 
 
@@ -68,7 +68,7 @@ bot.on("guildCreate", guild => {
 
   bot.on("message", msg => {
     if(msg.content === `${prefix}-v`) {
-        msg.channel.send("`version 2.3`")
+        msg.channel.send("`version 2.4`")
     } 
 
 });    
@@ -78,7 +78,7 @@ bot.login(token)
 
 bot.on("message", msg => {
     if(msg.content === `${prefix}-V`) {
-        msg.channel.send("`Version 2.3`")
+        msg.channel.send("`Version 2.4`")
     } 
 
 });    
@@ -510,18 +510,18 @@ command(bot, 'help images', (message) => {
       },
       {
         name: 'kekdog',
-        value: 'Showed dog pics from r/dogs!',
+        value: 'Showes dog pics from r/dogs!',
         inline: true,
       },
       
       {
-        name: '???',
-        value: 'Coming soon!',
+        name: 'kakparrot',
+        value: 'Shows a parrot picture from r/parrots!',
         inline: true,
       },
       { 
-        name: '???',
-        value: 'Coming soon!',
+        name: 'kekturtle',
+        value: 'Shows turtle pics from r/turtle!',
         inline: true,
       }
     )
