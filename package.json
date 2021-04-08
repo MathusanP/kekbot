@@ -1,12 +1,13 @@
 {
   "name": "kekbot",
-  "version": "2.3.0",
+  "version": "2.5.0",
   "description": "Discord kekbot#5882",
   "main": "index.js",
   "dependencies": {
     "@discordjs/opus": "^0.3.3",
     "axios": "^0.21.1",
     "better-sqlite3": "^7.1.2",
+    "canvas": "^2.7.0",
     "colors": "^1.4.0",
     "discord-ytdl-core": "^5.0.0",
     "discord.js": "^12.5.1",
@@ -23,7 +24,7 @@
     "node-fetch": "^2.6.1",
     "opus": "0.0.0",
     "opusscript": "0.0.7",
-    "quick.db": "^7.0.0-b22",
+    "quick.db": "^7.1.3",
     "quickmongo": "^3.0.2",
     "random-puppy": "^1.1.0",
     "yt-search": "^2.3.0",

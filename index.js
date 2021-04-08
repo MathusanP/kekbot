@@ -17,7 +17,7 @@ bot.commands = new Discord.Collection();
 mongoose.connect('mongodb+srv://kekbot:kekbot6@kekbot.2g0yc.mongodb.net/test', {useNewUrlParser: true, useUnifiedTopology: true})
 bot.on("ready", ()  => {
     console.log(`kekbot has started, with ${bot.users.cache.size} users, in ${bot.channels.cache.size} channels of ${bot.guilds.cache.size} guilds.`);
-    bot.user.setActivity(`V2.4 - kekhelp`);
+    bot.user.setActivity(`V2.5 - kekhelp`);
   }); 
 
 
@@ -68,7 +68,7 @@ bot.on("guildCreate", guild => {
 
   bot.on("message", msg => {
     if(msg.content === `${prefix}-v`) {
-        msg.channel.send("`version 2.4`")
+        msg.channel.send("`version 2.5`")
     } 
 
 });    
@@ -78,7 +78,7 @@ bot.login(token)
 
 bot.on("message", msg => {
     if(msg.content === `${prefix}-V`) {
-        msg.channel.send("`Version 2.4`")
+        msg.channel.send("`Version 2.5`")
     } 
 
 });    
@@ -569,7 +569,7 @@ bot.login(token)
 
 
 bot.on("message", msg => {
-  if(msg.content === `${prefix}support`) {
+  if(msg.content === `${prefix}patreon`) {
       msg.channel.send("If you wish to support us, you can support us on patreon, this would be greatly appreciated! https://www.patreon.com/kekbotwastaken")
   } 
 
@@ -579,25 +579,42 @@ bot.login(token)
 
 
 
-
-bot.on("message", async msg => {
-    if(msg.content.startsWith(`kekafk`)) {
-    const status = new db.table("Afks");
-    let afk = await status.fetch(msg.author.id)
-    const embed = new Discord.MessageEmbed().setColor('RANDOM')
-    const args = msg.content.trim().split(/ +/g);
-    if (!afk) {
-      embed.setDescription(`**${msg.author.tag}** is now AFK.`)
-      status.set(msg.author.id, args.join(" ") || `AFK`);
-    } else {
-      embed.setDescription("You are no longer AFK")
-      status.delete(msg.author.id);
-    } 
-    msg.channel.send(embed)
-}}); 
-
-bot.login(token)
-
+bot.on("message", async message => {
+  let afk =  new db.table("AFKs")
+      authorStatus = await afk.fetch(message.author.id)
+      mentioned = message.mentions.members.first()
+  
+    if (mentioned) {
+      let status = await afk.fetch(mentioned.id);
+      
+      if (status) {
+        const embed = new Discord.MessageEmbed()
+        .setColor('RANDOM')
+        .setDescription(`This user (${mentioned.user.tag}) is AFK: **${status}**`)
+        message.channel.send(embed).then(i => i.delete({timeout: 5000}));
+      }
+    }
+  })
+  
+  
+  bot.on("message", async msg => {
+      if(msg.content.startsWith(`kekafk`)) {
+      const status = new db.table("Afks");
+      let afk = await status.fetch(msg.author.id)
+      const embed = new Discord.MessageEmbed().setColor('RANDOM')
+      const args = msg.content.trim().split(/ +/g);
+      if (!afk) {
+        embed.setDescription(`**${msg.author.tag}** is now AFK.`)
+        status.set(msg.author.id, args.join(" ") || `AFK`);
+      } else {
+        embed.setDescription("You are no longer AFK")
+        status.delete(msg.author.id);
+      } 
+      msg.channel.send(embed)
+  }}); 
+  
+  bot.login(token)
+  
 bot.on("message", msg => {
   if(msg.content === `kekvote`) {
       msg.channel.send("You can vote for kekbot at https://discordbotlist.com/bots/kekbot")
@@ -695,5 +712,42 @@ command(bot, 'help dev', (message) => {
     message.channel.send(embed)
 })
 
+
+bot.login(token)
+
+command(bot, 'support', (message) => {
+
+    const embed = new Discord.MessageEmbed()
+      .setTitle('Here are the moderation commands.')
+      .setFooter('This bot is still in the making, More commands are still yet to come!')
+      .setColor('RANDOM')
+      .addFields(
+        {
+          name: 'kekpatreon',
+          value: 'Gives you the link to our patreon!',
+        },
+      {
+          name: 'kekvote',
+          value: 'Gives you our voting links!',
+      },
+    {
+      name:'coming soon...',
+      value:'???'
+    }
+      ) 
+    message.channel.send(embed)
+  })
+
+
+bot.login(token)
+
+
+
+bot.on("message", msg =>  {
+  if (msg.content === `keksuicide`) {
+    const suicide = require("./suicide.json");
+    msg.channel.send(`${msg.author} ${ suicide[Math.floor(Math.random() * [suicide.length])]}`)
+    }
+  })
 
 bot.login(token)
