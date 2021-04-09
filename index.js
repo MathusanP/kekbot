@@ -347,7 +347,12 @@ command(bot, 'help fun', (message) => {
         value: 'Fetches a wholesome meme',
         inline:true,
       },
-    )  
+    {
+      name: 'keksuicide',
+      value: 'Its the command you want to use if you would like to take the easy way out',
+      inline: true,
+    },
+      )  
       message.channel.send(embed)
 })
 
