@@ -1,11 +1,12 @@
 const path = require('path')
 const fs = require ('fs')
 const Discord = require("discord.js")
-const {prefix,token} = require("./botconfig.json")
+const {prefix,token,Tenorapikey} = require("./botconfig.json")
 const command = require('./Commands')
 const mongoose = require('mongoose')
 const db = require('quick.db')
 const Commando = require('discord.js-commando')
+const fetch = require('node-fetch')
 const bot = new Commando.CommandoClient({
   owner: '315393628891512832',
   commandPrefix: prefix
@@ -17,7 +18,7 @@ bot.commands = new Discord.Collection();
 mongoose.connect('mongodb+srv://kekbot:kekbot6@kekbot.2g0yc.mongodb.net/test', {useNewUrlParser: true, useUnifiedTopology: true})
 bot.on("ready", ()  => {
     console.log(`kekbot has started, with ${bot.users.cache.size} users, in ${bot.channels.cache.size} channels of ${bot.guilds.cache.size} guilds.`);
-    bot.user.setActivity(`V2.5 - kekhelp`);
+    bot.user.setActivity(`V2.6 - kekhelp`);
   }); 
 
 
@@ -68,7 +69,7 @@ bot.on("guildCreate", guild => {
 
   bot.on("message", msg => {
     if(msg.content === `${prefix}-v`) {
-        msg.channel.send("`version 2.5`")
+        msg.channel.send("`version 2.6`")
     } 
 
 });    
@@ -78,7 +79,7 @@ bot.login(token)
 
 bot.on("message", msg => {
     if(msg.content === `${prefix}-V`) {
-        msg.channel.send("`Version 2.5`")
+        msg.channel.send("`Version 2.6`")
     } 
 
 });    
@@ -187,11 +188,16 @@ command(bot, 'help', (message) => {
           inline: true
         },
         {
-          name: 'Coming soon....',
-          value: '???',
+          name: 'Gifs',
+          value: 'kekhelp gifs',
           inline: true
-        } 
-      ) 
+        },
+        {
+          name: 'Coming soon....',
+          value:'???',
+          inline:true,
+        },
+        ) 
           message.channel.send(embed)
   })
 
@@ -735,10 +741,10 @@ command(bot, 'support', (message) => {
           name: 'kekvote',
           value: 'Gives you our voting links!',
       },
-    {
-      name:'coming soon...',
-      value:'???'
-    }
+      {
+          name:'coming soon...',
+          value:'???'
+      }
       ) 
     message.channel.send(embed)
   })
@@ -756,3 +762,81 @@ bot.on("message", msg =>  {
   })
 
 bot.login(token)
+
+bot.on("message", async msg => {
+  const embed = new Discord.MessageEmbed().setColor('RANDOM')
+  if(msg.content === `${prefix}excitedgif`) {
+    let url = `https://g.tenor.com/v1/search?q=excited&key=${Tenorapikey}&limit=8`
+  let response = await fetch(url)
+  let json = await response.json();
+  const index = Math.floor(Math.random() * json.results.length)
+  msg.channel.send(json.results[index].url)
+}})
+
+
+
+command(bot, 'help facts', (message) => {
+
+  const embed = new Discord.MessageEmbed()
+    .setTitle('Here are diffrent types of gifs available!')
+    .setFooter('All gifs are from tenor!')
+    .setColor('RANDOM')
+    .addFields(
+      {
+        name: 'kekexcitedgif',
+        value: 'Shows an excited gif',
+        inline: true,
+      },
+      {
+        name: 'keksadgif',
+        value: 'Shows a sad gif',
+        inline: true,
+      },
+      {
+        name: 'kekhappygif',
+        value: 'Shows a happy gif',
+        inline: true,
+      },
+      {
+        name: 'kekangrygif',
+        value: 'Shows an angry gif',
+      }
+    )
+
+  message.channel.send(embed)
+})
+
+
+bot.login(token)
+
+
+bot.on("message", async msg => {
+  const embed = new Discord.MessageEmbed().setColor('RANDOM')
+  if(msg.content === `${prefix}sadgif`) {
+    let url = `https://g.tenor.com/v1/search?q=animesad&key=${Tenorapikey}&limit=8`
+  let response = await fetch(url)
+  let json = await response.json();
+  const index = Math.floor(Math.random() * json.results.length)
+  msg.channel.send(json.results[index].url)
+}})
+
+bot.on("message", async msg => {
+  const embed = new Discord.MessageEmbed().setColor('RANDOM')
+  if(msg.content === `${prefix}happygif`) {
+    let url = `https://g.tenor.com/v1/search?q=animehappy&key=${Tenorapikey}&limit=8`
+  let response = await fetch(url)
+  let json = await response.json();
+  const index = Math.floor(Math.random() * json.results.length)
+  msg.channel.send(json.results[index].url)
+}})
+
+
+bot.on("message", async msg => {
+  const embed = new Discord.MessageEmbed().setColor('RANDOM')
+  if(msg.content === `${prefix}angrygif`) {
+    let url = `https://g.tenor.com/v1/search?q=animeangry&key=${Tenorapikey}&limit=8`
+  let response = await fetch(url)
+  let json = await response.json();
+  const index = Math.floor(Math.random() * json.results.length)
+  msg.channel.send(json.results[index].url)
+}})
