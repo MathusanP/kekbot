@@ -775,7 +775,7 @@ bot.on("message", async msg => {
 
 
 
-command(bot, 'help facts', (message) => {
+command(bot, 'help gifs', (message) => {
 
   const embed = new Discord.MessageEmbed()
     .setTitle('Here are diffrent types of gifs available!')
