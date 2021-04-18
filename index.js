@@ -122,9 +122,9 @@ bot.on("message", async message => {
 
  
 
-    bot.on('message', msg => {
+    bot.on('message', message => {
 
-        if(msg.cotent.startsWith(`kekkick`)) {
+        if(message.content.startsWith(`kekkick`)) {
         //message.channel.send("kick")
             let member = message.mentions.members.first();
             member.kick().then((member) => {
