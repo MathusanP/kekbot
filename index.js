@@ -124,7 +124,7 @@ bot.on("message", async message => {
 
     bot.on('message', message => {
 
-        if(message.content.startsWith(`kekkick`)) {
+        if(message.cotent.startsWith(`kekkick`)) {
         //message.channel.send("kick")
             let member = message.mentions.members.first();
             member.kick().then((member) => {
@@ -754,7 +754,7 @@ bot.login(token)
 
 
 
-bot.on("message", msg =>  {
+/*Ibot.on("message", msg =>  {
   if (msg.content === `keksuicide`) {
     const suicide = require("./suicide.json");
     msg.channel.send(`${msg.author} ${ suicide[Math.floor(Math.random() * [suicide.length])]}`)
@@ -762,6 +762,7 @@ bot.on("message", msg =>  {
   })
 
 bot.login(token)
+*/
 
 bot.on("message", async msg => {
   const embed = new Discord.MessageEmbed().setColor('RANDOM')
@@ -834,7 +835,7 @@ bot.on("message", async msg => {
 bot.on("message", async msg => {
   const embed = new Discord.MessageEmbed().setColor('RANDOM')
   if(msg.content === `${prefix}angrygif`) {
-    let url = `https://g.tenor.com/v1/search?q=animeangry&key=${Tenorapikey}&limit=8`
+    let url = `https://g.tenor.com/v1/search?q=angry&key=${Tenorapikey}&limit=8`
   let response = await fetch(url)
   let json = await response.json();
   const index = Math.floor(Math.random() * json.results.length)
