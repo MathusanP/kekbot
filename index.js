@@ -752,18 +752,6 @@ command(bot, 'support', (message) => {
 
 bot.login(token)
 
-
-
-/*Ibot.on("message", msg =>  {
-  if (msg.content === `keksuicide`) {
-    const suicide = require("./suicide.json");
-    msg.channel.send(`${msg.author} ${ suicide[Math.floor(Math.random() * [suicide.length])]}`)
-    }
-  })
-
-bot.login(token)
-*/
-
 bot.on("message", async msg => {
   const embed = new Discord.MessageEmbed().setColor('RANDOM')
   if(msg.content === `${prefix}excitedgif`) {
