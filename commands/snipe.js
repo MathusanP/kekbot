@@ -4,7 +4,7 @@ module.exports.run = async (bot, message, args) => {
     
     const msg = bot.snipes.get(message.channel.id)
     const embed = new Discord.MessageEmbed()
-   .setTitle(message.author.tag)
+    .setTitle(msg.author.tag)
     .setDescription(msg.content)
     .setFooter('sucks to be sniped lmbfao')
     .setTimestamp();

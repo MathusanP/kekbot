@@ -25,15 +25,6 @@ bot.on("ready", ()  => {
 
 bot.login(token)
 
-bot.on("guildMemberAdd", member => {
-  const welcomeChannel = member.guild.channels.cache.find(channel => channel.name === 'welcome')
-  welcomeChannel.send (`Welcome! ${member}`)
-})
-
-
-
-
-
 
 bot.on("message", msg => {
     if(msg.content === `${prefix}inv`) {
@@ -829,3 +820,11 @@ bot.on("message", async msg => {
   const index = Math.floor(Math.random() * json.results.length)
   msg.channel.send(json.results[index].url)
 }})
+
+
+bot.on("message", msg => {
+  if(msg.content === `${prefix}vote`) {
+      msg.channel.send("You can vote for kekbot at https://discordbotlist.com/bots/kekbot")
+  } 
+
+});
