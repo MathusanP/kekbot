@@ -423,15 +423,6 @@ bot.on("message", msg =>  {
 bot.login(token)
 
 
-bot.on("message", msg => {
-  if(msg.content === "<@734007071686787123>") {
-    return msg.reply("My prefix is kek use kekhelp for some commands you may be intrested in")
-  } 
-
-}); 
-
-bot.login(token)
-
 
 command(bot, 'help contact', (message) => {
 
