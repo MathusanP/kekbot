@@ -18,7 +18,7 @@ bot.commands = new Discord.Collection();
 mongoose.connect('mongodb+srv://kekbot:kekbot6@kekbot.2g0yc.mongodb.net/test', {useNewUrlParser: true, useUnifiedTopology: true})
 bot.on("ready", ()  => {
     console.log(`kekbot has started, with ${bot.users.cache.size} users, in ${bot.channels.cache.size} channels of ${bot.guilds.cache.size} guilds.`);
-    bot.user.setActivity(`V2.6 - kekhelp`);
+    bot.user.setActivity(`V2.6.5 - kekhelp`);
   }); 
 
 
@@ -60,7 +60,7 @@ bot.on("guildCreate", guild => {
 
   bot.on("message", msg => {
     if(msg.content === `${prefix}-v`) {
-        msg.channel.send("`version 2.6`")
+        msg.channel.send("`version 2.6.5`")
     } 
 
 });    
@@ -70,7 +70,7 @@ bot.login(token)
 
 bot.on("message", msg => {
     if(msg.content === `${prefix}-V`) {
-        msg.channel.send("`Version 2.6`")
+        msg.channel.send("`Version 2.6.5`")
     } 
 
 });    
@@ -692,7 +692,7 @@ bot.login(token)
 command(bot, 'help dev', (message) => {
 
   const embed = new Discord.MessageEmbed()
-    .setTitle('Here are the minigames available!')
+    .setTitle('Here are the available dev commands!')
     .setFooter('All minigames are currently in beta, expect them to be buggy!')
     .setColor('RANDOM')
     .addFields(
@@ -701,7 +701,12 @@ command(bot, 'help dev', (message) => {
         value: 'Searches the docs for the item you searched and gives you a link to view it!',
         inline: true,
       },
-    )
+      {
+        name: 'kekbin',
+        value: 'Shows you a paste bin website where you can store your code online',
+        inline: true,
+      }
+        )
     message.channel.send(embed)
 })
 
@@ -816,6 +821,14 @@ bot.on("message", async msg => {
 bot.on("message", msg => {
   if(msg.content === `${prefix}vote`) {
       msg.channel.send("You can vote for kekbot at https://discordbotlist.com/bots/kekbot")
+  } 
+
+});
+
+
+bot.on("message", msg => {
+  if(msg.content === `${prefix}bin`) {
+      msg.channel.send("https://sourceb.in")
   } 
 
 });
