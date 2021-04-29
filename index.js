@@ -832,3 +832,15 @@ bot.on("message", msg => {
   } 
 
 });
+
+
+
+bot.on("message", msg => {
+  if(msg.content === `${prefix}servers`) {
+      msg.channel.send(`I am currently in ${bot.guilds.cache.size} servers!`)
+  } 
+
+});  
+
+bot.login(token)
+
