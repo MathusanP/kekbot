@@ -18,7 +18,7 @@ bot.commands = new Discord.Collection();
 mongoose.connect('mongodb+srv://kekbot:kekbot6@kekbot.2g0yc.mongodb.net/test', {useNewUrlParser: true, useUnifiedTopology: true})
 bot.on("ready", ()  => {
     console.log(`kekbot has started, with ${bot.users.cache.size} users, in ${bot.channels.cache.size} channels of ${bot.guilds.cache.size} guilds.`);
-   (`bot.user.setActivity7 - kekhelp`);
+    bot.user.setActivity(`V2.7 - kekhelp`);
   }); 
 
 
