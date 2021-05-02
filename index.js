@@ -18,7 +18,7 @@ bot.commands = new Discord.Collection();
 mongoose.connect('mongodb+srv://kekbot:kekbot6@kekbot.2g0yc.mongodb.net/test', {useNewUrlParser: true, useUnifiedTopology: true})
 bot.on("ready", ()  => {
     console.log(`kekbot has started, with ${bot.users.cache.size} users, in ${bot.channels.cache.size} channels of ${bot.guilds.cache.size} guilds.`);
-    bot.user.setActivity(`V2.6.5 - kekhelp`);
+   (`bot.user.setActivity7 - kekhelp`);
   }); 
 
 
@@ -60,7 +60,7 @@ bot.on("guildCreate", guild => {
 
   bot.on("message", msg => {
     if(msg.content === `${prefix}-v`) {
-        msg.channel.send("`version 2.6.5`")
+        msg.channel.send("`version7'`")
     } 
 
 });    
@@ -70,7 +70,7 @@ bot.login(token)
 
 bot.on("message", msg => {
     if(msg.content === `${prefix}-V`) {
-        msg.channel.send("`Version 2.6.5`")
+        msg.channel.send("`Version 2.7`")
     } 
 
 });    
@@ -844,3 +844,11 @@ bot.on("message", msg => {
 
 bot.login(token)
 
+bot.on("message", msg => {
+  if(msg.content === `${prefix}survery`) {
+      msg.channel.send("It would be greatly appreciated if you would fill in this survery for us! It'll help improve kekbot alot https://forms.gle/cerRXJmMuDFHHup47")
+  } 
+
+});    
+
+bot.login(token)
