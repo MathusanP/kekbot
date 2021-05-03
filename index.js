@@ -729,8 +729,8 @@ command(bot, 'support', (message) => {
           value: 'Gives you our voting links!',
       },
       {
-          name:'coming soon...',
-          value:'???'
+          name:'keksurvey',
+          value:'Take part in a survey to help improve kekbot!'
       }
       ) 
     message.channel.send(embed)

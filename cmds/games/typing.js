@@ -8,7 +8,7 @@ const example = {
     counter: 'number',
     currentWord: 'string',
     remainingWords: ['words here'],
-    points: {
+    points: { 
       userId: 'points',
     },
   },
