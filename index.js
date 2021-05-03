@@ -845,7 +845,7 @@ bot.on("message", msg => {
 bot.login(token)
 
 bot.on("message", msg => {
-  if(msg.content === `${prefix}survery`) {
+  if(msg.content === `${prefix}survey`) {
       msg.channel.send("It would be greatly appreciated if you would fill in this survery for us! It'll help improve kekbot alot https://forms.gle/cerRXJmMuDFHHup47")
   } 
 
