@@ -12,7 +12,7 @@ const bot = new Commando.CommandoClient({
   commandPrefix: prefix
 })
 bot.commands = new Discord.Collection();
-
+const { MessageEmbed } = require('discord.js');
 
 
 mongoose.connect('mongodb+srv://kekbot:kekbot6@kekbot.2g0yc.mongodb.net/test', {useNewUrlParser: true, useUnifiedTopology: true})
@@ -464,6 +464,7 @@ partials: ['MESSAGE', 'CHANNEL', 'REACTION']
 const { loadCommands } = require('./utils/loadCommands');
 const { Db } = require('mongodb')
 const message = require('./events/message')
+const { random } = require('colors')
 
 bot.commands = new Discord.Collection();
 bot.aliases = new Discord.Collection();
@@ -833,8 +834,6 @@ bot.on("message", msg => {
 
 });
 
-
-
 bot.on("message", msg => {
   if(msg.content === `${prefix}servers`) {
       msg.channel.send(`I am currently in ${bot.guilds.cache.size} servers!`)
@@ -850,5 +849,27 @@ bot.on("message", msg => {
   } 
 
 });    
+
+bot.login(token)
+
+
+bot.on("guildCreate", guild => {
+let defaultChannel = "";
+guild.channels.cache.forEach((channel) => {
+  if(channel.type == "text" && defaultChannel == "") {
+    if(channel.permissionsFor(guild.me).has("SEND_MESSAGES")) {
+      defaultChannel = channel;
+    }
+  }
+})
+
+defaultChannel.send(`Hello! Thanks for adding me! My prefix is kek (No caps!)`, {
+embed:{
+    color:  0x2471a3, 
+    description: "To get started use kekhelp to view a list of commands!"
+}
+}
+
+)})
 
 bot.login(token)
