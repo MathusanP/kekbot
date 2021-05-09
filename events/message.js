@@ -13,14 +13,6 @@ module.exports = async (bot, message) => {
 			
 	}
 
-	if(message.channel.id === "30060971216601129") {
-		fetch(`https://api.monkedev.com/fun/chat?msg=${message.content}&uid=${message.author.id}315393628891512832&key=cCXhQnbQAwP89II63ro9p8Kgw`)
-		.then(response => response.json())
-		.then(data => {
-			message.channel.send(data.response)
-		})
-			
-	}
 
 	const messageArray = message.content.split(' ');
 	const cmd = messageArray[0];

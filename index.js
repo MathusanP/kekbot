@@ -18,7 +18,7 @@ const { MessageEmbed } = require('discord.js');
 mongoose.connect('mongodb+srv://kekbot:kekbot6@kekbot.2g0yc.mongodb.net/test', {useNewUrlParser: true, useUnifiedTopology: true})
 bot.on("ready", ()  => {
     console.log(`kekbot has started, with ${bot.users.cache.size} users, in ${bot.channels.cache.size} channels of ${bot.guilds.cache.size} guilds.`);
-    bot.user.setActivity(`V2.7 - kekhelp`);
+    bot.user.setActivity(`V2.8 - kekhelp`);
   }); 
 
 
@@ -60,7 +60,7 @@ bot.on("guildCreate", guild => {
 
   bot.on("message", msg => {
     if(msg.content === `${prefix}-v`) {
-        msg.channel.send("`version7'`")
+        msg.channel.send("`version 2.8'`")
     } 
 
 });    
@@ -70,7 +70,7 @@ bot.login(token)
 
 bot.on("message", msg => {
     if(msg.content === `${prefix}-V`) {
-        msg.channel.send("`Version 2.7`")
+        msg.channel.send("`Version 2.8`")
     } 
 
 });    
@@ -345,11 +345,16 @@ command(bot, 'help fun', (message) => {
         inline:true,
       },
     {
-      name: 'keksuicide',
-      value: 'Its the command you want to use if you would like to take the easy way out',
+      name: 'keknews',
+      value: 'View the news from r/news!',
       inline: true,
     },
-      )  
+    {
+    name: 'kekgamingnews',
+     value: 'Get the latest gaming news from r/gamingnews!',
+     inline:true,
+    },
+    )  
       message.channel.send(embed)
 })
 
