@@ -2,7 +2,7 @@ module.exports.run = async (bot, message) => {
     const messageArray = message.content.split(' ');
     const args = messageArray.slice(1);
 
-    if (!message.member.permissions.has("MANAGE_MESSAGES")) return message.channel.send('Oi, wtf are you thinking! You do not have the perms for this command!');
+    if (!message.member.permissions.has("MANAGE_MESSAGES")) return message.channel.send('Oi, wtf are you thinking! You do not have the perms for this command! For more infomation please visit https://discord.gg/pyznqufsaz');
 
     let deleteAmount;
 

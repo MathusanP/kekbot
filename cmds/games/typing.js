@@ -1,5 +1,5 @@
 const Commando = require('discord.js-commando')
-const { words } = require('../../utils/words.json')
+const { words } = require('../../utils/Strings/words.json')
 
 const example = {
   channelId: {

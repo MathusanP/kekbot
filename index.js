@@ -699,7 +699,6 @@ command(bot, 'help dev', (message) => {
 
   const embed = new Discord.MessageEmbed()
     .setTitle('Here are the available dev commands!')
-    .setFooter('All minigames are currently in beta, expect them to be buggy!')
     .setColor('RANDOM')
     .addFields(
       {
@@ -824,12 +823,7 @@ bot.on("message", async msg => {
 }})
 
 
-bot.on("message", msg => {
-  if(msg.content === `${prefix}vote`) {
-      msg.channel.send("You can vote for kekbot at https://discordbotlist.com/bots/kekbot")
-  } 
 
-});
 
 
 bot.on("message", msg => {
@@ -868,10 +862,10 @@ guild.channels.cache.forEach((channel) => {
   }
 })
 
-defaultChannel.send(`Hello! Thanks for adding me! My prefix is kek (No caps!)`, {
+defaultChannel.send(`Support server: https://discord.gg/GX4Sz9RZew`, {
 embed:{
     color:  0x2471a3, 
-    description: "To get started use kekhelp to view a list of commands!"
+    description: "Hello! Thanks for adding kekbot! To get started use kekhelp!"
 }
 }
 
