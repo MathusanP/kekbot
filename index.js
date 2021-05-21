@@ -27,7 +27,8 @@ bot.login(token)
 
 
 bot.on("message", msg => {
-    if(msg.content === `${prefix}inv`) {
+  if(msg.author.bot) return;
+  if(msg.content === `${prefix}inv`) {
         msg.channel.send("You can invite me here: https://discordapp.com/oauth2/authorize?client_id=734007071686787123&scope=bot&permissions=14")
     } 
 
@@ -35,7 +36,8 @@ bot.on("message", msg => {
 
 
 bot.on("message", msg => {
-    if(msg.content === `${prefix}join`) {
+  if(msg.author.bot) return;  
+  if(msg.content === `${prefix}join`) {
         msg.channel.send("`Here is our community discord:` https://discord.gg/pdxkeAe . `Our support discord is`: https://discord.gg/pyznqufsaz")
     } 
 
@@ -59,6 +61,7 @@ bot.on("guildCreate", guild => {
 })
 
   bot.on("message", msg => {
+    if(msg.author.bot) return;
     if(msg.content === `${prefix}-v`) {
         msg.channel.send("`version 2.8'`")
     } 
@@ -69,7 +72,8 @@ bot.login(token)
 
 
 bot.on("message", msg => {
-    if(msg.content === `${prefix}-V`) {
+  if(msg.author.bot) return;  
+  if(msg.content === `${prefix}-V`) {
         msg.channel.send("`Version 2.8`")
     } 
 
@@ -78,7 +82,8 @@ bot.on("message", msg => {
 bot.login(token)
 
 bot.on("message", async message => {
-    if(message.content === "kekping") {
+  if(msg.author.bot) return;  
+  if(message.content === "kekping") {
         const m = await message.channel.send("Awaiting ping...");
         m.edit(`Pong! The number no one asked for is ${m.createdTimestamp - message.createdTimestamp}ms.`);
         process.on('unhandledRejection', error => console.error('Uncaught Promise Rejection', error));
@@ -87,14 +92,16 @@ bot.on("message", async message => {
     
       
     bot.on("message", msg => {
-        if(msg.content === `${prefix}consoleping`) { 
+      if(msg.author.bot) return;  
+      if(msg.content === `${prefix}consoleping`) { 
             console.log(`pong!`)   
           // this command was only used for the purpose of testing console.log commands. 
         }
     });
 
     bot.on("message", msg => {
-        if(msg.content === `keksay`) {
+      if(msg.author.bot) return; 
+      if(msg.content === `keksay`) {
           return msg.reply("coming soon")
         } 
     
@@ -103,7 +110,8 @@ bot.on("message", async message => {
     bot.login(token)
 
     bot.on("message", msg => {
-        if(msg.content === `${prefix}birthday`) {
+      if(msg.author.bot) return;  
+      if(msg.content === `${prefix}birthday`) {
             msg.channel.send("I was made by <@315393628891512832> on 19th of july 2020")
         } 
     
@@ -114,7 +122,7 @@ bot.on("message", async message => {
  
 
     bot.on('message', message => {
-
+      if(msg.author.bot) return;
         if(message.content.startsWith(`kekkick`)) {
         //message.channel.send("kick")
             let member = message.mentions.members.first();
@@ -134,7 +142,6 @@ bot.on("message", async message => {
 
 
 command(bot, 'help', (message) => {
-
     const embed = new Discord.MessageEmbed()
       .setTitle('Here are diffrent help categories, Most commands are lowercase!.')
       .setFooter('You can support us using keksupport')

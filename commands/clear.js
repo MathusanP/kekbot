@@ -1,4 +1,5 @@
 module.exports.run = async (bot, message) => {
+    if (message.author.bot) return;
     const messageArray = message.content.split(' ');
     const args = messageArray.slice(1);
 

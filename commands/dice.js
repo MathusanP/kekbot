@@ -1,7 +1,7 @@
 const Discord = require('discord.js')
 
 module.exports.run = async (bot, message, args) => {
-
+    if (message.author.bot) return;
     let result = (Math.floor(Math.random() * Math.floor(6) + 1));
 
     let member = message.author
