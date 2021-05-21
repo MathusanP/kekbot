@@ -82,7 +82,6 @@ bot.on("message", msg => {
 bot.login(token)
 
 bot.on("message", async message => {
-  if(messageg.author.bot) return;  
   if(message.content === "kekping") {
         const m = await message.channel.send("Awaiting ping...");
         m.edit(`Pong! The number no one asked for is ${m.createdTimestamp - message.createdTimestamp}ms.`);
