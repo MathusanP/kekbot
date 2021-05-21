@@ -122,7 +122,6 @@ bot.on("message", async message => {
  
 
     bot.on('message', message => {
-      if(msg.author.bot) return;
         if(message.content.startsWith(`kekkick`)) {
         //message.channel.send("kick")
             let member = message.mentions.members.first();
