@@ -7,7 +7,7 @@ module.exports = class DocsCommand extends Commando.Command {
       name: 'docs',
       group: 'misc',
       memberName: 'docs',
-      description: 'Displays Discord.JS documentation',
+      description: 'Displays Discord.JS documentation', 
     })
   }
 

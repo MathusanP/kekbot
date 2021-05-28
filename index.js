@@ -546,17 +546,6 @@ loadCommands(bot);
 
 bot.login(token)
 
-command(bot, 'w', (message) => {
-  const logo =
-    'https://www.streamscheme.com/wp-content/uploads/2020/07/kekw-emote.jpg'
-
-
-const embed = new Discord.MessageEmbed()
-.setImage(logo)
-.setColor('RANDOM')
-message.channel.send(embed)
-})
-bot.login(token)
 
 bot.on("message", msg =>  {
   if (msg.content === `kektip`) {
