@@ -18,7 +18,7 @@ const { MessageEmbed } = require('discord.js');
 mongoose.connect('mongodb+srv://kekbot:kekbot6@kekbot.2g0yc.mongodb.net/test', {useNewUrlParser: true, useUnifiedTopology: true})
 bot.on("ready", ()  => {
     console.log(`kekbot has started, with ${bot.users.cache.size} users, in ${bot.channels.cache.size} channels of ${bot.guilds.cache.size} guilds.`);
-    bot.user.setActivity(`V2.8 - kekhelp`);
+    bot.user.setActivity(`V2.9 - kekhelp`);
   }); 
 
 
@@ -63,7 +63,7 @@ bot.on("guildCreate", guild => {
   bot.on("message", msg => {
     if(msg.author.bot) return;
     if(msg.content === `${prefix}-v`) {
-        msg.channel.send("`version 2.8'`")
+        msg.channel.send("`version 2.9'`")
     } 
 
 });    
@@ -74,7 +74,7 @@ bot.login(token)
 bot.on("message", msg => {
   if(msg.author.bot) return;  
   if(msg.content === `${prefix}-V`) {
-        msg.channel.send("`Version 2.8`")
+        msg.channel.send("`Version 2.9`")
     } 
 
 });    
@@ -305,31 +305,15 @@ command(bot, 'help facts', (message) => {
 bot.login(token)
 
 
-command(bot, 'help fun', (message) => {
+command(bot, 'help media', (message) => {
 
   const embed = new Discord.MessageEmbed()
-    .setTitle('Here are diffrent types of animal facts available.')
-    .setFooter('You can support us using keksupport')
+    .setTitle('Here are diffrent types of media/reddit commands available!')
+    .setFooter('All media images are from reddit with the reddit post linked!')
     .setColor('RANDOM')
     .addFields(
-      {
-        name: 'kek8ball',
-        value: 'The 8ball command',
-        inline: true,
-      },
-      {
-        name: 'kekflipcoin',
-        value: 'Flips a coin',
-        inline: true,
-      },
-      
-      {
-        name: 'keknumber',
-        value: 'Generates a number between 1-10',
-        inline: true,
-      },
       { 
-        name: 'kekmeme (in beta)',
+        name: 'kekmeme',
         value: 'Fetches a meme from R/memes',
         inline: true,
       },
@@ -339,11 +323,6 @@ command(bot, 'help fun', (message) => {
         value: 'Fetches a quote from r/quotes',
         inline: true,
       },  
-      {
-        name:'kekdice',
-        value:'Rolls a dice',
-        inline:true,
-      },
       {
         name:'kekwholesome',
         value: 'Fetches a wholesome meme',
@@ -359,6 +338,11 @@ command(bot, 'help fun', (message) => {
      value: 'Get the latest gaming news from r/gamingnews!',
      inline:true,
     },
+    {
+      name: 'kekfood',
+      value: 'View food made from other people in r/food!',
+      inline: true,
+    }
     )  
       message.channel.send(embed)
 })
@@ -739,6 +723,7 @@ command(bot, 'support', (message) => {
 bot.login(token)
 
 bot.on("message", async msg => {
+  if(msg.author.bot) return; 
   const embed = new Discord.MessageEmbed().setColor('RANDOM')
   if(msg.content === `${prefix}excitedgif`) {
     let url = `https://g.tenor.com/v1/search?q=excited&key=${Tenorapikey}&limit=8`
@@ -786,6 +771,7 @@ bot.login(token)
 
 
 bot.on("message", async msg => {
+  if(msg.author.bot) return; 
   const embed = new Discord.MessageEmbed().setColor('RANDOM')
   if(msg.content === `${prefix}sadgif`) {
     let url = `https://g.tenor.com/v1/search?q=animesad&key=${Tenorapikey}&limit=8`
@@ -796,6 +782,7 @@ bot.on("message", async msg => {
 }})
 
 bot.on("message", async msg => {
+  if(msg.author.bot) return; 
   const embed = new Discord.MessageEmbed().setColor('RANDOM')
   if(msg.content === `${prefix}happygif`) {
     let url = `https://g.tenor.com/v1/search?q=animehappy&key=${Tenorapikey}&limit=8`
@@ -807,6 +794,7 @@ bot.on("message", async msg => {
 
 
 bot.on("message", async msg => {
+  if(msg.author.bot) return; 
   const embed = new Discord.MessageEmbed().setColor('RANDOM')
   if(msg.content === `${prefix}angrygif`) {
     let url = `https://g.tenor.com/v1/search?q=angry&key=${Tenorapikey}&limit=8`
@@ -821,6 +809,7 @@ bot.on("message", async msg => {
 
 
 bot.on("message", msg => {
+  if(msg.author.bot) return; 
   if(msg.content === `${prefix}bin`) {
       msg.channel.send("https://sourceb.in")
   } 
@@ -828,6 +817,7 @@ bot.on("message", msg => {
 });
 
 bot.on("message", msg => {
+  if(msg.author.bot) return; 
   if(msg.content === `${prefix}servers`) {
       msg.channel.send(`I am currently in ${bot.guilds.cache.size} servers!`)
   } 
@@ -837,6 +827,7 @@ bot.on("message", msg => {
 bot.login(token)
 
 bot.on("message", msg => {
+  if(msg.author.bot) return; 
   if(msg.content === `${prefix}survey`) {
       msg.channel.send("It would be greatly appreciated if you would fill in this survery for us! It'll help improve kekbot alot https://forms.gle/cerRXJmMuDFHHup47")
   } 
@@ -864,5 +855,59 @@ embed:{
 }
 
 )})
+
+bot.login(token)
+
+
+
+
+command(bot, 'help fun', (message) => {
+
+  const embed = new Discord.MessageEmbed()
+    .setTitle('Here are some fun commands!')
+    .setFooter('You can support us using keksupport!')
+    .setColor('RANDOM')
+    .addFields(
+      {
+        name: 'kekdice',
+        value: 'Roll a dice!',
+        inline: true,
+      },
+    {
+        name: 'kek8ball',
+        value: 'The 8 ball command',
+        inline: true
+    },
+    {
+        name: 'kekflipcoin',
+        value: 'Flip a coin',
+        inline: true 
+    },
+    {
+      name: 'keknumber',
+      value: 'generate a number between 1-10, if your lucky you can get 69 as a value',
+      inline: true
+    },
+    
+    )
+    
+    message.channel.send(embed)
+})
+
+
+bot.login(token)
+
+
+
+bot.on("message", msg =>  {
+  if (msg.content === `kekword`) {
+    const strings = require("./utils/Strings/words.json");
+    msg.channel.send(
+        `${
+            strings[Math.floor(Math.random() * [strings.length])]
+        }`
+    )
+    }
+  })
 
 bot.login(token)

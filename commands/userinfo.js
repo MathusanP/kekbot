@@ -32,5 +32,5 @@ module.exports.config = {
     description: "Shows the information of a member/user",
     usage: "kekinfo",
     accessableby: "Members",
-    aliases: ['info']
+    aliases: ['info', 'whois', 'who is','reveal']
 }
