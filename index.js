@@ -847,7 +847,7 @@ guild.channels.cache.forEach((channel) => {
   }
 })
 
-defaultChannel.send(`Support server: https://discord.gg/GX4Sz9RZew`, {
+defaultChannel.send(`Support server: https://discord.gg/GX4Sz9RZew , Community server: https://discord.gg/DzsGk7Ymaq`, {
 embed:{
     color:  0x2471a3, 
     description: "Hello! Thanks for adding kekbot! To get started use kekhelp!"
