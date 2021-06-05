@@ -160,8 +160,8 @@ command(bot, 'help', (message) => {
           value: 'kekhelp moderation',
           inline: true,
         },
-        { name: 'contact',
-          value: 'kekhelp contact',
+        { name: 'About',
+          value: 'kekhelp about',
           inline: true,
         },
         { name: 'Images',
@@ -418,11 +418,11 @@ bot.login(token)
 
 
 
-command(bot, 'help contact', (message) => {
+command(bot, 'help about', (message) => {
 
   const embed = new Discord.MessageEmbed()
-    .setTitle('Here are diffrent types of animal facts available.')
-    .setFooter('This bot is still in the making, More commands are still yet to come!')
+    .setTitle('Here are some useful commands if you want more from the bot!')
+    .setFooter('Use kektip to discover some commands!')
     .setColor('RANDOM')
     .addFields(
       {
