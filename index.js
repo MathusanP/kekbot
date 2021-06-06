@@ -18,7 +18,7 @@ const { MessageEmbed } = require('discord.js');
 mongoose.connect('mongodb+srv://kekbot:kekbot6@kekbot.2g0yc.mongodb.net/test', {useNewUrlParser: true, useUnifiedTopology: true})
 bot.on("ready", ()  => {
     console.log(`kekbot has started, with ${bot.users.cache.size} users, in ${bot.channels.cache.size} channels of ${bot.guilds.cache.size} guilds.`);
-    bot.user.setActivity(`V2.9 - kekhelp`);
+    bot.user.setActivity(`V3.0 - kekhelp`);
   }); 
 
 
@@ -29,7 +29,7 @@ bot.login(token)
 bot.on("message", msg => {
   if(msg.author.bot) return;
   if(msg.content === `${prefix}inv`) {
-        msg.channel.send("You can invite me here: https://discordapp.com/oauth2/authorize?client_id=734007071686787123&scope=bot&permissions=14")
+        msg.channel.send("You can invite me here: https://dsc.gg/kekinv")
     } 
 
 });    
@@ -63,7 +63,7 @@ bot.on("guildCreate", guild => {
   bot.on("message", msg => {
     if(msg.author.bot) return;
     if(msg.content === `${prefix}-v`) {
-        msg.channel.send("`version 2.9'`")
+        msg.channel.send("`version 3.0'`")
     } 
 
 });    
@@ -74,7 +74,7 @@ bot.login(token)
 bot.on("message", msg => {
   if(msg.author.bot) return;  
   if(msg.content === `${prefix}-V`) {
-        msg.channel.send("`Version 2.9`")
+        msg.channel.send("`Version 3.0`")
     } 
 
 });    
@@ -511,8 +511,13 @@ command(bot, 'help images', (message) => {
         name: 'kekturtle',
         value: 'Shows turtle pics from r/turtle!',
         inline: true,
+      },
+      {
+        name: 'keksnake',
+        value: 'Shows a snake pic from r/snakes',
+        inline: true,
       }
-    )
+      )
   message.channel.send(embed)
 })
 
@@ -583,8 +588,12 @@ bot.on("message", async message => {
       if (!afk) {
         embed.setDescription(`**${msg.author.tag}** is now AFK.`)
         status.set(msg.author.id, args.join(" ") || `AFK`);
+        embed.setImage(`https://media.tenor.com/images/df51877535a3e38c9cccd2f23ff154a2/tenor.gif`)
+        embed.setTimestamp()
       } else {
         embed.setDescription("You are no longer AFK")
+        embed.setImage(`https://media.tenor.com/images/0312d81fd79a45df1e6fcc60ec747431/tenor.gif`)
+        embed.setTimestamp()
         status.delete(msg.author.id);
       } 
       msg.channel.send(embed)
@@ -594,7 +603,7 @@ bot.on("message", async message => {
   
 bot.on("message", msg => {
   if(msg.content === `kekvote`) {
-      msg.channel.send("You can vote for kekbot at https://discordbotlist.com/bots/kekbot")
+      msg.channel.send("You can vote for https://top.gg/bot/734007071686787123")
   } 
 
 });
@@ -850,8 +859,9 @@ guild.channels.cache.forEach((channel) => {
 defaultChannel.send(`Support server: https://discord.gg/GX4Sz9RZew , Community server: https://discord.gg/DzsGk7Ymaq`, {
 embed:{
     color:  0x2471a3, 
-    description: "Hello! Thanks for adding kekbot! To get started use kekhelp!"
-}
+    description: "Hello! Thanks for adding kekbot! To get started use kekhelp!",
+    image: 'https://media.tenor.com/images/8e8886cf7dfe0f729b7a684c6f59bf8a/tenor.gif'
+  }
 }
 
 )})
@@ -911,3 +921,28 @@ bot.on("message", msg =>  {
   })
 
 bot.login(token)
+
+
+/*command(bot, 'vote', (message) => {
+
+  const embed = new Discord.MessageEmbed()
+    .setTitle('Here are different ways you can vote for kekbot')
+    .setFooter('Voting is heavily appreciated!')
+    .setColor('RANDOM')
+    .addFields(
+      {
+        name: 'Discord bot list ',
+        value: 'https://discordbotlist.com/bots/kekbot',
+        inline: true,
+      },
+      {
+        name: 'Top.gg',
+        value: 'https://top.gg/bot/734007071686787123',
+        inline: true,
+      },
+      message.channel.send(embed)
+    )})
+
+
+bot.login(token)
+*/
