@@ -856,7 +856,7 @@ guild.channels.cache.forEach((channel) => {
   }
 })
 
-defaultChannel.send(```use kekjoin to join the support server```, {
+defaultChannel.send(`Support server:  https://discord.gg/pyznqufsaz`, {
 embed:{
     color:  0x2471a3, 
     description: "Hello! Thanks for adding kekbot! To get started use kekhelp!",
