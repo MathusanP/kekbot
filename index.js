@@ -59,7 +59,7 @@ bot.on("guildCreate", guild => {
     user.send(`New guild joined: ${guild.name} (id: ${guild.id}). This guild has ${guild.memberCount} members!`);
 })
 })
-
+  
   bot.on("message", msg => {
     if(msg.author.bot) return;
     if(msg.content === `${prefix}-v`) {
@@ -856,7 +856,7 @@ guild.channels.cache.forEach((channel) => {
   }
 })
 
-defaultChannel.send(`Support server: https://discord.gg/GX4Sz9RZew , Community server: https://discord.gg/DzsGk7Ymaq`, {
+defaultChannel.send(```use kekjoin to join the support server```, {
 embed:{
     color:  0x2471a3, 
     description: "Hello! Thanks for adding kekbot! To get started use kekhelp!",
