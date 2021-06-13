@@ -189,8 +189,8 @@ command(bot, 'help', (message) => {
           inline: true
         },
         {
-          name: 'Coming soon....',
-          value:'???',
+          name: 'Actions',
+          value:'kekhelp actions',
           inline:true,
         },
         ) 
@@ -946,3 +946,106 @@ bot.login(token)
 
 bot.login(token)
 */
+
+
+bot.on("message", async message => {
+  const prefix = "kek";
+  if (!message.content.startsWith(prefix) || message.author.bot) return;
+
+  const args = message.content.slice(prefix.length).trim().split(/ +/);
+  const command = args.shift().toLowerCase()
+  if (command === "hug") {
+      if (!args.length) {
+          message.reply("Please provide a user mention to hug!")
+      } else if (message.mentions.members.first()) {
+          const member = message.mentions.members.first()
+          const embed = new Discord.MessageEmbed()
+          embed.setDescription(`<@${message.author.id}> hugs <@${member.id}>!`)
+          embed.setColor('RANDOM')
+          embed.setImage(`https://media1.tenor.com/images/23f263940d5d2bb8e8eaeb3c128e748f/tenor.gif?itemid=17750778`)
+          embed.setTimestamp()
+          message.channel.send(embed)
+  }}
+  
+})
+
+bot.login(token)
+
+
+bot.on("message", async message => {
+  const prefix = "kek";
+  if (!message.content.startsWith(prefix) || message.author.bot) return;
+
+  const args = message.content.slice(prefix.length).trim().split(/ +/);
+  const command = args.shift().toLowerCase()
+  if (command === "slap") {
+      if (!args.length) {
+          message.reply("Please provide a user mention to slap!")
+      } else if (message.mentions.members.first()) {
+          const member = message.mentions.members.first()
+          const embed = new Discord.MessageEmbed()
+          embed.setDescription(`<@${message.author.id}> slaps <@${member.id}!>`)
+          embed.setColor('RANDOM')
+          embed.setImage(`https://i.pinimg.com/originals/a8/7d/e2/a87de27396fae40e3ea92190566531ec.gif`)
+          embed.setTimestamp()
+          message.channel.send(embed)
+  }}
+  
+})
+
+bot.login(token)
+
+
+bot.on("message", async message => {
+  const prefix = "kek";
+  if (!message.content.startsWith(prefix) || message.author.bot) return;
+
+  const args = message.content.slice(prefix.length).trim().split(/ +/);
+  const command = args.shift().toLowerCase()
+  if (command === "pat") {
+      if (!args.length) {
+          message.reply("Please provide a user mention to pat!")
+      } else if (message.mentions.members.first()) {
+          const member = message.mentions.members.first()
+          const embed = new Discord.MessageEmbed()
+          embed.setDescription(`<@${message.author.id}> pats <@${member.id}>!`)
+          embed.setColor('RANDOM')
+          embed.setImage(`https://media.tenor.com/images/8237d7da8cbd7227d67d735d437612cf/tenor.gif`)
+          embed.setTimestamp()
+          message.channel.send(embed)
+  }}
+  
+})
+
+bot.login(token)
+
+
+command(bot, 'help actions', (message) => {
+
+  const embed = new Discord.MessageEmbed()
+    .setTitle('Here are diffrent action commands available!.')
+    .setFooter('Vote for us via kekvote!')
+    .setColor('RANDOM')
+    .addFields(
+      {
+        name: 'kekpat <user>',
+        value: 'Pat a user!',
+        inline: true,
+      },
+      {
+        name: 'kekslap <user>',
+        value: 'Slap a user!',
+        inline: true,
+      },
+      {
+        name: 'kekhug <user>',
+        value: 'Hug a user!',
+        inline: true,
+      },
+    )
+
+  message.channel.send(embed)
+})
+
+
+bot.login(token)
