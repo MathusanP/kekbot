@@ -18,7 +18,7 @@ const { MessageEmbed } = require('discord.js');
 mongoose.connect('mongodb+srv://kekbot:kekbot6@kekbot.2g0yc.mongodb.net/test', {useNewUrlParser: true, useUnifiedTopology: true})
 bot.on("ready", ()  => {
     console.log(`kekbot has started, with ${bot.users.cache.size} users, in ${bot.channels.cache.size} channels of ${bot.guilds.cache.size} guilds.`);
-    bot.user.setActivity(`V3.0 - kekhelp`);
+    bot.user.setActivity(`V3.1 - kekhelp`);
   }); 
 
 
@@ -63,7 +63,7 @@ bot.on("guildCreate", guild => {
   bot.on("message", msg => {
     if(msg.author.bot) return;
     if(msg.content === `${prefix}-v`) {
-        msg.channel.send("`version 3.0'`")
+        msg.channel.send("`version 3.1'`")
     } 
 
 });    
@@ -74,7 +74,7 @@ bot.login(token)
 bot.on("message", msg => {
   if(msg.author.bot) return;  
   if(msg.content === `${prefix}-V`) {
-        msg.channel.send("`Version 3.0`")
+        msg.channel.send("`Version 3.1`")
     } 
 
 });    
@@ -193,9 +193,14 @@ command(bot, 'help', (message) => {
           value:'kekhelp actions',
           inline:true,
         },
+        {
+          name: 'Media',
+          value: 'kekhelp media',
+          inline: true.valueOf,
+        }        
         ) 
           message.channel.send(embed)
-  })
+        })
 
 
 bot.login(token)
