@@ -121,23 +121,6 @@ bot.login(token)
 
 
 
-bot.on('message', message => {
-  if (message.content.startsWith(`kekkick`)) {
-    //message.channel.send("kick")
-    let member = message.mentions.members.first();
-    member.kick().then((member) => {
-      message.channel.send(":wave: " + member.displayName + "has been kicked!")
-      process.on('unhandledRejection', error => console.error('Uncaught Promise Rejection', error));
-    })
-
-  }
-
-
-})
-
-bot.login(token)
-
-
 
 
 command(bot, 'help', (message) => {
@@ -466,22 +449,7 @@ bot.aliases = new Discord.Collection();
 loadCommands(bot);
 
 
-bot.on('message', message => {
 
-  if (message.content.startsWith(`kekban`)) {
-    //message.channel.send("ban")
-    let member = message.mentions.members.first();
-    member.ban().then((member) => {
-      message.channel.send(":wave: " + member.displayName + "has been banned!!")
-      process.on('unhandledRejection', error => console.error('Uncaught Promise Rejection', error));
-    })
-
-  }
-
-
-})
-
-bot.login(token)
 
 
 command(bot, 'help images', (message) => {
