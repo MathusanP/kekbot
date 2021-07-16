@@ -112,7 +112,7 @@ bot.login(token)
 bot.on("message", msg => {
   if (msg.author.bot) return;
   if (msg.content === `${prefix}birthday`) {
-    msg.channel.send("I was made by <@315393628891512832> on 19th of july 2020")
+    msg.channel.send("I was made by <@315393628891512832> on 18th of july 2020")
   }
 
 });
