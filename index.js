@@ -18,7 +18,7 @@ const { MessageEmbed } = require('discord.js');
 mongoose.connect('mongodb+srv://kekbot:kekbot6@kekbot.2g0yc.mongodb.net/test', { useNewUrlParser: true, useUnifiedTopology: true })
 bot.on("ready", () => {
   console.log(`kekbot has started, with ${bot.users.cache.size} users, in ${bot.channels.cache.size} channels of ${bot.guilds.cache.size} guilds.`);
-  bot.user.setActivity(`V3.2 - kekhelp`);
+  bot.user.setActivity(`V3.3 - kekhelp`);
 });
 
 
@@ -63,7 +63,7 @@ bot.on("guildCreate", guild => {
 bot.on("message", msg => {
   if (msg.author.bot) return;
   if (msg.content === `${prefix}-v`) {
-    msg.channel.send("`version 3.2`")
+    msg.channel.send("`version 3.3`")
   }
 
 });
@@ -74,7 +74,7 @@ bot.login(token)
 bot.on("message", msg => {
   if (msg.author.bot) return;
   if (msg.content === `${prefix}-V`) {
-    msg.channel.send("`Version 3.2`")
+    msg.channel.send("`Version 3.3`")
   }
 
 });
@@ -182,7 +182,12 @@ command(bot, 'help', (message) => {
       {
         name: 'Media',
         value: 'kekhelp media',
-        inline: true.valueOf,
+        inline: true,
+      },
+      {
+        name: 'searches',
+        value: 'kekhelp searches',
+        inline: 'true'
       }
     )
   message.channel.send(embed)
@@ -665,6 +670,11 @@ command(bot, 'help dev', (message) => {
         name: 'kekbin',
         value: 'Shows you a paste bin website where you can store your code online',
         inline: true,
+      },
+      {
+        name: ' (In beta) keknpm <Package>',
+        value: 'Search for any npm package!',
+        inline: true
       }
     )
   message.channel.send(embed)
@@ -871,7 +881,11 @@ command(bot, 'help fun', (message) => {
         value: 'generate a number between 1-10, if your lucky you can get 69 as a value',
         inline: true
       },
-
+      {
+        name: 'kekabc',
+        value: 'Fetches a random letter from the english alphabet',
+        inline: true
+      }
     )
 
   message.channel.send(embed)
@@ -1113,6 +1127,18 @@ bot.on("message", async message => {
     }
   }
 
+})
+
+bot.login(token)
+
+bot.on("message", msg => {
+  if (msg.content === `${prefix}abc`) {
+    const abc = require("./abc.json");
+    msg.channel.send(
+      `${abc[Math.floor(Math.random() * [abc.length])]
+      }`
+    )
+  }
 })
 
 bot.login(token)

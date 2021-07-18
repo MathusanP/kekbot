@@ -7,7 +7,7 @@ module.exports.run = async (bot, message) => {
 
     let deleteAmount;
 
-    if (isNaN(args[0]) || parseInt(args[0]) <= 0) { return message.reply('mate, your supposed to give me a number.') }
+    if (isNaN(args[0]) || parseInt(args[0]) <= 0) { return message.reply('Mate, your supposed to give me a number.') }
 
     if (parseInt(args[0]) > 100 ){
         message.reply('Sorry bozo but I can only delete 100 messages')
