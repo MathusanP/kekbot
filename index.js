@@ -1,3 +1,4 @@
+  
 const path = require('path')
 const fs = require('fs')
 const Discord = require("discord.js")
@@ -21,9 +22,9 @@ bot.on("ready", () => {
   bot.user.setActivity(`V3.3 - kekhelp`);
 });
 
-
-
 bot.login(token)
+
+
 
 
 bot.on("message", msg => {
@@ -43,7 +44,7 @@ bot.on("message", msg => {
 
 });
 
-bot.login(token)
+
 
 bot.on("guildDelete", guild => {
 
@@ -52,7 +53,7 @@ bot.on("guildDelete", guild => {
   });
 })
 
-bot.login(token)
+
 
 bot.on("guildCreate", guild => {
   bot.users.fetch('315393628891512832').then((user) => {
@@ -68,7 +69,7 @@ bot.on("message", msg => {
 
 });
 
-bot.login(token)
+
 
 
 bot.on("message", msg => {
@@ -79,7 +80,7 @@ bot.on("message", msg => {
 
 });
 
-bot.login(token)
+
 
 bot.on("message", async message => {
   if (message.content === "kekping") {
@@ -107,7 +108,7 @@ bot.on("message", msg => {
 
 });
 
-bot.login(token)
+
 
 bot.on("message", msg => {
   if (msg.author.bot) return;
@@ -117,7 +118,7 @@ bot.on("message", msg => {
 
 });
 
-bot.login(token)
+
 
 
 
@@ -194,7 +195,7 @@ command(bot, 'help', (message) => {
 })
 
 
-bot.login(token)
+
 
 
 bot.on("message", (msg) => {
@@ -222,7 +223,7 @@ bot.on("message", msg => {
   }
 })
 
-bot.login(token)
+
 
 bot.on("message", msg => {
   if (msg.content === `${prefix}dogfact`) {
@@ -234,7 +235,7 @@ bot.on("message", msg => {
   }
 })
 
-bot.login(token)
+
 
 bot.on("message", msg => {
   if (msg.content === `${prefix}snakefact`) {
@@ -246,7 +247,7 @@ bot.on("message", msg => {
   }
 })
 
-bot.login(token)
+
 
 bot.on("message", msg => {
   if (msg.content === `${prefix}parrotfact`) {
@@ -258,7 +259,7 @@ bot.on("message", msg => {
   }
 })
 
-bot.login(token)
+
 
 
 command(bot, 'help facts', (message) => {
@@ -293,7 +294,7 @@ command(bot, 'help facts', (message) => {
 })
 
 
-bot.login(token)
+
 
 
 command(bot, 'help media', (message) => {
@@ -339,7 +340,7 @@ command(bot, 'help media', (message) => {
 })
 
 
-bot.login(token)
+
 
 
 
@@ -365,7 +366,7 @@ command(bot, 'help moderation', (message) => {
 })
 
 
-bot.login(token)
+
 
 bot.on("message", msg => {
   if (msg.content === `${prefix}flipcoin`) {
@@ -377,7 +378,7 @@ bot.on("message", msg => {
   }
 })
 
-bot.login(token)
+
 
 
 bot.on("message", msg => {
@@ -390,7 +391,7 @@ bot.on("message", msg => {
   }
 })
 
-bot.login(token)
+
 
 bot.on("message", msg => {
   if (msg.content === `kekbot`) {
@@ -402,7 +403,7 @@ bot.on("message", msg => {
   }
 })
 
-bot.login(token)
+
 
 
 
@@ -438,7 +439,7 @@ command(bot, 'help about', (message) => {
 })
 
 
-bot.login(token)
+
 
 
 partials: ['MESSAGE', 'CHANNEL', 'REACTION']
@@ -495,7 +496,7 @@ command(bot, 'help images', (message) => {
 })
 
 
-bot.login(token)
+
 
 
 partials: ['MESSAGE', 'CHANNEL', 'REACTION']
@@ -506,7 +507,7 @@ bot.snipes = new Discord.Collection();
 
 loadCommands(bot);
 
-bot.login(token)
+
 
 
 bot.on("message", msg => {
@@ -519,7 +520,7 @@ bot.on("message", msg => {
   }
 })
 
-bot.login(token)
+
 
 
 bot.on("message", msg => {
@@ -529,7 +530,7 @@ bot.on("message", msg => {
 
 });
 
-bot.login(token)
+
 
 
 
@@ -572,7 +573,7 @@ bot.on("message", async msg => {
   }
 });
 
-bot.login(token)
+
 
 bot.on("message", msg => {
   if (msg.content === `kekvote`) {
@@ -623,7 +624,7 @@ command(bot, 'help utils', (message) => {
 })
 
 
-bot.login(token)
+
 
 
 bot.registry
@@ -652,7 +653,7 @@ command(bot, 'help games', (message) => {
 })
 
 
-bot.login(token)
+
 
 
 command(bot, 'help dev', (message) => {
@@ -681,7 +682,7 @@ command(bot, 'help dev', (message) => {
 })
 
 
-bot.login(token)
+
 
 command(bot, 'support', (message) => {
 
@@ -707,7 +708,7 @@ command(bot, 'support', (message) => {
 })
 
 
-bot.login(token)
+
 
 bot.on("message", async msg => {
   if (msg.author.bot) return;
@@ -755,7 +756,7 @@ command(bot, 'help gifs', (message) => {
 })
 
 
-bot.login(token)
+
 
 
 bot.on("message", async msg => {
@@ -815,7 +816,7 @@ bot.on("message", msg => {
 
 });
 
-bot.login(token)
+
 
 bot.on("message", msg => {
   if (msg.author.bot) return;
@@ -825,7 +826,7 @@ bot.on("message", msg => {
 
 });
 
-bot.login(token)
+
 
 
 bot.on("guildCreate", guild => {
@@ -849,7 +850,7 @@ bot.on("guildCreate", guild => {
   )
 })
 
-bot.login(token)
+
 
 
 
@@ -892,7 +893,7 @@ command(bot, 'help fun', (message) => {
 })
 
 
-bot.login(token)
+
 
 
 
@@ -906,11 +907,10 @@ bot.on("message", msg => {
   }
 })
 
-bot.login(token)
+
 
 
 /*command(bot, 'vote', (message) => {
-
   const embed = new Discord.MessageEmbed()
     .setTitle('Here are different ways you can vote for kekbot')
     .setFooter('Voting is heavily appreciated!')
@@ -929,8 +929,6 @@ bot.login(token)
       message.channel.send(embed)
     )})
 
-
-bot.login(token)
 */
 
 
@@ -956,7 +954,7 @@ bot.on("message", async message => {
 
 })
 
-bot.login(token)
+
 
 
 bot.on("message", async message => {
@@ -981,7 +979,7 @@ bot.on("message", async message => {
 
 })
 
-bot.login(token)
+
 
 
 bot.on("message", async message => {
@@ -1006,7 +1004,7 @@ bot.on("message", async message => {
 
 })
 
-bot.login(token)
+
 
 
 command(bot, 'help actions', (message) => {
@@ -1055,7 +1053,7 @@ command(bot, 'help actions', (message) => {
 })
 
 
-bot.login(token)
+
 
 
 bot.on("message", async message => {
@@ -1080,7 +1078,7 @@ bot.on("message", async message => {
 
 })
 
-bot.login(token)
+
 
 bot.on("message", async message => {
   const prefix = "kek";
@@ -1104,7 +1102,7 @@ bot.on("message", async message => {
 
 })
 
-bot.login(token)
+
 
 
 bot.on("message", async message => {
@@ -1129,7 +1127,7 @@ bot.on("message", async message => {
 
 })
 
-bot.login(token)
+
 
 bot.on("message", msg => {
   if (msg.content === `${prefix}abc`) {
@@ -1141,4 +1139,3 @@ bot.on("message", msg => {
   }
 })
 
-bot.login(token)
