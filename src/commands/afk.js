@@ -1,4 +1,5 @@
 const db = require('quick.db')
+const Discord = require('discord.js');
 
 module.exports = {
 	name: 'afk',
@@ -6,6 +7,7 @@ module.exports = {
 	description: '',
 	arguments: 0,
 	async execute(message, args, prefix, client) {
+
 		const status = new db.table("Afks");
         let afk = await status.fetch(message.author.id)
         const embed = new Discord.MessageEmbed().setColor('RANDOM')

@@ -1,3 +1,5 @@
+const { prefix, token, Tenorapikey } = require("../../botconfig.json")
+
 module.exports = {
 	name: 'sadgif',
 	aliases: [],

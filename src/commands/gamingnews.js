@@ -16,6 +16,7 @@ module.exports = {
             let gamingnewsTitle = content[0].data.children[0].data.title;
             let gamingnewsUpvotes = content[0].data.children[0].data.ups;
             let gamingnewsNumComments = content[0].data.children[0].data.num_comments;
+
             embed.setTitle(`${gamingnewsTitle}`);
             embed.setURL(`${gamingnewsUrl}`)
             embed.setColor('RANDOM')
@@ -23,7 +24,7 @@ module.exports = {
             embed.setFooter(`👍 ${gamingnewsUpvotes} 💬 ${gamingnewsNumComments}`);
             message.channel.send(embed)
 
-        }).catch(console.error);
+        })
     }
 }
 

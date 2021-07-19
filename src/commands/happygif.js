@@ -1,3 +1,5 @@
+const { prefix, token, Tenorapikey } = require("../../botconfig.json")
+
 module.exports = {
 	name: 'happygif',
 	aliases: [],
@@ -9,6 +11,6 @@ module.exports = {
         let response = await fetch(url)
         let json = await response.json();
         const index = Math.floor(Math.random() * json.results.length)
-        msg.channel.send(json.results[index].url)
+        message.channel.send(json.results[index].url)
 	}
 }

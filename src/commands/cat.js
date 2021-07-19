@@ -17,6 +17,7 @@ module.exports = {
             let catsTitle = content[0].data.children[0].data.title;
             let catsUpvotes = content[0].data.children[0].data.ups;
             let catsNumComments = content[0].data.children[0].data.num_comments;
+
             embed.setTitle(`${catsTitle}`);
             embed.setURL(`${catsUrl}`)
             embed.setColor('RANDOM')

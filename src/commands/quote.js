@@ -10,6 +10,7 @@ module.exports = {
     
         const embed = new Discord.MessageEmbed();
         got('https://www.reddit.com/r/quotes/random/.json').then(response => {
+
             let content = JSON.parse(response.body);
             let permalink = content[0].data.children[0].data.permalink;
             let quotesUrl = `https://reddit.com${permalink}`;
@@ -17,13 +18,15 @@ module.exports = {
             let quotesTitle = content[0].data.children[0].data.title;
             let quotesUpvotes = content[0].data.children[0].data.ups;
             let quotesNumComments = content[0].data.children[0].data.num_comments;
+
             embed.setTitle(`${quotesTitle}`);
             embed.setURL(`${quotesUrl}`)
             embed.setColor('RANDOM')
             embed.setImage(quotesImage);
             embed.setFooter(`👍 ${quotesUpvotes} 💬 ${quotesNumComments}`);
             message.channel.send(embed)
-        }).catch(console.error);
+
+        })
     }
 }
 

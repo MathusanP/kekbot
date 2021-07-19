@@ -11,6 +11,7 @@ module.exports = {
         } 
         else if (message.mentions.members.first()) {
             const member = message.mentions.members.first()
+
             const embed = new Discord.MessageEmbed()
             embed.setDescription(`<@${message.author.id}> shakes hand with <@${member.id}>!`)
             embed.setColor('RANDOM')

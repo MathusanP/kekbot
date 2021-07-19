@@ -17,11 +17,13 @@ module.exports = {
             let awwTitle = content[0].data.children[0].data.title;
             let awwUpvotes = content[0].data.children[0].data.ups;
             let awwNumComments = content[0].data.children[0].data.num_comments;
+
             embed.setTitle(`${awwTitle}`);
             embed.setURL(`${awwUrl}`)
             embed.setColor('RANDOM')
             embed.setImage(awwImage);
             embed.setFooter(`👍 ${awwUpvotes} 💬 ${awwNumComments}`);
+
             message.channel.send(embed)
         }).catch(console.error);
     }

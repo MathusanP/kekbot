@@ -9,6 +9,7 @@ module.exports = {
 	async execute(message, args, prefix, client) {
 
         const embed = new Discord.MessageEmbed();
+
         got('https://www.reddit.com/r/food/random/.json').then(response => {
             let content = JSON.parse(response.body);
             let permalink = content[0].data.children[0].data.permalink;
@@ -17,6 +18,7 @@ module.exports = {
             let foodTitle = content[0].data.children[0].data.title;
             let foodUpvotes = content[0].data.children[0].data.ups;
             let foodNumComments = content[0].data.children[0].data.num_comments;
+
             embed.setTitle(`${foodTitle}`);
             embed.setURL(`${foodUrl}`)
             embed.setColor('RANDOM')
@@ -24,6 +26,6 @@ module.exports = {
             embed.setFooter(`👍 ${foodUpvotes} 💬 ${foodNumComments}`);
             message.channel.send(embed)
 
-        }).catch(console.error);
+        })
     }
 }
