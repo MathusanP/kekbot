@@ -8,7 +8,7 @@ const escapeRegex = str => str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 module.exports = {
 	name: 'message',
 	async execute(message, client) {
-		if (!message.author.bot && message.guild === null) { return; }
+		if (message.author.bot || message.guild === null) { return; }
 
 		let afk = new db.table("AFKs")
 		authorStatus = await afk.fetch(message.author.id)

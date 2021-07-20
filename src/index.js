@@ -1,13 +1,16 @@
 const Discord = require("discord.js")
 const mongoose = require('mongoose')
 const fs = require('fs')
-const client = new Discord.Client();
+const Commando = require('discord.js-commando')
+const { prefix, token, Tenorapikey } = require("../botconfig.json")
+const path = require('path')
+const client = new Commando.CommandoClient({
+	owner: '315393628891512832',
+	commandPrefix: prefix
+  })
 client.snipes = new Discord.Collection();
 client.commands = new Discord.Collection();
-const { prefix, token, Tenorapikey } = require("../botconfig.json")
-
-
-mongoose.connect('mongodb+srv://kekbot:kekbot6@kekbot.2g0yc.mongodb.net/test', { useNewUrlParser: true, useUnifiedTopology: true })
+  mongoose.connect('mongodb+srv://kekbot:kekbot6@kekbot.2g0yc.mongodb.net/test', { useNewUrlParser: true, useUnifiedTopology: true })
 mongoose.set('useFindAndModify', false);
 
 
@@ -27,3 +30,12 @@ for (const file of eventFiles) {
 }
 
 client.login(token)
+
+
+client.registry
+  .registerGroups([
+    ['games', 'Commands to handle games'],
+    ['misc', 'Mainly dev command will be stored here or commands I can not categorise']
+
+  ])
+  .registerCommandsIn(path.join(__dirname, 'cmds'))
