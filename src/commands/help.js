@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 
 module.exports = {
-	name: 'handshake',
+	name: 'help',
     description: '',
 	arguments: 0,
 	async execute(message, args, prefix, client) {

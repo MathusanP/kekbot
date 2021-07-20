@@ -11,7 +11,6 @@ module.exports = {
 		const status = new db.table("Afks");
         let afk = await status.fetch(message.author.id)
         const embed = new Discord.MessageEmbed().setColor('RANDOM')
-        const args = message.content.trim().split(/ +/g);
         if (!afk) {
             embed.setDescription(`**${message.author.tag}** is now AFK.`)
             status.set(message.author.id, args.join(" ") || `AFK`);

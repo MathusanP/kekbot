@@ -1,8 +1,9 @@
 const Discord = require("discord.js")
 const mongoose = require('mongoose')
-
+const fs = require('fs')
 const client = new Discord.Client();
-
+client.snipes = new Discord.Collection();
+client.commands = new Discord.Collection();
 const { prefix, token, Tenorapikey } = require("../botconfig.json")
 
 

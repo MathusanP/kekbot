@@ -9,7 +9,6 @@ module.exports = {
 	async execute(message, args, prefix, client) {
 
         const messageArray = message.content.split(' ');
-        const args = messageArray.slice(1);    
         const name = args[0]
 
         if(!name) return message.reply('Please provide a package name!')
