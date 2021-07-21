@@ -1,5 +1,5 @@
 /*console.log('parter database is currently in progress')
-const partners = require('../models/PartnerSchema');
+const partners = require('../../models/PartnerSchema');
 
 
 module.exports.run = async (bot, message, args) => {

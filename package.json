@@ -35,14 +35,11 @@
 		"ytdl-core": "^3.4.2"
 	},
 	"devDependencies": {},
-	"scripts": {
-		"test": "kekping"
-	},
 	"keywords": [
-		"kek"
+		"kek", "discord-bot", "discord.js", "javascript"
 	],
 	"author": "Mathusan (deku_prime#1475)",
-	"license": "ISC",
+	"license": "MIT",
 	"repository": {
 		"type": "git",
 		"url": "kekbot"
