@@ -12,18 +12,19 @@ const client = new Commando.CommandoClient({
 });
 
 client.snipes = new Discord.Collection();
-client.commands = new Discord.Collection();
 
 mongoose.connect('mongodb+srv://kekbot:kekbot6@kekbot.2g0yc.mongodb.net/test', { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.set('useFindAndModify', false);
 
 
 client.text_commands = new Discord.Collection();
-const commandFiles = fs.readdirSync(`${__dirname}/commands/`).filter(File => File.endsWith('.js'));
-for (const file of commandFiles) {
-	const command = require(`${__dirname}/commands/${file}`);
-	client.text_commands.set(command.name, command);
-
+const categories = fs.readdirSync(`${__dirname}/commands/`);
+for (const category of categories) {
+	const commandFiles = fs.readdirSync(`${__dirname}/commands/${category}`).filter(File => File.endsWith('.js'));
+	for (const file of commandFiles) {
+		const command = require(`${__dirname}/commands/${category}/${file}`);
+		client.text_commands.set(command.name, command);
+	}
 }
 
 const eventFiles = fs.readdirSync(`${__dirname}/events`).filter(file => file.endsWith('.js'));

@@ -1,4 +1,4 @@
-const punishments = require('../../models/ModSchema');
+const punishments = require('../../../models/ModSchema');
 
 module.exports = {
 	name: 'warn',

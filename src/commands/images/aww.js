@@ -18,13 +18,14 @@ module.exports = {
 			let awwUpvotes = content[0].data.children[0].data.ups;
 			let awwNumComments = content[0].data.children[0].data.num_comments;
 
-			embed.setTitle(`${awwTitle}`);
-			embed.setURL(`${awwUrl}`);
-			embed.setColor('RANDOM');
-			embed.setImage(awwImage);
-			embed.setFooter(`👍 ${awwUpvotes} 💬 ${awwNumComments}`);
+			embed.setTitle(`${awwTitle}`)
+				.setURL(`${awwUrl}`)
+				.setColor('RANDOM')
+				.setImage(awwImage)
+				.setFooter(`👍 ${awwUpvotes} 💬 ${awwNumComments}`);
 
 			message.channel.send(embed);
+
 		}).catch(console.error);
 	}
 };

@@ -1,4 +1,4 @@
-const { Tenorapikey } = require("../../botconfig.json");
+const { Tenorapikey } = require("../../../botconfig.json");
 
 module.exports = {
 	name: 'excitedgif',

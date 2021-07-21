@@ -21,7 +21,7 @@ module.exports = {
 				{ name: 'Gifs', value: 'kekhelp gifs', inline: true },
 				{ name: 'Actions', value: 'kekhelp actions', inline: true, },
 				{ name: 'Media', value: 'kekhelp media', inline: true, },
-				{ name: 'searches', value: 'kekhelp searches', inline: 'true' }
+				{ name: 'Support', value: 'kekhelp support', inline: true }
 			);
 
 		const media = new Discord.MessageEmbed()
@@ -44,7 +44,9 @@ module.exports = {
 			.setColor('RANDOM')
 			.addFields(
 				{ name: 'kekkick', value: 'Kicks the mentioned user if the person who kicks has the correct permissions', inline: true, },
-				{ name: 'keksnipe', value: 'Snipes the last deleted message (This command is in beta)', inline: true }
+				{ name: 'kekpurge', value: 'Deletes a given number of messages from the channel', inline: true, },
+				{ name: 'keksnipe', value: 'Snipes the last deleted message (This command is in beta)', inline: true },
+				{ name: 'kekwarn', value: 'Warns a member for breaking the rules.', inline: true }
 			);
 
 
@@ -64,7 +66,6 @@ module.exports = {
 			.addFields(
 				{ name: 'kekinfo {@user}', value: 'It shows a description of the person', inline: true, },
 				{ name: 'kekafk {reason}', value: 'Makes you afk, anyone who pinges you will be notified that your afk , use kekafk to leave afk', inline: true, },
-				{ name: 'kekpurge {amount}', value: 'Bulk deletes messages!', inline: true, },
 				{ name: 'keksay', value: 'Coming soon!', inline: true, }
 			);
 
@@ -107,7 +108,8 @@ module.exports = {
 			.addFields(
 				{ name: 'kekpatreon', value: 'Gives you the link to our patreon!', },
 				{ name: 'kekvote', value: 'Gives you our voting links!', },
-				{ name: 'keksurvey', value: 'Take part in a survey to help improve kekbot!' }
+				{ name: 'kekhelp', value: 'Provides my command list!', },
+				{ name: 'kekweb', value: 'Gives a link to our cool website.!', },
 			);
 
 
