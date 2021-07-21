@@ -2,7 +2,7 @@ const Discord = require("discord.js")
 const mongoose = require('mongoose')
 const fs = require('fs')
 const Commando = require('discord.js-commando')
-const { prefix, token, Tenorapikey } = require("../botconfig.json")
+const { prefix,Tenorapikey } = require("../botconfig.json")
 const path = require('path')
 const client = new Commando.CommandoClient({
 	owner: '315393628891512832',
@@ -29,7 +29,7 @@ for (const file of eventFiles) {
 	else client.on(event.name, (...args) => event.execute(...args, client));
 }
 
-client.login(token)
+client.login(process.env.Token)
 
 
 client.registry
