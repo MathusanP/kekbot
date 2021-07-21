@@ -1,4 +1,5 @@
 const { Tenorapikey } = require("../../../botconfig.json");
+const fetch = require('node-fetch');
 
 module.exports = {
 	name: 'excitedgif',
