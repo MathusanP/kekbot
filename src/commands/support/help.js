@@ -29,12 +29,12 @@ module.exports = {
 			.setFooter('All media images are from reddit with the reddit post linked!')
 			.setColor('RANDOM')
 			.addFields(
-				{ name: 'kekmeme', value: 'Fetches a meme from R/memes', inline: true, },
-				{ name: 'kekquote', value: 'Fetches a quote from r/quotes', inline: true, },
-				{ name: 'kekwholesome', value: 'Fetches a wholesome meme', inline: true, },
-				{ name: 'keknews', value: 'View the news from r/news!', inline: true, },
-				{ name: 'kekgamingnews', value: 'Get the latest gaming news from r/gamingnews!', inline: true, },
-				{ name: 'kekfood', value: 'View food made from other people in r/food!', inline: true, }
+				{ name: 'meme', value: 'Fetches a meme from R/memes', inline: true, },
+				{ name: 'quote', value: 'Fetches a quote from r/quotes', inline: true, },
+				{ name: 'wholesome', value: 'Fetches a wholesome meme', inline: true, },
+				{ name: 'news', value: 'View the news from r/news!', inline: true, },
+				{ name: 'gamingnews', value: 'Get the latest gaming news from r/gamingnews!', inline: true, },
+				{ name: 'food', value: 'View food made from other people in r/food!', inline: true, }
 			);
 
 
@@ -43,10 +43,10 @@ module.exports = {
 			.setFooter('This bot is still in the making, More commands are still yet to come!')
 			.setColor('RANDOM')
 			.addFields(
-				{ name: 'kekkick', value: 'Kicks the mentioned user if the person who kicks has the correct permissions', inline: true, },
-				{ name: 'kekpurge', value: 'Deletes a given number of messages from the channel', inline: true, },
-				{ name: 'keksnipe', value: 'Snipes the last deleted message (This command is in beta)', inline: true },
-				{ name: 'kekwarn', value: 'Warns a member for breaking the rules.', inline: true }
+				// { name: 'kick', value: 'Kicks the mentioned user if the person who kicks has the correct permissions', inline: true, },
+				{ name: 'purge', value: 'Deletes a given number of messages from the channel', inline: true, },
+				{ name: 'snipe', value: 'Snipes the last deleted message (This command is in beta)', inline: true },
+				{ name: 'warn', value: 'Warns a member for breaking the rules.', inline: true }
 			);
 
 
@@ -55,8 +55,9 @@ module.exports = {
 			.setFooter('Use kektip to discover some commands!')
 			.setColor('RANDOM')
 			.addFields(
-				{ name: 'kekinv', value: 'Gives you a link to invite kekbot on your server!', inline: true, },
-				{ name: 'kekjoin', value: 'Sends you a invite to our server!', inline: true, },
+				{ name: 'inv', value: 'Gives you a link to invite kekbot on your server!', inline: true, },
+				{ name: 'join', value: 'Sends you a invite to our server!', inline: true, },
+				{ name: 'about', value: 'shows lots of cool information about the bot.', inline: true, },
 			);
 
 		const utils = new Discord.MessageEmbed()
@@ -64,9 +65,9 @@ module.exports = {
 			.setFooter('This bot is still in the making, More commands are still yet to come!')
 			.setColor('RANDOM')
 			.addFields(
-				{ name: 'kekinfo {@user}', value: 'It shows a description of the person', inline: true, },
-				{ name: 'kekafk {reason}', value: 'Makes you afk, anyone who pinges you will be notified that your afk , use kekafk to leave afk', inline: true, },
-				{ name: 'keksay', value: 'Coming soon!', inline: true, }
+				{ name: 'userinfo [user]', value: 'It shows a description of the person', inline: true, },
+				{ name: 'afk [reason]', value: 'Makes you afk, anyone who pinges you will be notified that your afk , use kekafk to leave afk', inline: true, },
+				{ name: 'say', value: 'Coming soon!', inline: true, }
 			);
 
 
@@ -75,11 +76,11 @@ module.exports = {
 			.setFooter('This bot is still in the making, More commands are still yet to come!')
 			.setColor('RANDOM')
 			.addFields(
-				{ name: 'kekcat', value: 'Shows a picture of a cat from r/cats!', inline: true, },
-				{ name: 'kekdog', value: 'Showes dog pics from r/dogs!', inline: true, },
-				{ name: 'kakparrot', value: 'Shows a parrot picture from r/parrots!', inline: true, },
-				{ name: 'kekturtle', value: 'Shows turtle pics from r/turtle!', inline: true, },
-				{ name: 'keksnake', value: 'Shows a snake pic from r/snakes', inline: true, }
+				{ name: 'cat', value: 'Shows a picture of a cat from r/cats!', inline: true, },
+				{ name: 'dog', value: 'Showes dog pics from r/dogs!', inline: true, },
+				{ name: 'parrot', value: 'Shows a parrot picture from r/parrots!', inline: true, },
+				{ name: 'turtle', value: 'Shows turtle pics from r/turtle!', inline: true, },
+				{ name: 'snake', value: 'Shows a snake pic from r/snakes', inline: true, }
 			);
 
 		const games = new Discord.MessageEmbed()
@@ -106,10 +107,11 @@ module.exports = {
 			.setFooter('This bot is still in the making, More commands are still yet to come!')
 			.setColor('RANDOM')
 			.addFields(
-				{ name: 'kekpatreon', value: 'Gives you the link to our patreon!', },
-				{ name: 'kekvote', value: 'Gives you our voting links!', },
-				{ name: 'kekhelp', value: 'Provides my command list!', },
-				{ name: 'kekweb', value: 'Gives a link to our cool website.!', },
+				{ name: 'patreon', value: 'Gives you the link to our patreon!', },
+				{ name: 'vote', value: 'Gives you our voting links!', },
+				{ name: 'help', value: 'Provides my command list!', },
+				{ name: 'web', value: 'Gives a link to our cool website!', },
+				{ name: 'ping', value: 'How fast does the bot respond?', },
 			);
 
 
@@ -118,10 +120,10 @@ module.exports = {
 			.setFooter('All gifs are from tenor!')
 			.setColor('RANDOM')
 			.addFields(
-				{ name: 'kekexcitedgif', value: 'Shows an excited gif', inline: true, },
-				{ name: 'keksadgif', value: 'Shows a sad gif', inline: true, },
-				{ name: 'kekhappygif', value: 'Shows a happy gif', inline: true, },
-				{ name: 'kekangrygif', value: 'Shows an angry gif', }
+				{ name: 'excitedgif', value: 'Shows an excited gif', inline: true, },
+				{ name: 'sadgif', value: 'Shows a sad gif', inline: true, },
+				{ name: 'happygif', value: 'Shows a happy gif', inline: true, },
+				{ name: 'angrygif', value: 'Shows an angry gif', }
 			);
 
 
@@ -130,12 +132,12 @@ module.exports = {
 			.setFooter('Vote for us via kekvote!')
 			.setColor('RANDOM')
 			.addFields(
-				{ name: 'kekpat <user>', value: 'Pat a user!', inline: true, },
-				{ name: 'kekslap <user>', value: 'Slap a user!', inline: true, },
-				{ name: 'kekhug <user>', value: 'Hug a user!', inline: true, },
-				{ name: 'kekhandshake <user>', value: 'Handshake a user!', inline: true, },
-				{ name: 'kekkiss <user>', value: 'Kiss a user!', inline: true, },
-				{ name: 'kekwave <user>', value: 'Wave at someone!', inline: true }
+				{ name: 'pat <user>', value: 'Pat a user!', inline: true, },
+				{ name: 'slap <user>', value: 'Slap a user!', inline: true, },
+				{ name: 'hug <user>', value: 'Hug a user!', inline: true, },
+				{ name: 'handshake <user>', value: 'Handshake a user!', inline: true, },
+				{ name: 'kiss <user>', value: 'Kiss a user!', inline: true, },
+				{ name: 'wave <user>', value: 'Wave at someone!', inline: true }
 			);
 
 
@@ -144,11 +146,11 @@ module.exports = {
 			.setFooter('You can support us using keksupport!')
 			.setColor('RANDOM')
 			.addFields(
-				{ name: 'kekdice', value: 'Roll a dice!', inline: true, },
-				{ name: 'kek8ball', value: 'The 8 ball command', inline: true },
-				{ name: 'kekflipcoin', value: 'Flip a coin', inline: true },
-				{ name: 'keknumber', value: 'generate a number between 1-10, if your lucky you can get 69 as a value', inline: true },
-				{ name: 'kekabc', value: 'Fetches a random letter from the english alphabet', inline: true }
+				{ name: 'dice', value: 'Roll a dice!', inline: true, },
+				{ name: '8ball', value: 'The 8 ball command', inline: true },
+				{ name: 'flipcoin', value: 'Flip a coin', inline: true },
+				{ name: 'number', value: 'generate a whole number between 1-10, if your lucky you can get 69 as a value', inline: true },
+				{ name: 'abc', value: 'Fetches a random letter from the english alphabet', inline: true }
 			);
 
 
