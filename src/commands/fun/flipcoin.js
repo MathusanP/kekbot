@@ -21,6 +21,6 @@ module.exports = {
 			flipcoinEmbed.setThumbnail("https://media.wired.co.uk/photos/606da41a5113453af57347d2/master/w_1600%2Cc_limit/pound-coin.png");
 		}
 
-
+		message.channel.send(flipcoinEmbed);
 	}
 };
