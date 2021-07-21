@@ -2,8 +2,8 @@ const Discord = require('discord.js');
 const moment = require('moment');
 
 module.exports = {
-	name: "info",
-	aliases: ["whois"],
+	name: "userinfo",
+	aliases: ["whois", 'info'],
 	description: '',
 	arguments: 1,
 	async execute(message, args) {
