@@ -6,4 +6,4 @@ let ModSchema = new mongoose.Schema({
 	Punishments: Array
 });
 
-const MessageModel = module.exports = mongoose.model('Moderation', ModSchema);
+module.exports = mongoose.model('Moderation', ModSchema);

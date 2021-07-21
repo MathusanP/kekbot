@@ -1,8 +1,10 @@
 module.exports = {
 	name: 'inv',
-    description: '',
+	description: '',
 	arguments: 0,
-	async execute(message, args, prefix, client) {
-		message.channel.send("You can invite me here: https://dsc.gg/kekinv")
-  	}
-}
+	async execute(message) {
+
+		message.channel.send("You can invite me here: https://dsc.gg/kekinv");
+
+	}
+};

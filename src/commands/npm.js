@@ -1,37 +1,36 @@
-const Discord = require('discord.js')
-const pop = require("popcat-wrapper")
+const Discord = require('discord.js');
+const pop = require("popcat-wrapper");
 
 module.exports = {
 	name: 'npm',
-    usage: 'Search npm packages',
-    aliases: ["pkgsearch", "packagesearch"],
+	usage: 'Search npm packages',
+	aliases: ["pkgsearch", "packagesearch"],
 	arguments: 0,
-	async execute(message, args, prefix, client) {
+	async execute(message, args) {
 
-        const messageArray = message.content.split(' ');
-        const name = args[0]
+		const name = args[0];
 
-        if(!name) return message.reply('Please provide a package name!')
+		if(!name) return message.reply('Please provide a package name!');
 
 
-        const pkg = await pop.npm(name)
-        const embed = new Discord.MessageEmbed();
+		const pkg = await pop.npm(name);
+		const embed = new Discord.MessageEmbed();
 
-        embed.setTitle(pkg.name)
-        embed.setColor('RANDOM')
-        embed.setURL(`https://npmjs.com/package/${pkg.name}`)
-        embed.setDescription(pkg.description)
-        embed.addField('Author', pkg.author, true)
-        embed.addField('Email', pkg.author_email, true)
-        embed.addField("Downloads This Year", pkg.downloads_this_year, true)
-        embed.addField("Last Publish", pkg.last_published, true)
-        embed.addField('Version', pkg.version, true)
-        embed.addField('Repository', pkg.repository, true)
-        embed.addField('Maintainers', pkg.maintainers, true)
-        embed.addField('Keywords', pkg.keywords, true)
-        embed.setTimestamp()
+		embed.setTitle(pkg.name)
+			.setColor('RANDOM')
+			.setURL(`https://npmjs.com/package/${pkg.name}`)
+			.setDescription(pkg.description)
+			.addField('Author', pkg.author, true)
+			.addField('Email', pkg.author_email, true)
+			.addField("Downloads This Year", pkg.downloads_this_year, true)
+			.addField("Last Publish", pkg.last_published, true)
+			.addField('Version', pkg.version, true)
+			.addField('Repository', pkg.repository, true)
+			.addField('Maintainers', pkg.maintainers, true)
+			.addField('Keywords', pkg.keywords, true)
+			.setTimestamp();
 
-        message.channel.send(embed)
+		message.channel.send(embed);
 
-    }
-}
+	}
+};

@@ -1,11 +1,11 @@
-const coinflip = ["Heads", "Tails"]
+const coinflip = ["Heads", "Tails"];
 
 module.exports = {
 	name: 'flipcoin',
-    description: '',
+	description: '',
 	arguments: 0,
-	async execute(message, args, prefix, client) {
+	async execute(message) {
 
-        message.channel.send(`${coinflip[Math.floor(Math.random() * [coinflip.length])]}`)
-  	}
-}
+		message.channel.send(`${coinflip[Math.floor(Math.random() * [coinflip.length])]}`);
+	}
+};

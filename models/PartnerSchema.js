@@ -1,4 +1,4 @@
-console.log('Complete partner command before partner database can be activated!')
+console.log('Complete partner command before partner database can be activated!');
 /*const mongoose = require('mongoose');
 
 let ModSchema = new mongoose.Schema({

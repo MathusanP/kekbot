@@ -48,8 +48,4 @@ module.exports.run = async (bot, message, args) => {
 
 }
 
-module.exports.config = {
-    name: "warn",
-    aliases: ["Warn"]
-}
 */

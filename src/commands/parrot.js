@@ -3,30 +3,29 @@ const got = require('got');
 
 module.exports = {
 	name: 'parrot',
-    description: '',
+	description: '',
 	arguments: 0,
-	async execute(message, args, prefix, client) {
-    
-        const embed = new Discord.MessageEmbed();
+	async execute(message) {
 
-        got('https://www.reddit.com/r/parrots/random/.json').then(response => {
+		const embed = new Discord.MessageEmbed();
 
-            let content = JSON.parse(response.body);
-            let permalink = content[0].data.children[0].data.permalink;
-            let parrotUrl = `https://reddit.com${permalink}`;
-            let parrotImage = content[0].data.children[0].data.url;
-            let parrotTitle = content[0].data.children[0].data.title;
-            let parrotUpvotes = content[0].data.children[0].data.ups;
-            let parrotNumComments = content[0].data.children[0].data.num_comments;
+		got('https://www.reddit.com/r/parrots/random/.json').then(response => {
 
-            embed.setTitle(`${parrotTitle}`);
-            embed.setURL(`${parrotUrl}`)
-            embed.setColor('RANDOM')
-            embed.setImage(parrotImage);
-            embed.setFooter(`👍 ${parrotUpvotes} 💬 ${parrotNumComments}`);
-            message.channel.send(embed)
+			let content = JSON.parse(response.body);
+			let permalink = content[0].data.children[0].data.permalink;
+			let parrotUrl = `https://reddit.com${permalink}`;
+			let parrotImage = content[0].data.children[0].data.url;
+			let parrotTitle = content[0].data.children[0].data.title;
+			let parrotUpvotes = content[0].data.children[0].data.ups;
+			let parrotNumComments = content[0].data.children[0].data.num_comments;
 
-        })
-    }
-}
+			embed.setTitle(`${parrotTitle}`)
+				.setURL(`${parrotUrl}`)
+				.setColor('RANDOM')
+				.setImage(parrotImage)
+				.setFooter(`👍 ${parrotUpvotes} 💬 ${parrotNumComments}`);
+			message.channel.send(embed);
 
+		});
+	}
+};
