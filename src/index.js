@@ -39,4 +39,4 @@ client.registry.registerGroups([
 	['misc', 'Mainly dev command will be stored here or commands I can not categorise']
 ]).registerCommandsIn(path.join(__dirname, 'cmds'));
 
-client.login(process.env['Token']);
+client.login('NzM0MDA3MDcxNjg2Nzg3MTIz.XxLbWw.Z55tampLscar33a1Sfu3BytQgtc');
