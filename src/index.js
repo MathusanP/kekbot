@@ -40,3 +40,4 @@ client.registry.registerGroups([
 ]).registerCommandsIn(path.join(__dirname, 'cmds'));
 
 client.login(process.env['Token']);
+//client.login("Enter test bot token here");

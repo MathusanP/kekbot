@@ -1,7 +1,7 @@
 module.exports = {
 	name: 'guildCreate',
-	async execute(guild) {
-
+	async execute(guild, client) {
+		client.channels.cache.get('813143654998868009').send(`New server joined: ${guild.name} (id: ${guild.id}). This server has ${guild.memberCount} members!`);
 		let defaultChannel;
 		guild.channels.cache.forEach((channel) => {
 			if (channel.type == "text" && defaultChannel == "") {

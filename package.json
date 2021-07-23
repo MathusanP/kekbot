@@ -1,6 +1,6 @@
 {
 	"name": "kekbot",
-	"version": "2.5.5",
+	"version": "3.4.0",
 	"description": "Discord kekbot#5882",
 	"main": "src/index.js",
 	"dependencies": {

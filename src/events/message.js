@@ -1,3 +1,4 @@
+/* eslint-disable semi */
 const fetch = require("node-fetch").default;
 const db = require('quick.db');
 const Discord = require('discord.js');
