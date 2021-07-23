@@ -4,6 +4,7 @@ module.exports = {
 	name: 'number',
 	description: '',
 	arguments: 0,
+	usage: '',
 	async execute(message) {
 
 		message.channel.send(`${number[Math.floor(Math.random() * [number.length])]}`);

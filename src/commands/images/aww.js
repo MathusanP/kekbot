@@ -6,6 +6,7 @@ module.exports = {
 	description: '',
 	aliases: ["cute"],
 	arguments: 0,
+	usage: '',
 	async execute(message) {
 
 		const embed = new Discord.MessageEmbed();

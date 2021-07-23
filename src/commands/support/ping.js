@@ -2,6 +2,7 @@ module.exports = {
 	name: 'ping',
 	description: '',
 	arguments: 0,
+	usage: '',
 	async execute(message) {
 
 		const m = await message.channel.send("Awaiting ping...");

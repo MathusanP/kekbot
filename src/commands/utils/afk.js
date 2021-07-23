@@ -6,6 +6,7 @@ module.exports = {
 	aliases: [],
 	description: '',
 	arguments: 0,
+	usage: '[reason]',
 	async execute(message, args) {
 
 		const status = new db.table("Afks");

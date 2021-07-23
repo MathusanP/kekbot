@@ -5,6 +5,7 @@ module.exports = {
 	description: "diceroll | Roll a die.",
 	aliases: ["dice", "roll", "dr"],
 	arguments: 0,
+	usage: '',
 	async execute(message) {
 
 		let result = (Math.floor(Math.random() * Math.floor(6) + 1));

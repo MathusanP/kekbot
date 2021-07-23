@@ -6,6 +6,7 @@ module.exports = {
 	aliases: ["Turtles", "turtlepicture", "turtle", "Turtle"],
 	description: '',
 	arguments: 0,
+	usage: '',
 	async execute(message) {
 
 		const embed = new Discord.MessageEmbed();

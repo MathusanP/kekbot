@@ -26,8 +26,8 @@ module.exports = {
 	name: '8ball',
 	description: 'Ask a question, and get an answer from the all-knowing, magic 8ball!',
 	aliases: ["8-ball"],
-	usage: '<question>',
 	arguments: 1,
+	usage: '<question>',
 	async execute(message, args) {
 
 		const embed = new Discord.MessageEmbed()

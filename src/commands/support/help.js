@@ -4,6 +4,7 @@ module.exports = {
 	name: 'help',
 	description: '',
 	arguments: 0,
+	usage: '[category]',
 	async execute(message, args) {
 
 		const help = new Discord.MessageEmbed()

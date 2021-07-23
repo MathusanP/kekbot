@@ -2,15 +2,12 @@ const Discord = require('discord.js');
 
 module.exports = {
 	name: 'hug',
-	aliases: [],
 	description: '',
-	arguments: 0,
-	async execute(message, args) {
+	arguments: 1,
+	usage: '<member>',
+	async execute(message) {
 
-		if (!args[0]) {
-			message.reply("Please provide a user mention to hug!");
-		}
-		else if (message.mentions.members.first()) {
+		if (message.mentions.members.first()) {
 			const member = message.mentions.members.first();
 			const embed = new Discord.MessageEmbed()
 				.setDescription(`<@${message.author.id}> hugs <@${member.id}>!`)
@@ -19,5 +16,9 @@ module.exports = {
 				.setTimestamp();
 			message.channel.send(embed);
 		}
+		else {
+			message.reply("Please provide a user mention to hug!");
+		}
+
 	}
 };

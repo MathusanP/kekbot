@@ -44,7 +44,33 @@ module.exports = {
 					|| client.text_commands.find(file => file.aliases && file.aliases.includes(commandName));
 
 				if (cmd) {
-					cmd.execute(message, args, prefix, client);
+					let allowed = true;
+
+					if(cmd.permissions && allowed === true) {
+						for(const permission of cmd.permissions) {
+							if(allowed === true
+								&& !message.member.permissions.has(permission.trim().toUpperCase().replace(" ", "_"))
+								&& !message.member.permissions.has('ADMINISTRATOR')) {
+
+								await message.channel.send(`You do not have permission to use this command.`)
+								allowed = false;
+							}
+						}
+					}
+
+					if(cmd.arguments && allowed === true) {
+						const number = cmd.arguments;
+						if(number >= 1) {
+							if(!args[number - 1]) {
+								await message.channel.send(`Incorrect usage, make sure it follows the format: \`${prefix}${cmd.name} ${cmd.usage}\``);
+								allowed = false;
+							}
+						}
+					}
+
+					if(allowed == true) {
+						cmd.execute(message, args, prefix, client);
+					}
 				}
 			}
 		}

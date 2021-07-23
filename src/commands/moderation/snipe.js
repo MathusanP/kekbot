@@ -3,7 +3,9 @@ const Discord = require('discord.js');
 module.exports = {
 	name: 'snipe',
 	description: '',
+	permissions: ['Manage Messages'],
 	arguments: 0,
+	usage: '',
 	async execute(message, args, prefix, client) {
 
 		const msg = client.snipes.get(message.channel.id);

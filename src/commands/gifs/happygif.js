@@ -3,9 +3,9 @@ const fetch = require('node-fetch');
 
 module.exports = {
 	name: 'happygif',
-	aliases: [],
 	description: '',
 	arguments: 0,
+	usage: '',
 	async execute(message) {
 
 		let url = `https://g.tenor.com/v1/search?q=animehappy&key=${Tenorapikey}&limit=8`;

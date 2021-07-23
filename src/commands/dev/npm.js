@@ -5,13 +5,11 @@ module.exports = {
 	name: 'npm',
 	usage: 'Search npm packages',
 	aliases: ["pkgsearch", "packagesearch"],
-	arguments: 0,
+	arguments: 1,
+	usage: '<package name>',
 	async execute(message, args) {
 
 		const name = args[0];
-
-		if(!name) return message.reply('Please provide a package name!');
-
 
 		const pkg = await pop.npm(name);
 		const embed = new Discord.MessageEmbed();

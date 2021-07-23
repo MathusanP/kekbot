@@ -1,9 +1,12 @@
-const coinflip = ["Heads", "Tails"];
 const Discord = require('discord.js');
+
+const coinflip = ["Heads", "Tails"];
+
 module.exports = {
 	name: 'flipcoin',
 	description: '',
 	arguments: 0,
+	usage: '',
 	async execute(message) {
 
 		let result = (`${coinflip[Math.floor(Math.random() * [coinflip.length])]}`);

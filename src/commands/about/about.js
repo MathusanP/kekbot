@@ -1,9 +1,10 @@
 const Discord = require('discord.js');
 
 module.exports = {
-	name: `about`,
+	name: 'about',
 	description: 'Shows lots of cool information about the bot.',
 	arguments: 0,
+	usage: '',
 	execute(message, args, prefix, client) {
 
 		const servers = client.guilds.cache.size;
@@ -15,7 +16,6 @@ module.exports = {
 			.setTitle("My Information")
 			.setColor(`GREEN`)
 			.setDescription(`Hey, I'm **${client.user.tag}**! My prefix is: \`${prefix}\`\nYou can also mention me as a prefix!`)
-			.setThumbnail('https://cdn.discordapp.com/avatars/734007071686787123/c6864719c028d71e47d3f860f39f0ce1.webp')
 			.addFields(
 
 				{ name: `**Total Servers:**`, value:`${servers}`, inline: true },

@@ -5,6 +5,7 @@ module.exports = {
 	name: 'angrygif',
 	description: '',
 	arguments: 0,
+	usage: '',
 	async execute(message) {
 
 		let url = `https://g.tenor.com/v1/search?q=angry&key=${Tenorapikey}&limit=8`;
