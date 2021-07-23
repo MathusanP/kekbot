@@ -5,8 +5,7 @@ module.exports = {
 	description: '',
 	arguments: 1,
 	usage: '<member>',
-	// eslint-disable-next-line no-unused-vars
-	async execute(message, args) {
+	async execute(message) {
 
 		if (message.mentions.members.first()) {
 			const member = message.mentions.members.first();

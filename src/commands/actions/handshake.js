@@ -5,7 +5,7 @@ module.exports = {
 	description: '',
 	arguments: 1,
 	usage: '<member>',
-	async execute(message, args) {
+	async execute(message) {
 
 
 		if (message.mentions.members.first()) {
