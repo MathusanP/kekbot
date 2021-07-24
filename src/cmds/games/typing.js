@@ -1,6 +1,5 @@
 const Commando = require('discord.js-commando');
-
-const words = ["Business", "Cat", "Mongoose", "Alphabet", "Cloud", "Number", "Numbers", "Literal", "Literacy", "Dice", "Fun", "Bread", "East", "North", "South", "Easy", "Hard", "Mode", "Medicore", "Medical", "Taxes", "Gum", "Cold", "Accentuate", "Malicous", "Petrified", "Exquisite", "Precious", "Prestige", "Plasma", "Langauge", "Ruby", "Saphire", "God", "Dog", "Parrot", "Turtle", "Snake", "Discord", "Happy", "Sad", "Food", "Lovely", "Beautiful", "Eventually", "Juxtaposition", "Oxymoron", "Circle", "Square", "Triangle", "Equal", "Less", "Potential", "Potentially", "Possibly"];
+const words = ["Business", "Cat", "Mongoose", "Alphabet", "Cloud", "Number", "Numbers", "Literal", "Literacy", "Dice", "Fun", "Bread", "East", "North", "South", "Easy", "Hard", "Mode", "Medicore", "Medical", "Taxes", "Gum", "Cold", "Accentuate", "Malicous", "Petrified", "Exquisite", "Precious", "Prestige", "Plasma", "Langauge", "Ruby", "Saphire", "God", "Dog", "Parrot", "Turtle", "Snake", "Discord", "Happy", "Sad", "Food", "Lovely", "Beautiful", "Eventually", "Juxtaposition", "Oxymoron", "Circle", "Square", "Triangle", "Equal", "Less", "Potential", "Potentially", "Possibly", "Visual", "Leave", "Hug", "Cycle", "Climb", "Motor", "War", "Life", "Morale", "Human", "Number", "Long", "Short"];
 
 
 const games = {};
@@ -37,7 +36,7 @@ const stages = {
 
 const selectWord = (game) => {
 	game.currentWord =
-		game.remainingWords[Math.floor(Math.random() * game.remainingWords.length)];
+    game.remainingWords[Math.floor(Math.random() * game.remainingWords.length)];
 
 	const index = game.remainingWords.indexOf(game.currentWord);
 	game.remainingWords.splice(index, 1);
@@ -102,7 +101,7 @@ module.exports = class FastTypeGame extends Commando.Command {
 
 				if (
 					game.stage === 'IN_GAME' &&
-					content.toLowerCase() === game.currentWord.toLowerCase()
+          content.toLowerCase() === game.currentWord.toLowerCase()
 				) {
 					game.currentWord = null;
 					const seconds = 2;
@@ -137,9 +136,10 @@ module.exports = class FastTypeGame extends Commando.Command {
 		const { channel } = message;
 
 		message.delete();
-		channel.send('Preparing game...').then((m) => {
+		// eslint-disable-next-line no-shadow
+		channel.send('Preparing game...').then((message) => {
 			games[channel.id] = {
-				m,
+				message,
 				stage: 'STARTING',
 				counter: 5,
 				remainingWords: [...words],
