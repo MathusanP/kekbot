@@ -2,8 +2,7 @@ const Discord = require("discord.js");
 const mongoose = require('mongoose');
 const fs = require('fs');
 const Commando = require('discord.js-commando');
-
-const { prefix } = require("../botconfig.json");
+const { prefix, testbot } = require("../botconfig.json");
 
 const path = require('path');
 const client = new Commando.CommandoClient({
@@ -40,4 +39,4 @@ client.registry.registerGroups([
 ]).registerCommandsIn(path.join(__dirname, 'cmds'));
 
 client.login(process.env['Token']);
-//client.login("Enter test bot token here");
+//client.login(testbot);
