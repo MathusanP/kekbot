@@ -2,6 +2,7 @@ const Discord = require("discord.js");
 const mongoose = require('mongoose');
 const fs = require('fs');
 const Commando = require('discord.js-commando');
+// eslint-disable-next-line no-unused-vars
 const { prefix, testbot } = require("../botconfig.json");
 
 const path = require('path');

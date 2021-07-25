@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-const kissgifs = ["https://acegif.com/wp-content/uploads/anime-kiss-m.gif", "https://i.pinimg.com/originals/2b/52/71/2b5271e20fa65925e07d0338fa290135.gif`", "https://i.pinimg.com/originals/66/19/1b/66191b81d5bf6c70bd065736f3e8662b.gif"];
+const kissgifs = ["https://media.tenor.com/images/197df534507bd229ba790e8e1b5f63dc/tenor.gif", "https://media1.tenor.com/images/2f23c53755a5c3494a7f54bbcf04d1cc/tenor.gif?itemid=13970544", "https://i.pinimg.com/originals/66/19/1b/66191b81d5bf6c70bd065736f3e8662b.gif"];
 module.exports = {
 	name: 'kiss',
 	description: '',
