@@ -1,6 +1,6 @@
 const Commando = require('discord.js-commando');
-const words = ["Business", "Cat", "Mongoose", "Alphabet", "Cloud", "Number", "Numbers", "Literal", "Literacy", "Dice", "Fun", "Bread", "East", "North", "South", "Easy", "Hard", "Mode", "Medicore", "Medical", "Taxes", "Gum", "Cold", "Accentuate", "Malicous", "Petrified", "Exquisite", "Precious", "Prestige", "Plasma", "Langauge", "Ruby", "Saphire", "God", "Dog", "Parrot", "Turtle", "Snake", "Discord", "Happy", "Sad", "Food", "Lovely", "Beautiful", "Eventually", "Juxtaposition", "Oxymoron", "Circle", "Square", "Triangle", "Equal", "Less", "Potential", "Potentially", "Possibly", "Visual", "Leave", "Hug", "Cycle", "Climb", "Motor", "War", "Life", "Morale", "Human", "Number", "Long", "Short"];
-
+//const words = ["Business", "Cat", "Mongoose", "Alphabet", "Cloud", "Number", "Numbers", "Literal", "Literacy", "Dice", "Fun", "Bread", "East", "North", "South", "Easy", "Hard", "Mode", "Medicore", "Medical", "Taxes", "Gum", "Cold", "Accentuate", "Malicous", "Petrified", "Exquisite", "Precious", "Prestige", "Plasma", "Langauge", "Ruby", "Saphire", "God", "Dog", "Parrot", "Turtle", "Snake", "Discord", "Happy", "Sad", "Food", "Lovely", "Beautiful", "Eventually", "Juxtaposition", "Oxymoron", "Circle", "Square", "Triangle", "Equal", "Less", "Potential", "Potentially", "Possibly", "Visual", "Leave", "Hug", "Cycle", "Climb", "Motor", "War", "Life", "Morale", "Human", "Number", "Long", "Short"];
+const words = ["Summer", "Tennis", "Beach", "Sea", "Ocean", "Sun", "Hot", "Suncream", "Sandcastle", "Sand", "Zoo", "Holiday", "Olympics", "Sports", "Watermelon", "Tropical", "Island", "Blue", "Trips", "Family"];
 
 const games = {};
 
