@@ -14,14 +14,14 @@ module.exports = {
 
 		const embed = new Discord.MessageEmbed()
 			.setTitle("My Information")
-			.setColor(`GREEN`)
+			.setColor('RANDOM')
 			.setDescription(`Hey, I'm **${client.user.tag}**! My prefix is: \`${prefix}\`\nYou can also mention me as a prefix!`)
 			.addFields(
 
 				{ name: `**Total Servers:**`, value:`${servers}`, inline: true },
 				{ name: `**Total Users:**`, value: `${users}`, inline: true },
 				{ name: `**Total Commands:**`, value: `46`, inline: true },
-
+				{ name: `**Version:**`, value: `3.5` },
 				{ name: `**Developer:**`, value:`**Bagel#1475**\n**[ThatsLiamS#6950](https://github.com/ThatsLiamS)**`, inline: true },
 				{ name: `**Uptime:**`, value:`${uptime}`, inline: true },
 			)

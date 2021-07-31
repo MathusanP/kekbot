@@ -22,7 +22,8 @@ module.exports = {
 				{ name: 'Gifs', value: 'kekhelp gifs', inline: true },
 				{ name: 'Actions', value: 'kekhelp actions', inline: true, },
 				{ name: 'Media', value: 'kekhelp media', inline: true, },
-				{ name: 'Support', value: 'kekhelp support', inline: true }
+				{ name: 'Support', value: 'kekhelp support', inline: true },
+				{ name: 'Summer', value: 'kekhelp summer', inline: true },
 			);
 
 		const media = new Discord.MessageEmbed()
@@ -154,6 +155,16 @@ module.exports = {
 				{ name: 'abc', value: 'Fetches a random letter from the english alphabet', inline: true }
 			);
 
+		const summer = new Discord.MessageEmbed()
+			.setTitle('Here are some fun commands!')
+			.setFooter('You can support us using keksupport!')
+			.setColor('RANDOM')
+			.addFields(
+				{ name: 'olympics', value: 'View the latest feed from r/olympics', inline: true, },
+				{ name: 'summegif', value: 'Express your feelings with a summer gif!', inline: true },
+				{ name: 'weather <city>', value: 'View the latest weather forcast!', inline: true },
+			);
+
 
 		if(!args[0]) { return message.channel.send(help); }
 
@@ -190,7 +201,9 @@ module.exports = {
 		else if(args[0] == 'media') {
 			return message.channel.send(media);
 		}
-
+		else if(args[0] == 'summer') {
+			return message.channel.send(summer);
+		}
 		else{
 			return message.channel.send(help);
 		}

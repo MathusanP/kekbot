@@ -1,7 +1,7 @@
 //Delete in aug 8 (When the olympics end!)
 const Discord = require('discord.js');
 const got = require('got');
-
+const advice = ["Make sure to wear suncream!", "Stay cool!", "Hope you are enjoying your summer!", "Bored during summer? Go explore a new hobby!", "Go hangout with your friends!", "Go to the beach!", "Stay frosty!"];
 module.exports = {
 	name: "olympics",
 	description: '',
@@ -18,14 +18,11 @@ module.exports = {
 			let OlympicsUrl = `https://reddit.com${permalink}`;
 			let OlympicsImage = content[0].data.children[0].data.url;
 			let OlympicsTitle = content[0].data.children[0].data.title;
-			let OlympicsUpvotes = content[0].data.children[0].data.ups;
-			let OlympicsNumComments = content[0].data.children[0].data.num_comments;
-
 			embed.setTitle(`${OlympicsTitle}`)
 				.setURL(`${OlympicsUrl}`)
 				.setColor('RANDOM')
 				.setImage(OlympicsImage)
-				.setFooter(`👍 ${OlympicsUpvotes} 💬 ${OlympicsNumComments}`);
+				.setFooter(`${advice[Math.floor(Math.random() * [advice.length])]}`);
 
 			message.channel.send(embed);
 
