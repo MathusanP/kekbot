@@ -1,6 +1,5 @@
 var weather = require('weather-js');
 const discord = require('discord.js');
-
 module.exports = {
 	name: 'weather',
 	description: 'Displays the weather in a requested city',
@@ -23,12 +22,12 @@ module.exports = {
 				.setThumbnail(current.imageUrl)
 				.setDescription(`**${current.skytext}**`)
 				.addField('TimeZone', `UTC ${location.timezone}`, true)
-				.addField('Degree Type', 'Celsius', true)
-				.addField('Temperature', `${current.temperature}°`, true)
+				.addField('Temperature', `${current.temperature}°C`, true)
 				.addField('Wind', `${current.winddisplay}`, true)
 				.addField('Feels like', `${current.feelslike}°`, true)
-				.addField('Humidity', `${current.humidity}$`, true);
-
+				.addField('Humidity', `${current.humidity}%`, true)
+				.addField('Day', `${current.day}`, true)
+				.setFooter('Degree type: Celsius');
 			message.channel.send(embed);
 
 		}

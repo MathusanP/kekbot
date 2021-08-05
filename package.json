@@ -1,6 +1,6 @@
 {
 	"name": "kekbot",
-	"version": "3.5.0",
+	"version": "3.6.0",
 	"description": "Discord kekbot#5882",
 	"main": "src/index.js",
 	"dependencies": {
@@ -11,7 +11,7 @@
 		"colors": "^1.4.0",
 		"discord-buttons": "^4.0.0",
 		"discord-ytdl-core": "^5.0.0",
-		"discord.js": "^12.5.1",
+		"discord.js": "^12.5.3",
 		"discord.js-commando": "^0.12.2",
 		"distube": "^2.8.8",
 		"erela.js": "^2.3.2",

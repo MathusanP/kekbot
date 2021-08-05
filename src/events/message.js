@@ -24,7 +24,7 @@ module.exports = {
 				message.channel.send(embed).then(i => i.delete({ timeout: 5000 }));
 			}
 		}
-
+		//The command below is a conclave exclusive command and will not be available elsewhere!
 		if(message.channel.id === "823310708128219146") {
 			fetch(`https://api.monkedev.com/fun/chat?msg=${message.content}&uid=${message.author.id}315393628891512832&key=cCXhQnbQAwP89II63ro9p8Kgw`)
 				.then(response => response.json())
