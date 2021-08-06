@@ -652,6 +652,9 @@
     "zero-fill": "^2.2.4",
     "yt-search": "^2.8.0"
   },
+
+  "engines" : { "node" : ">=16.6.1" },
+  
   "devDependencies": {},
   "scripts": {
     "test": "kekping"
