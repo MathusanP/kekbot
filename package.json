@@ -3,9 +3,6 @@
   "version": "3.6.0",
   "description": "A discord membot",
   "main": "index.js",
-  "engines": {
-    "node": "16.x"
-  },
   "dependencies": {
     "abbrev": "^1.1.1",
     "abort-controller": "^3.0.0",
