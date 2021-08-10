@@ -1,4 +1,4 @@
-const Discord = require('discord.js');
+import { MessageEmbed } from 'discord.js';
 
 const punchgif = [
 	"https://i.pinimg.com/originals/66/76/7a/66767af902113b20978f5880593b29af.gif",
@@ -6,25 +6,23 @@ const punchgif = [
 	"https://media2.giphy.com/media/arbHBoiUWUgmc/200.gif"
 ];
 
-module.exports = {
-	name: 'punch',
-	description: 'Punch a user!',
-	arguments: 1,
-	async execute(message) {
+export const name = 'punch';
+export const description = 'Punch a user!';
+export const arguments = 1;
+export async function execute(message) {
 
-		if (message.mentions.members.first()) {
+	if (message.mentions.members.first()) {
 
-			const member = message.mentions.members.first();
-			const embed = new Discord.MessageEmbed()
-				.setDescription(`${message.author} punches ${member}!`)
-				.setColor('RANDOM')
-				.setImage(`${punchgif[Math.floor(Math.random() * [punchgif.length])]}`)
-				.setTimestamp();
-			message.channel.send({ embeds: [embed] });
-		}
-		else {
-			message.channel.send({ content: "Please provide a user mention to punch!" });
-		}
-
+		const member = message.mentions.members.first();
+		const embed = new MessageEmbed()
+			.setDescription(`${message.author} punches ${member}!`)
+			.setColor('RANDOM')
+			.setImage(`${punchgif[Math.floor(Math.random() * [punchgif.length])]}`)
+			.setTimestamp();
+		message.channel.send({ embeds: [embed] });
 	}
-};
+	else {
+		message.channel.send({ content: "Please provide a user mention to punch!" });
+	}
+
+}

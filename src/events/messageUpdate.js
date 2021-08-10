@@ -1,10 +1,8 @@
-const { detector } = require('discord.js-ghost-ping');
+import { detector } from 'discord.js-ghost-ping';
 
-module.exports = {
-	name: 'messageUpdate',
-	async execute(oldMessage, newMessage) {
+export const name = 'messageUpdate';
+export async function execute(oldMessage, newMessage) {
 
-		await detector('messageUpdate', oldMessage, newMessage);
+    detector('messageUpdate', oldMessage, newMessage);
 
-	}
-};
+}

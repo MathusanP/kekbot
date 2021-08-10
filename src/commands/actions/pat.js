@@ -1,4 +1,4 @@
-const Discord = require('discord.js');
+import { MessageEmbed } from 'discord.js';
 
 const patgifs = [
 	"https://media.tenor.com/images/8237d7da8cbd7227d67d735d437612cf/tenor.gif",
@@ -6,26 +6,24 @@ const patgifs = [
 	"https://i.pinimg.com/originals/c2/23/2a/c2232aec426d8b5e85e026cbca410463.gif"
 ];
 
-module.exports = {
-	name: 'pat',
-	description: 'Pat a user!',
-	arguments: 1,
-	usage: '<member>',
-	async execute(message) {
+export const name = 'pat';
+export const description = 'Pat a user!';
+export const arguments = 1;
+export const usage = '<member>';
+export async function execute(message) {
 
-		if (message.mentions.members.first()) {
-			const member = message.mentions.members.first();
-			const embed = new Discord.MessageEmbed()
-				.setDescription(`${message.author} pats ${member}!`)
-				.setColor('RANDOM')
-				.setImage(`${patgifs[Math.floor(Math.random() * [patgifs.length])]}`)
-				.setTimestamp();
-			message.channel.send({ embeds: [embed] });
-
-		}
-		else {
-			message.channel.send({ contents: "Please provide a user mention to pat!" });
-		}
+	if (message.mentions.members.first()) {
+		const member = message.mentions.members.first();
+		const embed = new MessageEmbed()
+			.setDescription(`${message.author} pats ${member}!`)
+			.setColor('RANDOM')
+			.setImage(`${patgifs[Math.floor(Math.random() * [patgifs.length])]}`)
+			.setTimestamp();
+		message.channel.send({ embeds: [embed] });
 
 	}
-};
+	else {
+		message.channel.send({ contents: "Please provide a user mention to pat!" });
+	}
+
+}

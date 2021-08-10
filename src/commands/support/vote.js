@@ -1,11 +1,9 @@
-module.exports = {
-	name: 'vote',
-	aliases: ['top.gg'],
-	description: 'Gives you our voting links!',
-	arguments: 0,
-	async execute(message) {
+export const name = 'vote';
+export const aliases = ['top.gg'];
+export const description = 'Gives you our voting links!';
+export const arguments = 0;
+export async function execute(message) {
 
-		message.channel.send({ content: "You can vote for https://top.gg/bot/734007071686787123" });
+	message.channel.send({ content: "You can vote for https://top.gg/bot/734007071686787123" });
 
-	}
-};
+}

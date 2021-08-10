@@ -1,4 +1,4 @@
-const Discord = require('discord.js');
+import { MessageEmbed } from 'discord.js';
 
 const kissgifs = [
 	"https://media.tenor.com/images/197df534507bd229ba790e8e1b5f63dc/tenor.gif",
@@ -6,25 +6,23 @@ const kissgifs = [
 	"https://i.pinimg.com/originals/66/19/1b/66191b81d5bf6c70bd065736f3e8662b.gif"
 ];
 
-module.exports = {
-	name: 'kiss',
-	description: 'Kiss a user!',
-	arguments: 1,
-	usage: '<member>',
-	async execute(message) {
+export const name = 'kiss';
+export const description = 'Kiss a user!';
+export const arguments = 1;
+export const usage = '<member>';
+export async function execute(message) {
 
-		if (message.mentions.members.first()) {
-			const member = message.mentions.members.first();
-			const embed = new Discord.MessageEmbed()
-				.setDescription(`${message.author} kisses ${member}!`)
-				.setColor('RANDOM')
-				.setImage(`${kissgifs[Math.floor(Math.random() * [kissgifs.length])]}`)
-				.setTimestamp();
-			message.channel.send({ emebds: [embed] });
-		}
-		else {
-			message.channel.send({ content: "Please provide a user mention to kiss!" });
-		}
-
+	if (message.mentions.members.first()) {
+		const member = message.mentions.members.first();
+		const embed = new MessageEmbed()
+			.setDescription(`${message.author} kisses ${member}!`)
+			.setColor('RANDOM')
+			.setImage(`${kissgifs[Math.floor(Math.random() * [kissgifs.length])]}`)
+			.setTimestamp();
+		message.channel.send({ emebds: [embed] });
 	}
-};
+	else {
+		message.channel.send({ content: "Please provide a user mention to kiss!" });
+	}
+
+}

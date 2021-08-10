@@ -1,22 +1,20 @@
-const discord = require('discord.js');
+import { MessageEmbed } from 'discord.js';
 
-module.exports = {
-	name: 'socials',
-	description: 'Get links to all of my social medias.',
-	arguments: 0,
-	alias: ['social'],
-	execute(message) {
+export const name = 'socials';
+export const description = 'Get links to all of my social medias.';
+export const arguments = 0;
+export const alias = ['social'];
+export function execute(message) {
 
-		const embed = new discord.MessageEmbed()
-			.setColor('RANDOM')
-			.setDescription(`Here are my socials!`)
-			.addFields(
-				{ name: `**Twitter:**`, value:`https://twitter.com/k3kbot`, inline: true },
-				{ name: `**Instagram:**`, value: `https://www.instagram.com/k3kbot/`, inline: true },
-			)
-			.setFooter(`Email: kekbot6@gmail.com`);
+	const embed = new MessageEmbed()
+		.setColor('RANDOM')
+		.setDescription(`Here are my socials!`)
+		.addFields(
+			{ name: `**Twitter:**`, value: `https://twitter.com/k3kbot`, inline: true },
+			{ name: `**Instagram:**`, value: `https://www.instagram.com/k3kbot/`, inline: true }
+		)
+		.setFooter(`Email: kekbot6@gmail.com`);
 
-		message.channel.send({ embeds: [embed] });
+	message.channel.send({ embeds: [embed] });
 
-	}
-};
+}

@@ -1,10 +1,8 @@
-module.exports = {
-	name: 'bin',
-	description: 'Get a link to source bin.',
-	arguments: 0,
-	async execute(message) {
+export const name = 'bin';
+export const description = 'Get a link to source bin.';
+export const arguments = 0;
+export async function execute(message) {
 
-		message.channel.send({ content: "https://sourceb.in" });
+	message.channel.send({ content: "https://sourceb.in" });
 
-	}
-};
+}

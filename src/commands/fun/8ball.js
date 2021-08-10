@@ -1,4 +1,4 @@
-const Discord = require('discord.js');
+import { MessageEmbed } from 'discord.js';
 
 const possibleAnswers = [
 	`As I see it, yes.`,
@@ -23,22 +23,20 @@ const possibleAnswers = [
 	`You may rely on it.`
 ];
 
-module.exports = {
-	name: '8ball',
-	description: 'Ask a question, and get an answer from the all-knowing, magic 8ball!',
-	aliases: ["8-ball"],
-	arguments: 1,
-	usage: '<question>',
-	async execute(message, args) {
+export const name = '8ball';
+export const description = 'Ask a question, and get an answer from the all-knowing, magic 8ball!';
+export const aliases = ["8-ball"];
+export const arguments = 1;
+export const usage = '<question>';
+export async function execute(message, args) {
 
-		const embed = new Discord.MessageEmbed()
-			.setTitle(`Magic 8 Ball`)
-			.addField(`**Your Question:**`, `${args.slice(0).join(" ")}`)
-			.addField(`**My Answer**`, `${possibleAnswers[Math.floor((Math.random() * 19) + 0)]}`)
-			.setColor(`RANDOM`)
-			.setThumbnail(`https://i.imgur.com/SD5OXUV.jpg`);
+	const embed = new MessageEmbed()
+		.setTitle(`Magic 8 Ball`)
+		.addField(`**Your Question:**`, `${args.slice(0).join(" ")}`)
+		.addField(`**My Answer**`, `${possibleAnswers[Math.floor((Math.random() * 19) + 0)]}`)
+		.setColor(`RANDOM`)
+		.setThumbnail(`https://i.imgur.com/SD5OXUV.jpg`);
 
-		await message.channel.send({ embeds: [embed] });
+	await message.channel.send({ embeds: [embed] });
 
-	}
-};
+}

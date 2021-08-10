@@ -1,28 +1,28 @@
-const Discord = require("discord.js");
-const client = new Discord.Client({
+import { Client, Collection } from "discord.js";
+const client = new Client({
 	intents: ['GUILDS', 'GUILD_MESSAGES', 'GUILD_EMOJIS_AND_STICKERS', 'GUILD_WEBHOOKS'],
 	repliedUser: false
 });
 
-client.snipes = new Discord.Collection();
-client.text_commands = new Discord.Collection();
+client.snipes = new Collection();
+client.text_commands = new Collection();
 
-const mongoose = require('mongoose');
-mongoose.connect('mongodb+srv://kekbot:kekbot6@kekbot.2g0yc.mongodb.net/test', { useNewUrlParser: true, useUnifiedTopology: true });
-mongoose.set('useFindAndModify', false);
+import { connect, set } from 'mongoose';
+connect('mongodb+srv://kekbot:kekbot6@kekbot.2g0yc.mongodb.net/test', { useNewUrlParser: true, useUnifiedTopology: true });
+set('useFindAndModify', false);
 
 
-const fs = require('fs');
-const categories = fs.readdirSync(`${__dirname}/commands/`);
+import { readdirSync } from 'fs';
+const categories = readdirSync(`${__dirname}/commands/`);
 for (const category of categories) {
-	const commandFiles = fs.readdirSync(`${__dirname}/commands/${category}`).filter(File => File.endsWith('.js'));
+	const commandFiles = readdirSync(`${__dirname}/commands/${category}`).filter(File => File.endsWith('.js'));
 	for (const file of commandFiles) {
 		const command = require(`${__dirname}/commands/${category}/${file}`);
 		client.text_commands.set(command.name, command);
 	}
 }
 
-const eventFiles = fs.readdirSync(`${__dirname}/events`).filter(file => file.endsWith('.js'));
+const eventFiles = readdirSync(`${__dirname}/events`).filter(file => file.endsWith('.js'));
 for (const file of eventFiles) {
 	const event = require(`${__dirname}/events/${file}`);
 	if (event.once) client.once(event.name, (...args) => event.execute(...args, client));

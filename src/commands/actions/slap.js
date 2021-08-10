@@ -1,4 +1,4 @@
-const Discord = require('discord.js');
+import { MessageEmbed } from 'discord.js';
 
 const slapgifs = [
 	"https://media1.tenor.com/images/74db8b0b64e8d539aebebfbb2094ae84/tenor.gif?itemid=15144612",
@@ -6,26 +6,24 @@ const slapgifs = [
 	"https://i.imgur.com/o2SJYUS.gif"
 ];
 
-module.exports = {
-	name: 'slap',
-	description: 'Slap a user!',
-	arguments: 1,
-	usage: '<member>',
-	async execute(message) {
+export const name = 'slap';
+export const description = 'Slap a user!';
+export const arguments = 1;
+export const usage = '<member>';
+export async function execute(message) {
 
-		if (message.mentions.members.first()) {
+	if (message.mentions.members.first()) {
 
-			const member = message.mentions.members.first();
-			const embed = new Discord.MessageEmbed()
-				.setDescription(`${message.author} slaps ${member}!`)
-				.setColor('RANDOM')
-				.setImage(`${slapgifs[Math.floor(Math.random() * [slapgifs.length])]}`)
-				.setTimestamp();
-			message.channel.send({ embeds: [embed] });
-		}
-		else {
-			message.channel.send({ content: "Please provide a user mention to slap!" });
-		}
-
+		const member = message.mentions.members.first();
+		const embed = new MessageEmbed()
+			.setDescription(`${message.author} slaps ${member}!`)
+			.setColor('RANDOM')
+			.setImage(`${slapgifs[Math.floor(Math.random() * [slapgifs.length])]}`)
+			.setTimestamp();
+		message.channel.send({ embeds: [embed] });
 	}
-};
+	else {
+		message.channel.send({ content: "Please provide a user mention to slap!" });
+	}
+
+}

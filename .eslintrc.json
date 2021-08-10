@@ -4,9 +4,12 @@
 		"node": true,
 		"es6": true
 	},
-	"parserOptions": {
-		"ecmaVersion": 2019
-	},
+	"parser": "babel-eslint",
+    "parserOptions": {
+		"ecmaVersion": 2019,
+        "sourceType": "module",
+        "allowImportExportEverywhere": true
+    },
 	"rules": {
 		"brace-style": ["error", "stroustrup", { "allowSingleLine": true }],
 		"comma-spacing": "error",
@@ -32,7 +35,5 @@
 		"space-in-parens": "error",
 		"space-infix-ops": "error",
 		"space-unary-ops": "error"
-		
-	
 	}
 }

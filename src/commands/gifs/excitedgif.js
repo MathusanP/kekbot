@@ -1,18 +1,16 @@
-const { Tenorapikey } = require("../../../botconfig.json");
-const fetch = require('node-fetch');
+import { Tenorapikey } from "../../../botconfig.json";
+import fetch from 'node-fetch';
 
-module.exports = {
-	name: 'excitedgif',
-	description: 'Shows an excited gif.',
-	arguments: 0,
-	async execute(message) {
+export const name = 'excitedgif';
+export const description = 'Shows an excited gif.';
+export const arguments = 0;
+export async function execute(message) {
 
-		const url = `https://g.tenor.com/v1/search?q=excited&key=${Tenorapikey}&limit=8`;
-		const response = await fetch(url);
-		const json = await response.json();
-		const index = Math.floor(Math.random() * json.results.length);
+	const url = `https://g.tenor.com/v1/search?q=excited&key=${Tenorapikey}&limit=8`;
+	const response = await fetch(url);
+	const json = await response.json();
+	const index = Math.floor(Math.random() * json.results.length);
 
-		message.channel.send({ content: `${json.results[index].url}` });
+	message.channel.send({ content: `${json.results[index].url}` });
 
-	}
-};
+}

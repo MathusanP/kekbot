@@ -1,5 +1,5 @@
-const db = require('quick.db');
-const Discord = require('discord.js');
+import { table } from 'quick.db';
+import { MessageEmbed } from 'discord.js';
 
 const afkgif = [
 	"https://media.tenor.com/images/df51877535a3e38c9cccd2f23ff154a2/tenor.gif",
@@ -12,29 +12,27 @@ const afkexitgif = [
 	"https://thumbs.gfycat.com/SmugHatefulArmyworm-max-1mb.gif"
 ];
 
-module.exports = {
-	name: 'afk',
-	description: 'Makes you afk, anyone who pinges you will be notified that your afk , use kekafk to leave afk',
-	arguments: 0,
-	usage: '[reason]',
-	async execute(message, args) {
+export const name = 'afk';
+export const description = 'Makes you afk, anyone who pinges you will be notified that your afk , use kekafk to leave afk';
+export const arguments = 0;
+export const usage = '[reason]';
+export async function execute(message, args) {
 
-		const status = new db.table("Afks");
-		let afk = await status.fetch(message.author.id);
-		const embed = new Discord.MessageEmbed().setColor('RANDOM');
+	const status = new table("Afks");
+	let afk = await status.fetch(message.author.id);
+	const embed = new MessageEmbed().setColor('RANDOM');
 
-		if (!afk) {
-			embed.setDescription(`**${message.author.tag}** is now AFK.`)
-				.setImage(`${afkgif[Math.floor(Math.random() * [afkgif.length])]}`)
-				.setTimestamp();
-			status.set(message.author.id, args.join(" ") || `AFK`);
-		}
-		else {
-			embed.setDescription("You are no longer AFK")
-				.setImage(`${afkexitgif[Math.floor(Math.random() * [afkexitgif.length])]}`)
-				.setTimestamp();
-			status.delete(message.author.id);
-		}
-		message.channel.send({ embeds: [embed] });
+	if (!afk) {
+		embed.setDescription(`**${message.author.tag}** is now AFK.`)
+			.setImage(`${afkgif[Math.floor(Math.random() * [afkgif.length])]}`)
+			.setTimestamp();
+		status.set(message.author.id, args.join(" ") || `AFK`);
 	}
-};
+	else {
+		embed.setDescription("You are no longer AFK")
+			.setImage(`${afkexitgif[Math.floor(Math.random() * [afkexitgif.length])]}`)
+			.setTimestamp();
+		status.delete(message.author.id);
+	}
+	message.channel.send({ embeds: [embed] });
+}
