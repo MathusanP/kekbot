@@ -1,9 +1,11 @@
+const Discord = require('discord.js');
+
 const punishments = require('../../../models/ModSchema');
 
 module.exports = {
 	name: 'warn',
 	aliases: ["w"],
-	description: '',
+	description: 'Warns a member for breaking the rules.',
 	permissions: ['Kick Members'],
 	arguments: 1,
 	usage: '<member> [reason]',
@@ -15,7 +17,7 @@ module.exports = {
 
 		let reason = args[1] ? args.slice(1).join(" ") : "No reason specified";
 		if(reason.length > 1024) {
-			await mwssage.channel.send(`The reason specified was too long. Please keep reasons under 1024 characters`);
+			await message.channel.send({ content: `The reason specified was too long. Please keep reasons under 1024 characters` });
 			return;
 		}
 		reason = Discord.Util.cleanContent(reason, message);
@@ -33,7 +35,7 @@ module.exports = {
 			});
 			data.save();
 
-			message.channel.send(`Warned ${toWarn} for \`${reason}\``);
+			message.channel.send({ content: `Warned ${toWarn} for \`${reason}\`` });
 		}
 		else if (!data) {
 			let newData = new punishments({
@@ -47,8 +49,7 @@ module.exports = {
 			});
 			newData.save();
 
-			message.channel.send(`Warned ${toWarn} for \`${reason}\``);
+			message.channel.send({ content: `Warned ${toWarn} for \`${reason}\`` });
 		}
 	}
-
 };

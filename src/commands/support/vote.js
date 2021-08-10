@@ -1,12 +1,11 @@
 module.exports = {
 	name: 'vote',
 	aliases: ['top.gg'],
-	description: '',
+	description: 'Gives you our voting links!',
 	arguments: 0,
-	usage: '',
 	async execute(message) {
 
-		message.channel.send("You can vote for https://top.gg/bot/734007071686787123");
+		message.channel.send({ content: "You can vote for https://top.gg/bot/734007071686787123" });
 
 	}
 };

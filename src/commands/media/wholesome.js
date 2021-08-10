@@ -3,29 +3,21 @@ const got = require('got');
 
 module.exports = {
 	name: "wholesomememe",
-	description: '',
+	description: 'Fetches a wholesome meme',
 	arguments: 0,
-	usage: '',
 	async execute(message) {
 
-		const embed = new Discord.MessageEmbed();
 		got('https://www.reddit.com/r/wholesomememes/random/.json').then(response => {
+			const content = JSON.parse(response.body);
 
-			let content = JSON.parse(response.body);
-			let permalink = content[0].data.children[0].data.permalink;
-			let wholesomeUrl = `https://reddit.com${permalink}`;
-			let wholesomeImage = content[0].data.children[0].data.url;
-			let wholesomeTitle = content[0].data.children[0].data.title;
-			let wholesomeUpvotes = content[0].data.children[0].data.ups;
-			let wholesomeNumComments = content[0].data.children[0].data.num_comments;
-
-			embed.setTitle(`${wholesomeTitle}`)
-				.setURL(`${wholesomeUrl}`)
+			const embed = new Discord.MessageEmbed()
+				.setTitle(`${content[0].data.children[0].data.title}`)
+				.setURL(`https://reddit.com${content[0].data.children[0].data.permalink}`)
 				.setColor('RANDOM')
-				.setImage(wholesomeImage)
-				.setFooter(`👍 ${wholesomeUpvotes} 💬 ${wholesomeNumComments}`);
+				.setImage(`${content[0].data.children[0].data.url}`)
+				.setFooter(`👍 ${content[0].data.children[0].data.ups} 💬 ${content[0].data.children[0].data.num_comments}`);
 
-			message.channel.send(embed);
+			message.channel.send({ embeds: [embed] });
 
 		});
 	}

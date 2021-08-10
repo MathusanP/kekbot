@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 
 module.exports = {
 	name: 'handshake',
-	description: '',
+	description: 'Handshake a user!',
 	arguments: 1,
 	usage: '<member>',
 	async execute(message) {
@@ -12,15 +12,16 @@ module.exports = {
 			const member = message.mentions.members.first();
 
 			const embed = new Discord.MessageEmbed()
-				.setDescription(`<@${message.author.id}> shakes hand with <@${member.id}>!`)
+				.setDescription(`${message.author} shakes hand with ${member}!`)
 				.setColor('RANDOM')
 				.setImage(`https://giffiles.alphacoders.com/138/138824.gif`)
 				.setTimestamp();
-			message.channel.send(embed);
+
+			message.channel.send({ embeds: [embed] });
 
 		}
 		else{
-			message.reply("Please provide a user mention to handhshake!");
+			message.channel.send({ content: "Please provide a user mention to handhshake!" });
 		}
 
 	}

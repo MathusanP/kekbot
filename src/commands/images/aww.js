@@ -3,30 +3,23 @@ const got = require('got');
 
 module.exports = {
 	name: 'aww',
-	description: '',
+	description: 'Shows a very cute picture.',
 	aliases: ["cute"],
 	arguments: 0,
-	usage: '',
 	async execute(message) {
 
-		const embed = new Discord.MessageEmbed();
 		got('https://www.reddit.com/r/aww/random/.json').then(response => {
-			let content = JSON.parse(response.body);
-			let permalink = content[0].data.children[0].data.permalink;
-			let awwUrl = `https://reddit.com${permalink}`;
-			let awwImage = content[0].data.children[0].data.url;
-			let awwTitle = content[0].data.children[0].data.title;
-			let awwUpvotes = content[0].data.children[0].data.ups;
-			let awwNumComments = content[0].data.children[0].data.num_comments;
+			const content = JSON.parse(response.body);
 
-			embed.setTitle(`${awwTitle}`)
-				.setURL(`${awwUrl}`)
+			const embed = new Discord.MessageEmbed()
+				.setTitle(`${content[0].data.children[0].data.title}`)
+				.setURL(`https://reddit.com${content[0].data.children[0].data.permalink}`)
 				.setColor('RANDOM')
-				.setImage(awwImage)
-				.setFooter(`👍 ${awwUpvotes} 💬 ${awwNumComments}`);
+				.setImage(`${content[0].data.children[0].data.url}`)
+				.setFooter(`👍 ${content[0].data.children[0].data.ups} 💬 ${content[0].data.children[0].data.num_comments}`);
 
-			message.channel.send(embed);
+			message.channel.send({ embeds: [embed] });
 
-		}).catch(console.error);
+		});
 	}
 };

@@ -4,29 +4,21 @@ const got = require('got');
 module.exports = {
 	name: "quote",
 	aliases: ["quotes"],
-	description: '',
+	description: 'Fetches a quote from r/quotes',
 	arguments: 0,
-	usage: '',
 	async execute(message) {
 
-		const embed = new Discord.MessageEmbed();
 		got('https://www.reddit.com/r/quotes/random/.json').then(response => {
+			const content = JSON.parse(response.body);
 
-			let content = JSON.parse(response.body);
-			let permalink = content[0].data.children[0].data.permalink;
-			let quotesUrl = `https://reddit.com${permalink}`;
-			let quotesImage = content[0].data.children[0].data.url;
-			let quotesTitle = content[0].data.children[0].data.title;
-			let quotesUpvotes = content[0].data.children[0].data.ups;
-			let quotesNumComments = content[0].data.children[0].data.num_comments;
-
-			embed.setTitle(`${quotesTitle}`)
-				.setURL(`${quotesUrl}`)
+			const embed = new Discord.MessageEmbed()
+				.setTitle(`${content[0].data.children[0].data.title}`)
+				.setURL(`https://reddit.com${content[0].data.children[0].data.permalink}`)
 				.setColor('RANDOM')
-				.setImage(quotesImage)
-				.setFooter(`👍 ${quotesUpvotes} 💬 ${quotesNumComments}`);
+				.setImage(`${content[0].data.children[0].data.url}`)
+				.setFooter(`👍 ${content[0].data.children[0].data.ups} 💬 ${content[0].data.children[0].data.num_comments}`);
 
-			message.channel.send(embed);
+			message.channel.send({ embeds: [embed] });
 
 		});
 	}

@@ -2,9 +2,8 @@ const Discord = require('discord.js');
 
 module.exports = {
 	name: 'about',
-	description: 'Shows lots of cool information about the bot.',
+	description: 'shows lots of cool information about the bot.',
 	arguments: 0,
-	usage: '',
 	execute(message, args, prefix, client) {
 
 		const servers = client.guilds.cache.size;
@@ -21,13 +20,13 @@ module.exports = {
 				{ name: `**Total Servers:**`, value:`${servers}`, inline: true },
 				{ name: `**Total Users:**`, value: `${users}`, inline: true },
 				{ name: `**Total Commands:**`, value: `46`, inline: true },
-				{ name: `**Version:**`, value: `3.6`, inline: true },
+				{ name: `**Version:**`, value: `3.6.1`, inline: true },
 				{ name: `**Developer:**`, value:`**Bagel#1475**\n**[ThatsLiamS#6950](https://github.com/ThatsLiamS)**`, inline: true },
 				{ name: `**Uptime:**`, value:`${uptime}`, inline: true },
 			)
 			.setFooter(`Do '${prefix}help' to get started`);
 
-		message.channel.send(embed);
+		message.channel.send({ embeds: [embed] });
 
 	}
 };

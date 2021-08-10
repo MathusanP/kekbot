@@ -4,29 +4,23 @@ const got = require('got');
 module.exports = {
 	name: "catpics",
 	aliases: ["cat", "catpics", "catpicture", "cats", "catpic"],
-	description: '',
+	description: 'Shows a picture of a cat from r/cats',
 	arguments: 0,
-	usage: '',
 	async execute(message) {
 
-		const embed = new Discord.MessageEmbed();
 		got('https://www.reddit.com/r/cats/random/.json').then(response => {
-			let content = JSON.parse(response.body);
-			let permalink = content[0].data.children[0].data.permalink;
-			let catsUrl = `https://reddit.com${permalink}`;
-			let catsImage = content[0].data.children[0].data.url;
-			let catsTitle = content[0].data.children[0].data.title;
-			let catsUpvotes = content[0].data.children[0].data.ups;
-			let catsNumComments = content[0].data.children[0].data.num_comments;
+			const content = JSON.parse(response.body);
 
-			embed.setTitle(`${catsTitle}`);
-			embed.setURL(`${catsUrl}`);
-			embed.setColor('RANDOM');
-			embed.setImage(catsImage);
-			embed.setFooter(`👍 ${catsUpvotes} 💬 ${catsNumComments}`);
-			message.channel.send(embed);
+			const embed = new Discord.MessageEmbed()
+				.setTitle(`${content[0].data.children[0].data.title}`)
+				.setURL(`https://reddit.com${content[0].data.children[0].data.permalink}`)
+				.setColor('RANDOM')
+				.setImage(`${content[0].data.children[0].data.url}`)
+				.setFooter(`👍 ${content[0].data.children[0].data.ups} 💬 ${content[0].data.children[0].data.num_comments}`);
 
-		}).catch(console.error);
+			message.channel.send({ embeds: [embed] });
+
+		});
 	}
 };
 

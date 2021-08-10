@@ -2,11 +2,11 @@ const abc = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N
 
 module.exports = {
 	name: 'abc',
-	description: '',
+	description: 'generates a random English letter!',
 	arguments: 0,
-	usage: '',
 	async execute(message) {
 
-		message.channel.send(`${abc[Math.floor(Math.random() * [abc.length])]}`);
+		message.channel.send({ content: `${abc[Math.floor(Math.random() * [abc.length])]}` });
+
 	}
 };

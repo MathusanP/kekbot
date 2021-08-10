@@ -4,29 +4,22 @@ const got = require('got');
 module.exports = {
 	name: "dog",
 	aliases: ["dogpic", "dogpics", "dogs"],
-	description: '',
+	description: 'Shows a picture of a dog from r/dog',
 	arguments: 0,
-	usage: '',
 	async execute(message) {
 
-		const embed = new Discord.MessageEmbed();
-
 		got('https://www.reddit.com/r/dog/random/.json').then(response => {
-			let content = JSON.parse(response.body);
-			let permalink = content[0].data.children[0].data.permalink;
-			let dogsUrl = `https://reddit.com${permalink}`;
-			let dogsImage = content[0].data.children[0].data.url;
-			let dogsTitle = content[0].data.children[0].data.title;
-			let dogsUpvotes = content[0].data.children[0].data.ups;
-			let dogsNumComments = content[0].data.children[0].data.num_comments;
+			const content = JSON.parse(response.body);
 
-			embed.setTitle(`${dogsTitle}`);
-			embed.setURL(`${dogsUrl}`);
-			embed.setColor('RANDOM');
-			embed.setImage(dogsImage);
-			embed.setFooter(`👍 ${dogsUpvotes} 💬 ${dogsNumComments}`);
-			message.channel.send(embed);
+			const embed = new Discord.MessageEmbed()
+				.setTitle(`${content[0].data.children[0].data.title}`)
+				.setURL(`https://reddit.com${content[0].data.children[0].data.permalink}`)
+				.setColor('RANDOM')
+				.setImage(`${content[0].data.children[0].data.url}`)
+				.setFooter(`👍 ${content[0].data.children[0].data.ups} 💬 ${content[0].data.children[0].data.num_comments}`);
 
-		}).catch(console.error);
+			message.channel.send({ embeds: [embed] });
+
+		});
 	}
 };

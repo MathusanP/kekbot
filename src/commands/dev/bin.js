@@ -1,11 +1,10 @@
 module.exports = {
 	name: 'bin',
-	description: '',
+	description: 'Get a link to source bin.',
 	arguments: 0,
-	usage: '',
 	async execute(message) {
 
-		message.channel.send("https://sourceb.in");
+		message.channel.send({ content: "https://sourceb.in" });
 
 	}
 };

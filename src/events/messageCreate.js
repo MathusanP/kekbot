@@ -1,4 +1,3 @@
-/* eslint-disable semi */
 const fetch = require("node-fetch").default;
 const db = require('quick.db');
 const Discord = require('discord.js');
@@ -7,7 +6,7 @@ const prefix = 'kek';
 const escapeRegex = str => str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
 module.exports = {
-	name: 'message',
+	name: 'messageCreate',
 	async execute(message, client) {
 		if (message.author.bot || message.guild === null) { return; }
 
@@ -21,7 +20,7 @@ module.exports = {
 				const embed = new Discord.MessageEmbed()
 					.setColor('RANDOM')
 					.setDescription(`This user (${mentioned.user.tag}) is AFK: **${status}**`);
-				message.channel.send(embed).then(i => i.delete({ timeout: 5000 }));
+				message.channel.send({ embeds: [embed] }).then(i => i.delete({ timeout: 5000 }));
 			}
 		}
 		//The command below is a conclave exclusive command and will not be available elsewhere!
@@ -29,7 +28,7 @@ module.exports = {
 			fetch(`https://api.monkedev.com/fun/chat?msg=${message.content}&uid=${message.author.id}315393628891512832&key=cCXhQnbQAwP89II63ro9p8Kgw`)
 				.then(response => response.json())
 				.then(data => {
-					message.channel.send(data.response);
+					message.channel.send({ content: data.response });
 				});
 		}
 
@@ -53,7 +52,7 @@ module.exports = {
 								&& !message.member.permissions.has(permission.trim().toUpperCase().replace(" ", "_"))
 								&& !message.member.permissions.has('ADMINISTRATOR')) {
 
-								await message.channel.send(`You do not have permission to use this command.`)
+								await message.channel.send({ content: `You do not have permission to use this command.` });
 								allowed = false;
 							}
 						}
@@ -63,7 +62,7 @@ module.exports = {
 						const number = cmd.arguments;
 						if(number >= 1) {
 							if(!args[number - 1]) {
-								await message.channel.send(`Incorrect usage, make sure it follows the format: \`${prefix}${cmd.name} ${cmd.usage}\``);
+								await message.channel.send({ content: `Incorrect usage, make sure it follows the format: \`${prefix}${cmd.name} ${cmd.usage}\`` });
 								allowed = false;
 							}
 						}

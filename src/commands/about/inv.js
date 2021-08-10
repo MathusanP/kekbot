@@ -1,11 +1,10 @@
 module.exports = {
 	name: 'inv',
-	description: '',
+	description: 'Gives you a link to invite kekbot on your server!',
 	arguments: 0,
-	usage: '',
 	async execute(message) {
 
-		message.channel.send("You can invite me here: https://dsc.gg/kekinv");
+		message.channel.send({ content: "You can invite me here: https://dsc.gg/kekinv" });
 
 	}
 };

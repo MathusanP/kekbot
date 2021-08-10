@@ -2,31 +2,23 @@ const Discord = require('discord.js');
 const got = require('got');
 
 module.exports = {
-	name: "turtlepic",
+	name: "turtle",
 	aliases: ["Turtles", "turtlepicture", "turtle", "Turtle"],
-	description: '',
+	description: 'Shows a picture of a turtle from r/turtle',
 	arguments: 0,
-	usage: '',
 	async execute(message) {
 
-		const embed = new Discord.MessageEmbed();
 		got('https://www.reddit.com/r/turtle/random/.json').then(response => {
+			const content = JSON.parse(response.body);
 
-			let content = JSON.parse(response.body);
-			let permalink = content[0].data.children[0].data.permalink;
-			let turtleUrl = `https://reddit.com${permalink}`;
-			let turtleImage = content[0].data.children[0].data.url;
-			let turtleTitle = content[0].data.children[0].data.title;
-			let turtleUpvotes = content[0].data.children[0].data.ups;
-			let turtleNumComments = content[0].data.children[0].data.num_comments;
-
-			embed.setTitle(`${turtleTitle}`)
-				.setURL(`${turtleUrl}`)
+			const embed = new Discord.MessageEmbed()
+				.setTitle(`${content[0].data.children[0].data.title}`)
+				.setURL(`https://reddit.com${content[0].data.children[0].data.permalink}`)
 				.setColor('RANDOM')
-				.setImage(turtleImage)
-				.setFooter(`👍 ${turtleUpvotes} 💬 ${turtleNumComments}`);
+				.setImage(`${content[0].data.children[0].data.url}`)
+				.setFooter(`👍 ${content[0].data.children[0].data.ups} 💬 ${content[0].data.children[0].data.num_comments}`);
 
-			message.channel.send(embed);
+			message.channel.send({ embeds: [embed] });
 
 		});
 	}

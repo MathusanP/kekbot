@@ -1,12 +1,11 @@
 module.exports = {
 	name: 'ping',
-	description: '',
+	description: 'How fast does the bot respond?',
 	arguments: 0,
-	usage: '',
 	async execute(message) {
 
-		const m = await message.channel.send("Awaiting ping...");
-		m.edit(`Pong! The number no one asked for is ${m.createdTimestamp - message.createdTimestamp}ms.`);
+		const m = await message.channel.send({ content: "Awaiting ping..." });
+		m.edit({ content: `Pong! The number no one asked for is ${m.createdTimestamp - message.createdTimestamp}ms.` });
 
 	}
 };

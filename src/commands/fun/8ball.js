@@ -1,6 +1,7 @@
 const Discord = require('discord.js');
 
-const possibleAnswers = [`As I see it, yes.`,
+const possibleAnswers = [
+	`As I see it, yes.`,
 	`Ask again later.`,
 	`Better not tell you now.`,
 	`Cannot predict now.`,
@@ -37,7 +38,7 @@ module.exports = {
 			.setColor(`RANDOM`)
 			.setThumbnail(`https://i.imgur.com/SD5OXUV.jpg`);
 
-		await message.channel.send(embed);
+		await message.channel.send({ embeds: [embed] });
 
 	}
 };

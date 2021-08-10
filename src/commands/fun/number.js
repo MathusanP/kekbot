@@ -2,12 +2,11 @@ const number = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 69];
 
 module.exports = {
 	name: 'number',
-	description: '',
+	description: 'Generates a random number between 1 and 10.',
 	arguments: 0,
-	usage: '',
 	async execute(message) {
 
-		message.channel.send(`${number[Math.floor(Math.random() * [number.length])]}`);
+		message.channel.send({ content: `${number[Math.floor(Math.random() * [number.length])]}` });
 
 	}
 };

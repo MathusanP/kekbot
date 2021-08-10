@@ -31,7 +31,7 @@ module.exports = {
 			.setFooter('All media images are from reddit with the reddit post linked!')
 			.setColor('RANDOM')
 			.addFields(
-				{ name: 'meme', value: 'Fetches a meme from R/memes', inline: true, },
+				{ name: 'meme', value: 'Fetches a meme from r/memes', inline: true, },
 				{ name: 'quote', value: 'Fetches a quote from r/quotes', inline: true, },
 				{ name: 'wholesome', value: 'Fetches a wholesome meme', inline: true, },
 				{ name: 'news', value: 'View the news from r/news!', inline: true, },
@@ -155,57 +155,43 @@ module.exports = {
 				{ name: 'abc', value: 'Fetches a random letter from the english alphabet', inline: true }
 			);
 
-		const summer = new Discord.MessageEmbed()
-			.setTitle('Here are some fun commands!')
-			.setFooter('You can support us using keksupport!')
-			.setColor('RANDOM')
-			.addFields(
-				{ name: 'olympics', value: 'View the latest feed from r/olympics', inline: true, },
-				{ name: 'summegif', value: 'Express your feelings with a summer gif!', inline: true },
-				{ name: 'weather <city>', value: 'View the latest weather forcast!', inline: true },
-			);
-
-
-		if(!args[0]) { return message.channel.send(help); }
+		if(!args[0]) { return message.channel.send({ embeds: [help] }); }
 
 		else if(args[0] == 'moderation') {
-			return message.channel.send(moderation);
+			return message.channel.send({ embeds: [moderation] });
 		}
 		else if(args[0] == 'fun') {
-			return message.channel.send(fun);
+			return message.channel.send({ embeds: [fun] });
 		}
 		else if(args[0] == 'actions') {
-			return message.channel.send(actions);
+			return message.channel.send({ embeds: [actions] });
 		}
 		else if(args[0] == 'gifs') {
-			return message.channel.send(gifs);
+			return message.channel.send({ embeds: [gifs] });
 		}
 		else if(args[0] == 'support') {
-			return message.channel.send(support);
+			return message.channel.send({ embeds: [support] });
 		}
 		else if(args[0] == 'dev') {
-			return message.channel.send(dev);
+			return message.channel.send({ embeds: [dev] });
 		}
 		else if(args[0] == 'games') {
-			return message.channel.send(games);
+			return message.channel.send({ embeds: [games] });
 		}
 		else if(args[0] == 'images') {
-			return message.channel.send(images);
+			return message.channel.send({ embeds: [images] });
 		}
 		else if(args[0] == 'utils') {
-			return message.channel.send(utils);
+			return message.channel.send({ embeds: [utils] });
 		}
 		else if(args[0] == 'about') {
-			return message.channel.send(about);
+			return message.channel.send({ embeds: [about] });
 		}
 		else if(args[0] == 'media') {
-			return message.channel.send(media);
-		}
-		else if(args[0] == 'summer') {
-			return message.channel.send(summer);
+			return message.channel.send({ embeds: [media] });
 		}
 		else{
-			return message.channel.send(help);
+			return message.channel.send({ embeds: [help] });
 		}
 	}
 };

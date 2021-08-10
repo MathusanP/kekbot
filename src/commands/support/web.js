@@ -1,12 +1,11 @@
 module.exports = {
 	name: 'web',
 	aliases: ['site', 'website'],
-	description: '',
+	description: 'Gives a link to our cool website!',
 	arguments: 0,
-	usage: '',
 	async execute(message) {
 
-		message.channel.send("Here is our website! https://www.kekbot.cf");
+		message.channel.send({ content: "Here is our website! https://www.kekbot.cf" });
 
 	}
 };

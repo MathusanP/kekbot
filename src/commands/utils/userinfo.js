@@ -4,7 +4,7 @@ const moment = require('moment');
 module.exports = {
 	name: "userinfo",
 	aliases: ["whois", 'info'],
-	description: '',
+	description: 'It shows a description of the person',
 	arguments: 0,
 	usage: '[member]',
 	async execute(message, args) {
@@ -20,11 +20,11 @@ module.exports = {
 			.setTimestamp()
 			.setColor('RANDOM')
 			.setImage(member.user.displayAvatarURL())
-			.addField("Member ID", member.id)
+			.addField("Member ID", `${member.id}`)
 			.addField('Roles', `<@&${member._roles.join('> <@&')}>`)
 			.addField("Account Created On:", ` ${moment.utc(member.user.createdAt).format("dddd, MMMM Do YYYY")}`, true)
-			.addField('Joined the server At', `${joineddate} \n> ${joined} day(S) Ago`);
+			.addField('Joined the server At', `${joineddate} \n> ${joined} day(s) Ago`);
 
-		message.channel.send(userEmbed);
+		message.channel.send({ embeds: [userEmbed] });
 	}
 };
