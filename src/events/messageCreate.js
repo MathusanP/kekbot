@@ -1,12 +1,14 @@
 import fetch from "node-fetch";
-import { table } from 'quick.db';
 import { MessageEmbed } from 'discord.js';
+import pkg from 'quick.db';
+const { table } = pkg;
 
 const prefix = 'kek';
 const escapeRegex = str => str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
-export const name = 'messageCreate';
-export async function execute(message, client) {
+const name = 'messageCreate';
+const execute = async (message, client) => {
+
 	if (message.author.bot || message.guild === null) { return; }
 
 	let afk = new table("AFKs");
@@ -57,8 +59,8 @@ export async function execute(message, client) {
 					}
 				}
 
-				if (cmd.arguments && allowed === true) {
-					const number = cmd.arguments;
+				if (cmd.args && allowed === true) {
+					const number = cmd.args;
 					if (number >= 1) {
 						if (!args[number - 1]) {
 							await message.channel.send({ content: `Incorrect usage, make sure it follows the format: \`${prefix}${cmd.name} ${cmd.usage}\`` });
@@ -74,3 +76,5 @@ export async function execute(message, client) {
 		}
 	}
 }
+
+export { name, execute };

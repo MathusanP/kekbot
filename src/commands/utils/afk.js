@@ -1,5 +1,6 @@
-import { table } from 'quick.db';
 import { MessageEmbed } from 'discord.js';
+import pkg from 'quick.db';
+const { table } = pkg;
 
 const afkgif = [
 	"https://media.tenor.com/images/df51877535a3e38c9cccd2f23ff154a2/tenor.gif",
@@ -14,9 +15,9 @@ const afkexitgif = [
 
 export const name = 'afk';
 export const description = 'Makes you afk, anyone who pinges you will be notified that your afk , use kekafk to leave afk';
-export const arguments = 0;
+export const args = 0;
 export const usage = '[reason]';
-export async function execute(message, args) {
+export const execute = async (message, args) => {
 
 	const status = new table("Afks");
 	let afk = await status.fetch(message.author.id);

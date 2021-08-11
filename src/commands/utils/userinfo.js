@@ -1,12 +1,13 @@
 import { MessageEmbed } from 'discord.js';
-import { utc } from 'moment';
+import pkg from 'moment';
+const { utc } = pkg;
 
 export const name = "userinfo";
 export const aliases = ["whois", 'info'];
 export const description = 'It shows a description of the person';
-export const arguments = 0;
+export const args = 0;
 export const usage = '[member]';
-export async function execute(message, args) {
+export const execute = (message, args) => {
 
 	let member = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(x => x.user.username.toLowerCase() === args.slice(0).join(" ") || x.user.username === args[0]) || message.member;
 

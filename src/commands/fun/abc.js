@@ -2,8 +2,8 @@ const abc = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N
 
 export const name = 'abc';
 export const description = 'generates a random English letter!';
-export const arguments = 0;
-export async function execute(message) {
+export const args = 0;
+export const execute = (message) => {
 
 	message.channel.send({ content: `${abc[Math.floor(Math.random() * [abc.length])]}` });
 

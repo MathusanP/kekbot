@@ -2,9 +2,9 @@ import { MessageEmbed } from 'discord.js';
 
 export const name = 'help';
 export const description = '';
-export const arguments = 0;
+export const args = 0;
 export const usage = '[category]';
-export async function execute(message, args) {
+export const execute = (message, args) => {
 
 	const help = new MessageEmbed()
 		.setTitle('Our commands')
@@ -22,7 +22,6 @@ export async function execute(message, args) {
 			{ name: 'Actions', value: 'kekhelp actions', inline: true, },
 			{ name: 'Media', value: 'kekhelp media', inline: true, },
 			{ name: 'Support', value: 'kekhelp support', inline: true },
-			{ name: 'Summer', value: 'kekhelp summer', inline: true }
 		);
 
 	const media = new MessageEmbed()
@@ -44,7 +43,6 @@ export async function execute(message, args) {
 		.setFooter('This bot is still in the making, More commands are still yet to come!')
 		.setColor('RANDOM')
 		.addFields(
-			// { name: 'kick', value: 'Kicks the mentioned user if the person who kicks has the correct permissions', inline: true, },
 			{ name: 'purge', value: 'Deletes a given number of messages from the channel', inline: true, },
 			{ name: 'snipe', value: 'Snipes the last deleted message (This command is in beta)', inline: true },
 			{ name: 'warn', value: 'Warns a member for breaking the rules.', inline: true }

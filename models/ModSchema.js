@@ -1,9 +1,10 @@
-const mongoose = require('mongoose');
+import pkg from 'mongoose';
+const { Schema, model } = pkg;
 
-let ModSchema = new mongoose.Schema({
+let ModSchema = new Schema({
 	GuildID: String,
 	UserID: String,
 	Punishments: Array
 });
 
-module.exports = mongoose.model('Moderation', ModSchema);
+export default model('Moderation', ModSchema);

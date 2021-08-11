@@ -12,8 +12,8 @@ const rolls = [
 export const name = "diceroll";
 export const description = "diceroll | Roll a die.";
 export const aliases = ["dice", "roll", "dr"];
-export const arguments = 0;
-export async function execute(message) {
+export const args = 0;
+export const execute = (message) => {
 
 	const result = (Math.floor(Math.random() * Math.floor(6) + 1));
 

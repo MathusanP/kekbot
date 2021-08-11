@@ -4,8 +4,8 @@ const coinflip = ["Heads", "Tails"];
 
 export const name = 'flipcoin';
 export const description = 'Flips a coin [heads/tails]';
-export const arguments = 0;
-export async function execute(message) {
+export const v = 0;
+export const execute = (message) => {
 
 	const result = (`${coinflip[Math.floor(Math.random() * [coinflip.length])]}`);
 

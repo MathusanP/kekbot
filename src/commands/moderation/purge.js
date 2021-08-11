@@ -2,9 +2,9 @@ export const name = 'purge';
 export const aliases = ["clear", "remove"];
 export const description = 'Deletes a given number of messages from the channel';
 export const permissions = ['Manage Messages'];
-export const arguments = 1;
+export const args = 1;
 export const usage = '<number>';
-export async function execute(message, args) {
+export const execute = (message, args) => {
 
 	if (isNaN(args[0]) || parseInt(args[0]) <= 0) {
 		return message.channel.send({ content: 'Mate, your supposed to give me a number.' });

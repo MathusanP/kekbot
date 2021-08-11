@@ -1,7 +1,7 @@
 import { detector } from 'discord.js-ghost-ping';
 
-export const name = 'messageDelete';
-export async function execute(message, client) {
+const name = 'messageDelete';
+const execute = (message, client) => {
 
 	detector('messageDelete', message);
 
@@ -12,3 +12,5 @@ export async function execute(message, client) {
 		image: message.attachments.first() ? message.attachments.first().proxyURL : null
 	});
 }
+
+export { name, execute };

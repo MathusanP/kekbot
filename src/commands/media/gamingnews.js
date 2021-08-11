@@ -3,8 +3,8 @@ import got from 'got';
 
 export const name = "gamingnews";
 export const description = 'Get the latest gaming news from r/gamingnews!';
-export const arguments = 0;
-export async function execute(message) {
+export const args = 0;
+export const execute = (message) => {
 
 	got('https://www.reddit.com/r/gamingnews/random/.json').then(response => {
 		const content = JSON.parse(response.body);

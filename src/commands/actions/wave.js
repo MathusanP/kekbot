@@ -8,9 +8,9 @@ const wavegifs = [
 
 export const name = 'wave';
 export const description = 'Wave at a user!';
-export const arguments = 1;
+export const args = 1;
 export const usage = '<member>';
-export async function execute(message) {
+export const execute = (message) => {
 
 	if (message.mentions.members.first()) {
 		const member = message.mentions.members.first();

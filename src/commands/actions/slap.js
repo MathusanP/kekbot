@@ -8,9 +8,9 @@ const slapgifs = [
 
 export const name = 'slap';
 export const description = 'Slap a user!';
-export const arguments = 1;
+export const args = 1;
 export const usage = '<member>';
-export async function execute(message) {
+export const execute = (message) => {
 
 	if (message.mentions.members.first()) {
 

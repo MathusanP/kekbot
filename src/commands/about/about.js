@@ -2,8 +2,8 @@ import { MessageEmbed } from 'discord.js';
 
 export const name = 'about';
 export const description = 'shows lots of cool information about the bot.';
-export const arguments = 0;
-export function execute(message, args, prefix, client) {
+export const args = 0;
+export const execute = (message, args, prefix, client) => {
 
 	const servers = client.guilds.cache.size;
 	const users = client.guilds.cache.reduce((acc, guild) => acc + guild.memberCount, 0);

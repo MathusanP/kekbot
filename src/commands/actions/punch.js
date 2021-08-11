@@ -8,8 +8,8 @@ const punchgif = [
 
 export const name = 'punch';
 export const description = 'Punch a user!';
-export const arguments = 1;
-export async function execute(message) {
+export const args = 1;
+export const execute = (message) => {
 
 	if (message.mentions.members.first()) {
 

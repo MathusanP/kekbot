@@ -4,9 +4,9 @@ import { npm } from "popcat-wrapper";
 export const name = 'npm';
 export const description = 'Gets information about a npm package';
 export const aliases = ["pkgsearch", "packagesearch"];
-export const arguments = 1;
+export const args = 1;
 export const usage = '<package name>';
-export async function execute(message, args) {
+export const execute = async (message, args) => {
 
 	const name = args[0];
 

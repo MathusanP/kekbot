@@ -1,32 +1,43 @@
-import { Client, Collection } from "discord.js";
-const client = new Client({
+import { createRequire } from "module";
+const require = createRequire(import.meta.url)
+
+import { dirname } from 'path';
+import { fileURLToPath } from 'url';
+const __dirname = dirname(fileURLToPath(import.meta.url));
+
+const Discord = require('discord.js');
+const client = new Discord.Client({
 	intents: ['GUILDS', 'GUILD_MESSAGES', 'GUILD_EMOJIS_AND_STICKERS', 'GUILD_WEBHOOKS'],
-	repliedUser: false
 });
 
-client.snipes = new Collection();
-client.text_commands = new Collection();
+client.snipes = new Discord.Collection();
+client.text_commands = new Discord.Collection();
 
-import { connect, set } from 'mongoose';
+const { connect, set } = require('mongoose');
 connect('mongodb+srv://kekbot:kekbot6@kekbot.2g0yc.mongodb.net/test', { useNewUrlParser: true, useUnifiedTopology: true });
 set('useFindAndModify', false);
 
+const fs = require('fs');
 
-import { readdirSync } from 'fs';
-const categories = readdirSync(`${__dirname}/commands/`);
-for (const category of categories) {
-	const commandFiles = readdirSync(`${__dirname}/commands/${category}`).filter(File => File.endsWith('.js'));
-	for (const file of commandFiles) {
-		const command = require(`${__dirname}/commands/${category}/${file}`);
-		client.text_commands.set(command.name, command);
+(async () => {
+	const categories = fs.readdirSync(`${__dirname}/commands/`);
+	for (const category of categories) {
+		const commandFiles = fs.readdirSync(`${__dirname}/commands/${category}`).filter(File => File.endsWith('.js'));
+		for (const file of commandFiles) {
+
+			const command = await import(`./commands/${category}/${file}`);
+			client.text_commands.set(command.name, command);
+		}
 	}
-}
 
-const eventFiles = readdirSync(`${__dirname}/events`).filter(file => file.endsWith('.js'));
-for (const file of eventFiles) {
-	const event = require(`${__dirname}/events/${file}`);
-	if (event.once) client.once(event.name, (...args) => event.execute(...args, client));
-	else client.on(event.name, (...args) => event.execute(...args, client));
-}
+	const eventFiles = fs.readdirSync(`${__dirname}/events`).filter(file => file.endsWith('.js'));
+	for (const file of eventFiles) {
 
+		const { name, once, execute } = await import(`./events/${file}`);
+		if (once) { client.once(name, (...args) => execute(...args, client)); }
+		else { client.on(name, (...args) => execute(...args, client)); }
+	}
+})();
+
+require('dotenv').config()
 client.login(process.env['Token']);

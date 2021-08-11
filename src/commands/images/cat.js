@@ -4,8 +4,8 @@ import got from 'got';
 export const name = "catpics";
 export const aliases = ["cat", "catpics", "catpicture", "cats", "catpic"];
 export const description = 'Shows a picture of a cat from r/cats';
-export const arguments = 0;
-export async function execute(message) {
+export const args = 0;
+export const execute = (message) => {
 
 	got('https://www.reddit.com/r/cats/random/.json').then(response => {
 		const content = JSON.parse(response.body);

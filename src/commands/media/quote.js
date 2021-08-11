@@ -4,8 +4,8 @@ import got from 'got';
 export const name = "quote";
 export const aliases = ["quotes"];
 export const description = 'Fetches a quote from r/quotes';
-export const arguments = 0;
-export async function execute(message) {
+export const args = 0;
+export const execute = (message) => {
 
 	got('https://www.reddit.com/r/quotes/random/.json').then(response => {
 		const content = JSON.parse(response.body);

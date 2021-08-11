@@ -2,9 +2,9 @@ import { MessageEmbed } from 'discord.js';
 
 export const name = 'socials';
 export const description = 'Get links to all of my social medias.';
-export const arguments = 0;
+export const args = 0;
 export const alias = ['social'];
-export function execute(message) {
+export const execute = (message) => {
 
 	const embed = new MessageEmbed()
 		.setColor('RANDOM')

@@ -26,9 +26,9 @@ const possibleAnswers = [
 export const name = '8ball';
 export const description = 'Ask a question, and get an answer from the all-knowing, magic 8ball!';
 export const aliases = ["8-ball"];
-export const arguments = 1;
+export const args = 1;
 export const usage = '<question>';
-export async function execute(message, args) {
+export const execute = (message, args) => {
 
 	const embed = new MessageEmbed()
 		.setTitle(`Magic 8 Ball`)
@@ -37,6 +37,6 @@ export async function execute(message, args) {
 		.setColor(`RANDOM`)
 		.setThumbnail(`https://i.imgur.com/SD5OXUV.jpg`);
 
-	await message.channel.send({ embeds: [embed] });
+	message.channel.send({ embeds: [embed] });
 
 }

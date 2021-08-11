@@ -4,9 +4,9 @@ import got from 'got';
 export const name = "fashionframe";
 export const aliases = ["capturapics", "captura"];
 export const description = '';
-export const arguments = 0;
+export const args = 0;
 export const customCommand = true;
-export async function execute(message) {
+export const execute = (message) => {
 
 	got('https://www.reddit.com/r/WarframeRunway/random/.json').then(response => {
 		const content = JSON.parse(response.body);
