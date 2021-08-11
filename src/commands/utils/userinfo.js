@@ -26,4 +26,4 @@ export const execute = (message, args) => {
 		.addField('Joined the server At', `${joineddate} \n> ${joined} day(s) Ago`);
 
 	message.channel.send({ embeds: [userEmbed] });
-}
+}	
