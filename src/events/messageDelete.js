@@ -3,7 +3,7 @@ import { detector } from 'discord.js-ghost-ping';
 const name = 'messageDelete';
 const execute = (message, client) => {
 
-	detector('messageDelete', message);
+	detector("messageDelete", message).catch(() => {});
 
 	client.snipes.set(message.channel.id, {
 		content: message.content,

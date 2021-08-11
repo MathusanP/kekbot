@@ -41,3 +41,4 @@ const fs = require('fs');
 
 require('dotenv').config()
 client.login(process.env['Token']);
+//client.login("NzM2NTQ3Mjc5MzIxNjk0MjA5.XxwZGw.Stt7KtLeVdly8O4evE45YfHHz_o");
