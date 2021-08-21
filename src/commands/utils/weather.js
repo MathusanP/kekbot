@@ -20,12 +20,10 @@ export const execute = (message, args) => {
             .setAuthor(`Weather forecast for ${current.observationpoint}`)
             .setThumbnail(current.imageUrl)
             .setDescription(`**${current.skytext}**`)
-            .addField('TimeZone', `UTC ${location.timezone}`, true)
             .addField('Temperature', `${current.temperature}°C`, true)
             .addField('Wind', `${current.winddisplay}`, true)
             .addField('Feels like', `${current.feelslike}°`, true)
             .addField('Humidity', `${current.humidity}%`, true)
-            .addField('Day', `${current.day}`, true)
             .setFooter('Degree type: Celsius');
         message.channel.send({ embeds: [weatherEmbed] });
     })

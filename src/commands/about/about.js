@@ -19,9 +19,10 @@ export const execute = (message, args, prefix, client) => {
 			{ name: `**Total Servers:**`, value: `${servers}`, inline: true },
 			{ name: `**Total Users:**`, value: `${users}`, inline: true },
 			{ name: `**Total Commands:**`, value: `46`, inline: true },
-			{ name: `**Version:**`, value: `3.6.1`, inline: true },
-			{ name: `**Developer:**`, value: `**Bagel#1475**\n**[ThatsLiamS#6950](https://github.com/ThatsLiamS)**`, inline: true },
-			{ name: `**Uptime:**`, value: `${uptime}`, inline: true }
+			{ name: `**Version:**`, value: `3.6.2`, inline: true },
+			{ name: `**Developers:**`, value: `**[Bagel#1475](https://github.com/bagelwastaken)**\n**[ThatsLiamS#6950](https://github.com/ThatsLiamS)**`, inline: true },
+			{ name: `**Uptime:**`, value: `${uptime}`, inline: true },
+			{ name: `**Birthday:**`, value: `18/06/2020`, inline: true }
 		)
 		.setFooter(`Do '${prefix}help' to get started`);
 
