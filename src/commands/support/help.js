@@ -136,8 +136,10 @@ export const execute = (message, args) => {
 			{ name: 'hug <user>', value: 'Hug a user!', inline: true, },
 			{ name: 'handshake <user>', value: 'Handshake a user!', inline: true, },
 			{ name: 'kiss <user>', value: 'Kiss a user!', inline: true, },
-			{ name: 'wave <user>', value: 'Wave at someone!', inline: true }
-		);
+			{ name: 'wave <user>', value: 'Wave at someone!', inline: true, },
+			{ name: 'poke <user>', value: 'Poke a user!', inline: true, },
+			{ name: 'smile <user>', value: 'smile at a user!', inline: true,}
+			);
 
 
 	const fun = new MessageEmbed()

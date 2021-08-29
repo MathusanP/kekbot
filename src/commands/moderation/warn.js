@@ -3,7 +3,6 @@ import { Util } from 'discord.js';
 import punishments from './../../../models/ModSchema.js';
 
 export const name = 'warn';
-export const aliases = ["w"];
 export const description = 'Warns a member for breaking the rules.';
 export const permissions = ['Kick Members'];
 export const args = 1;
@@ -52,3 +51,5 @@ export const execute = async (message, args) => {
 		message.channel.send({ content: `Warned ${toWarn} for \`${reason}\`` });
 	}
 }
+
+//I'll finish this command once I figure out how to export mongodb data :D
