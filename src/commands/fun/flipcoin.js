@@ -5,6 +5,7 @@ const coinflip = ["Heads", "Tails"];
 export const name = 'flipcoin';
 export const description = 'Flips a coin [heads/tails]';
 export const v = 0;
+export const aliases = ['coinflip']
 export const execute = (message) => {
 
 	const result = (`${coinflip[Math.floor(Math.random() * [coinflip.length])]}`);
