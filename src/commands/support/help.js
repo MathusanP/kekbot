@@ -151,7 +151,8 @@ export const execute = (message, args) => {
 			{ name: '8ball', value: 'The 8 ball command', inline: true },
 			{ name: 'flipcoin', value: 'Flip a coin', inline: true },
 			{ name: 'number', value: 'generate a whole number between 1-10, if your lucky you can get 69 as a value', inline: true },
-			{ name: 'abc', value: 'Fetches a random letter from the english alphabet', inline: true }
+			{ name: 'abc', value: 'Fetches a random letter from the english alphabet', inline: true },
+			{ name: 'say', value: 'Coming soon...', inline: true}
 		);
 
 	if (!args[0]) { return message.channel.send({ embeds: [help] }); }

@@ -6,7 +6,7 @@ export const execute = (client) => {
 
 	client.user.setPresence({
 		status: "online",
-		activities: [{ type: `WATCHING`, name: `Version 3.7 - kekhelp` }]
+		activities: [{ type: `PLAYING`, name: `Version 3.7 - kekhelp` }]
 	});
 
 }
