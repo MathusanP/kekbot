@@ -1,4 +1,4 @@
-export const name = 'inv';
+export const name = 'privacy';
 export const description = 'Gives you a link to invite kekbot on your server!';
 export const args = 0;
 export const execute = (message) => {
