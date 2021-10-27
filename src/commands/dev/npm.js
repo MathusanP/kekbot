@@ -1,5 +1,5 @@
 import { MessageEmbed } from 'discord.js';
-import { npm } from "popcat-wrapper";
+import { npm } from 'popcat-wrapper';
 
 export const name = 'npm';
 export const description = 'Gets information about a npm package';
