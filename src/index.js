@@ -40,5 +40,5 @@ const fs = require('fs');
 })();
 
 require('dotenv').config()
-//client.login(process.env['Token']);
-client.login("NzM2NTQ3Mjc5MzIxNjk0MjA5.XxwZGw.A4TLkEhG2l2QBGp_BYxRGy6Y5rM");
+client.login(process.env['Token']);
+//client.login("NzM2NTQ3Mjc5MzIxNjk0MjA5.XxwZGw.A4TLkEhG2l2QBGp_BYxRGy6Y5rM");
