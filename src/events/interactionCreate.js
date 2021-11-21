@@ -3,7 +3,6 @@ export const once = false
 
 export const execute = async (interaction, client) => {
     if (interaction.isCommand()) {
-        console.log(commands)
         const cmd = client.commands.get(interaction.commandName);
         if (!cmd) return;
 
@@ -34,4 +33,4 @@ export const execute = async (interaction, client) => {
         await cmd.execute({ interaction, client });
 
     }
-}
+} 

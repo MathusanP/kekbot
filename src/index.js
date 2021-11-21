@@ -12,13 +12,14 @@ const client = new Discord.Client({
 
 client.snipes = new Discord.Collection();
 client.text_commands = new Discord.Collection();
+client.commands= new Discord.Collection();
 
 const { connect, set } = require('mongoose');
 connect('mongodb+srv://kekbot:kekbot6@kekbot.2g0yc.mongodb.net/test', { useNewUrlParser: true, useUnifiedTopology: true });
 set('useFindAndModify', false);
 
 const fs = require('fs');
-
+// Text command handler
 (async () => {
 	const categories = fs.readdirSync(`${__dirname}/commands/`);
 	for (const category of categories) {
@@ -29,15 +30,17 @@ const fs = require('fs');
 			client.text_commands.set(command.name, command);
 		}
 	}
-	client.interactions = new Discord.Collection();
+	// Slash command handler
 	const s_categories = fs.readdirSync(`${__dirname}/slashcommands/`);
 	for (const category of s_categories) {
 		const commandFiles = fs.readdirSync(`${__dirname}/slashcommands/${category}`).filter(File => File.endsWith('.js'));
 		for (const file of commandFiles) {
-			const command = await import(`${__dirname}/slashcommands/${category}/${file}`);
-			client.interactions.set(command.name, command);
+			
+			const command = await import(`./slashcommands/${category}/${file}`);
+			client.commands.set(command.name, command);
 		}
 	}
+	//Event handler
 	const eventFiles = fs.readdirSync(`${__dirname}/events`).filter(file => file.endsWith('.js'));
 	for (const file of eventFiles) {
 
@@ -48,5 +51,5 @@ const fs = require('fs');
 })();
 
 require('dotenv').config()
-client.login(process.env['Token']);
-//client.login("NzM2NTQ3Mjc5MzIxNjk0MjA5.XxwZGw.A4TLkEhG2l2QBGp_BYxRGy6Y5rM");
+//client.login(process.env['Token']);
+client.login("NzM2NTQ3Mjc5MzIxNjk0MjA5.XxwZGw.HiDUw-9LvSI-IZ8hpwd9fsArapo");
