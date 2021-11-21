@@ -1,5 +1,5 @@
-import { createRequire } from "module";
-const require = createRequire(import.meta.url)
+import { createRequire } from 'module';
+const require = createRequire(import.meta.url);
 
 import { dirname } from 'path';
 import { fileURLToPath } from 'url';
@@ -13,7 +13,7 @@ const client = new Discord.Client({
 client.snipes = new Discord.Collection();
 client.text_commands = new Discord.Collection();
 
-const { connect, set} = require('mongoose');
+const { connect, set } = require('mongoose');
 connect('mongodb+srv://kekbot:kekbot6@kekbot.2g0yc.mongodb.net/test', { useNewUrlParser: true, useUnifiedTopology: true });
 set('useFindAndModify', false);
 
@@ -26,7 +26,7 @@ client.commands = new Discord.Collection();
 		for (const file of commandFiles) {
 
 			const command = await import(`./commands/${category}/${file}`);
-			client.commands.set(command.name, command)
+			client.commands.set(command.name, command);
 		}
 	}
 
@@ -40,6 +40,5 @@ client.commands = new Discord.Collection();
 	}
 })();
 
-require('dotenv').config()
-//client.login(process.env['Token']);
-client.login("NzM2NTQ3Mjc5MzIxNjk0MjA5.XxwZGw.HiDUw-9LvSI-IZ8hpwd9fsArapo");
+require('dotenv').config();
+client.login(process.env['Token']);

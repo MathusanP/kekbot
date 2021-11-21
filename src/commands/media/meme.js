@@ -1,7 +1,7 @@
 import { MessageEmbed } from 'discord.js';
 import got from 'got';
 
-export const name = "meme";
+export const name = 'meme';
 export const description = 'Fetches a meme from r/memes';
 export const args = 0;
 export const execute = (message) => {
@@ -19,4 +19,4 @@ export const execute = (message) => {
 		message.channel.send({ embeds: [embed] });
 
 	});
-}
+};

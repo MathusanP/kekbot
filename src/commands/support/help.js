@@ -11,16 +11,16 @@ export const execute = (message, args) => {
 		.setFooter('You can support us using keksupport')
 		.setColor('RANDOM')
 		.addFields(
-			{ name: 'Fun', value: 'kekhelp fun', inline: true, },
-			{ name: 'Moderation', value: 'kekhelp moderation', inline: true, },
-			{ name: 'About', value: 'kekhelp about', inline: true, },
-			{ name: 'Images', value: 'kekhelp images', inline: true, },
+			{ name: 'Fun', value: 'kekhelp fun', inline: true },
+			{ name: 'Moderation', value: 'kekhelp moderation', inline: true },
+			{ name: 'About', value: 'kekhelp about', inline: true },
+			{ name: 'Images', value: 'kekhelp images', inline: true },
 			{ name: 'Utility', value: 'kekhelp utils', inline: true },
 			{ name: 'Minigames', value: 'kekhelp games', inline: true },
 			{ name: 'development', value: 'kekhelp dev', inline: true },
 			{ name: 'Gifs', value: 'kekhelp gifs', inline: true },
-			{ name: 'Actions', value: 'kekhelp actions', inline: true, },
-			{ name: 'Media', value: 'kekhelp media', inline: true, },
+			{ name: 'Actions', value: 'kekhelp actions', inline: true },
+			{ name: 'Media', value: 'kekhelp media', inline: true },
 			{ name: 'Support', value: 'kekhelp support', inline: true },
 		);
 
@@ -29,12 +29,12 @@ export const execute = (message, args) => {
 		.setFooter('All media images are from reddit with the reddit post linked!')
 		.setColor('RANDOM')
 		.addFields(
-			{ name: 'meme', value: 'Fetches a meme from r/memes', inline: true, },
-			{ name: 'quote', value: 'Fetches a quote from r/quotes', inline: true, },
-			{ name: 'wholesome', value: 'Fetches a wholesome meme', inline: true, },
-			{ name: 'news', value: 'View the news from r/news!', inline: true, },
-			{ name: 'gamingnews', value: 'Get the latest gaming news from r/gamingnews!', inline: true, },
-			{ name: 'food', value: 'View food made from other people in r/food!', inline: true, }
+			{ name: 'meme', value: 'Fetches a meme from r/memes', inline: true },
+			{ name: 'quote', value: 'Fetches a quote from r/quotes', inline: true },
+			{ name: 'wholesome', value: 'Fetches a wholesome meme', inline: true },
+			{ name: 'news', value: 'View the news from r/news!', inline: true },
+			{ name: 'gamingnews', value: 'Get the latest gaming news from r/gamingnews!', inline: true },
+			{ name: 'food', value: 'View food made from other people in r/food!', inline: true },
 		);
 
 
@@ -43,9 +43,9 @@ export const execute = (message, args) => {
 		.setFooter('This bot is still in the making, More commands are still yet to come!')
 		.setColor('RANDOM')
 		.addFields(
-			{ name: 'purge', value: 'Deletes a given number of messages from the channel', inline: true, },
+			{ name: 'purge', value: 'Deletes a given number of messages from the channel', inline: true },
 			{ name: 'snipe', value: 'Snipes the last deleted message (This command is in beta)', inline: true },
-			{ name: 'warn', value: 'Warns a member for breaking the rules.', inline: true }
+			{ name: 'warn', value: 'Warns a member for breaking the rules.', inline: true },
 		);
 
 
@@ -54,9 +54,9 @@ export const execute = (message, args) => {
 		.setFooter('Use kektip to discover some commands!')
 		.setColor('RANDOM')
 		.addFields(
-			{ name: 'inv', value: 'Gives you a link to invite kekbot on your server!', inline: true, },
-			{ name: 'join', value: 'Sends you a invite to our server!', inline: true, },
-			{ name: 'about', value: 'shows lots of cool information about the bot.', inline: true, }
+			{ name: 'inv', value: 'Gives you a link to invite kekbot on your server!', inline: true },
+			{ name: 'join', value: 'Sends you a invite to our server!', inline: true },
+			{ name: 'about', value: 'shows lots of cool information about the bot.', inline: true },
 		);
 
 	const utils = new MessageEmbed()
@@ -64,9 +64,9 @@ export const execute = (message, args) => {
 		.setFooter('This bot is still in the making, More commands are still yet to come!')
 		.setColor('RANDOM')
 		.addFields(
-			{ name: 'userinfo [user]', value: 'It shows a description of the person', inline: true, },
-			{ name: 'afk [reason]', value: 'Makes you afk, anyone who pinges you will be notified that your afk , use kekafk to leave afk', inline: true, },
-			{ name: 'say', value: 'Coming soon!', inline: true, }
+			{ name: 'userinfo [user]', value: 'It shows a description of the person', inline: true },
+			{ name: 'afk [reason]', value: 'Makes you afk, anyone who pinges you will be notified that your afk , use kekafk to leave afk', inline: true },
+			{ name: 'say', value: 'Coming soon!', inline: true },
 		);
 
 
@@ -75,11 +75,11 @@ export const execute = (message, args) => {
 		.setFooter('This bot is still in the making, More commands are still yet to come!')
 		.setColor('RANDOM')
 		.addFields(
-			{ name: 'cat', value: 'Shows a picture of a cat from r/cats!', inline: true, },
-			{ name: 'dog', value: 'Showes dog pics from r/dogs!', inline: true, },
-			{ name: 'parrot', value: 'Shows a parrot picture from r/parrots!', inline: true, },
-			{ name: 'turtle', value: 'Shows turtle pics from r/turtle!', inline: true, },
-			{ name: 'snake', value: 'Shows a snake pic from r/snakes', inline: true, }
+			{ name: 'cat', value: 'Shows a picture of a cat from r/cats!', inline: true },
+			{ name: 'dog', value: 'Showes dog pics from r/dogs!', inline: true },
+			{ name: 'parrot', value: 'Shows a parrot picture from r/parrots!', inline: true },
+			{ name: 'turtle', value: 'Shows turtle pics from r/turtle!', inline: true },
+			{ name: 'snake', value: 'Shows a snake pic from r/snakes', inline: true },
 		);
 
 	const games = new MessageEmbed()
@@ -87,7 +87,7 @@ export const execute = (message, args) => {
 		.setFooter('All minigames are currently in beta, expect them to be buggy!')
 		.setColor('RANDOM')
 		.addFields(
-			{ name: 'kekspeedtype', value: 'Compete with your friends to enter the words that gets displayed by the bot! (in beta)', inline: true }
+			{ name: 'kekspeedtype', value: 'Compete with your friends to enter the words that gets displayed by the bot! (in beta)', inline: true },
 		);
 
 
@@ -95,9 +95,9 @@ export const execute = (message, args) => {
 		.setTitle('Here are the available dev commands!')
 		.setColor('RANDOM')
 		.addFields(
-			{ name: 'kekdocs {Enter the name of the doccumentation you want to view}', value: 'Searches the docs for the item you searched and gives you a link to view it!', inline: true, },
-			{ name: 'kekbin', value: 'Shows you a paste bin website where you can store your code online', inline: true, },
-			{ name: ' (In beta) keknpm <Package>', value: 'Search for any npm package!', inline: true }
+			{ name: 'kekdocs {Enter the name of the doccumentation you want to view}', value: 'Searches the docs for the item you searched and gives you a link to view it!', inline: true },
+			{ name: 'kekbin', value: 'Shows you a paste bin website where you can store your code online', inline: true },
+			{ name: ' (In beta) keknpm <Package>', value: 'Search for any npm package!', inline: true },
 		);
 
 
@@ -106,11 +106,11 @@ export const execute = (message, args) => {
 		.setFooter('This bot is still in the making, More commands are still yet to come!')
 		.setColor('RANDOM')
 		.addFields(
-			{ name: 'patreon', value: 'Gives you the link to our patreon!', },
-			{ name: 'vote', value: 'Gives you our voting links!', },
-			{ name: 'help', value: 'Provides my command list!', },
-			{ name: 'web', value: 'Gives a link to our cool website!', },
-			{ name: 'ping', value: 'How fast does the bot respond?', }
+			{ name: 'patreon', value: 'Gives you the link to our patreon!' },
+			{ name: 'vote', value: 'Gives you our voting links!' },
+			{ name: 'help', value: 'Provides my command list!' },
+			{ name: 'web', value: 'Gives a link to our cool website!' },
+			{ name: 'ping', value: 'How fast does the bot respond?' },
 		);
 
 
@@ -119,10 +119,10 @@ export const execute = (message, args) => {
 		.setFooter('All gifs are from tenor!')
 		.setColor('RANDOM')
 		.addFields(
-			{ name: 'excitedgif', value: 'Shows an excited gif', inline: true, },
-			{ name: 'sadgif', value: 'Shows a sad gif', inline: true, },
-			{ name: 'happygif', value: 'Shows a happy gif', inline: true, },
-			{ name: 'angrygif', value: 'Shows an angry gif', }
+			{ name: 'excitedgif', value: 'Shows an excited gif', inline: true },
+			{ name: 'sadgif', value: 'Shows a sad gif', inline: true },
+			{ name: 'happygif', value: 'Shows a happy gif', inline: true },
+			{ name: 'angrygif', value: 'Shows an angry gif' },
 		);
 
 
@@ -131,15 +131,15 @@ export const execute = (message, args) => {
 		.setFooter('Vote for us via kekvote!')
 		.setColor('RANDOM')
 		.addFields(
-			{ name: 'pat <user>', value: 'Pat a user!', inline: true, },
-			{ name: 'slap <user>', value: 'Slap a user!', inline: true, },
-			{ name: 'hug <user>', value: 'Hug a user!', inline: true, },
-			{ name: 'handshake <user>', value: 'Handshake a user!', inline: true, },
-			{ name: 'kiss <user>', value: 'Kiss a user!', inline: true, },
-			{ name: 'wave <user>', value: 'Wave at someone!', inline: true, },
-			{ name: 'poke <user>', value: 'Poke a user!', inline: true, },
-			{ name: 'smile <user>', value: 'smile at a user!', inline: true,}
-			);
+			{ name: 'pat <user>', value: 'Pat a user!', inline: true },
+			{ name: 'slap <user>', value: 'Slap a user!', inline: true },
+			{ name: 'hug <user>', value: 'Hug a user!', inline: true },
+			{ name: 'handshake <user>', value: 'Handshake a user!', inline: true },
+			{ name: 'kiss <user>', value: 'Kiss a user!', inline: true },
+			{ name: 'wave <user>', value: 'Wave at someone!', inline: true },
+			{ name: 'poke <user>', value: 'Poke a user!', inline: true },
+			{ name: 'smile <user>', value: 'smile at a user!', inline: true },
+		);
 
 
 	const fun = new MessageEmbed()
@@ -147,12 +147,12 @@ export const execute = (message, args) => {
 		.setFooter('You can support us using keksupport!')
 		.setColor('RANDOM')
 		.addFields(
-			{ name: 'dice', value: 'Roll a dice!', inline: true, },
+			{ name: 'dice', value: 'Roll a dice!', inline: true },
 			{ name: '8ball', value: 'The 8 ball command', inline: true },
 			{ name: 'flipcoin', value: 'Flip a coin', inline: true },
 			{ name: 'number', value: 'generate a whole number between 1-10, if your lucky you can get 69 as a value', inline: true },
 			{ name: 'abc', value: 'Fetches a random letter from the english alphabet', inline: true },
-			{ name: 'say', value: 'Get the bot to say whatever you want!', inline: true}
+			{ name: 'say', value: 'Get the bot to say whatever you want!', inline: true },
 		);
 
 	if (!args[0]) { return message.channel.send({ embeds: [help] }); }
@@ -193,4 +193,4 @@ export const execute = (message, args) => {
 	else {
 		return message.channel.send({ embeds: [help] });
 	}
-}
+};

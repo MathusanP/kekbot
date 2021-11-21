@@ -3,7 +3,7 @@ import got from 'got';
 
 export const name = 'aww';
 export const description = 'Shows a very cute picture.';
-export const aliases = ["cute"];
+export const aliases = ['cute'];
 export const args = 0;
 export const execute = (message) => {
 
@@ -20,4 +20,4 @@ export const execute = (message) => {
 		message.channel.send({ embeds: [embed] });
 
 	});
-}
+};

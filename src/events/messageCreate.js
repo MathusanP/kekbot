@@ -1,4 +1,4 @@
-import fetch from "node-fetch";
+import fetch from 'node-fetch';
 import { MessageEmbed } from 'discord.js';
 import pkg from 'quick.db';
 const { table } = pkg;
@@ -11,11 +11,11 @@ const execute = async (message, client) => {
 
 	if (message.author.bot || message.guild === null) { return; }
 
-	let afk = new table("AFKs");
+	const afk = new table('AFKs');
 	const mentioned = message.mentions.members.first();
 
 	if (mentioned) {
-		let status = await afk.fetch(mentioned.id);
+		const status = await afk.fetch(mentioned.id);
 
 		if (status) {
 			const embed = new MessageEmbed()
@@ -24,8 +24,8 @@ const execute = async (message, client) => {
 			message.channel.send({ embeds: [embed] }).then(i => i.delete({ timeout: 5000 }));
 		}
 	}
-	//The command below is a conclave server exclusive command and will not be available elsewhere!
-	if (message.channel.id === "823310708128219146") {
+	// The command below is a conclave server exclusive command and will not be available elsewhere!
+	if (message.channel.id === '823310708128219146') {
 		fetch(`https://api.monkedev.com/fun/chat?msg=${message.content}&uid=${message.author.id}315393628891512832&key=cCXhQnbQAwP89II63ro9p8Kgw`)
 			.then(response => response.json())
 			.then(data => {
@@ -50,10 +50,10 @@ const execute = async (message, client) => {
 				if (cmd.permissions && allowed === true) {
 					for (const permission of cmd.permissions) {
 						if (allowed === true
-							&& !message.member.permissions.has(permission.trim().toUpperCase().replace(" ", "_"))
+							&& !message.member.permissions.has(permission.trim().toUpperCase().replace(' ', '_'))
 							&& !message.member.permissions.has('ADMINISTRATOR')) {
 
-							await message.channel.send({ content: `You do not have permission to use this command.` });
+							await message.channel.send({ content: 'You do not have permission to use this command.' });
 							allowed = false;
 						}
 					}
@@ -75,6 +75,6 @@ const execute = async (message, client) => {
 			}
 		}
 	}
-}
+};
 
 export { name, execute };

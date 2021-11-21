@@ -9,21 +9,20 @@ export const args = 1;
 export const usage = '<member> [reason]';
 export const execute = async (message, args) => {
 
-	let toWarn = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(x => x.user.username.toLowerCase() === args.slice(0).join(" ") || x.user.username === args[0]);
+	const toWarn = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(x => x.user.username.toLowerCase() === args.slice(0).join(' ') || x.user.username === args[0]);
 
-	if (message.author.id === toWarn.id)
-		return;
+	if (message.author.id === toWarn.id) {return;}
 
-	let reason = args[1] ? args.slice(1).join(" ") : "No reason specified";
+	let reason = args[1] ? args.slice(1).join(' ') : 'No reason specified';
 	if (reason.length > 1024) {
-		message.channel.send({ content: `The reason specified was too long. Please keep reasons under 1024 characters` });
+		message.channel.send({ content: 'The reason specified was too long. Please keep reasons under 1024 characters' });
 		return;
 	}
 	reason = Util.cleanContent(reason, message);
 
-	let data = await punishments.findOne({
+	const data = await punishments.findOne({
 		GuildID: message.guild.id,
-		UserID: toWarn.id
+		UserID: toWarn.id,
 	});
 
 	if (data) {
@@ -37,19 +36,19 @@ export const execute = async (message, args) => {
 		message.channel.send({ content: `Warned ${toWarn} for \`${reason}\`` });
 	}
 	else if (!data) {
-		let newData = new punishments({
+		const newData = new punishments({
 			GuildID: message.guild.id,
 			UserID: toWarn.id,
 			Punishments: [{
 				PunishType: 'Warn',
 				Moderator: message.author.id,
 				Reason: reason,
-			},],
+			}],
 		});
 		newData.save();
 
 		message.channel.send({ content: `Warned ${toWarn} for \`${reason}\`` });
 	}
-}
+};
 
-//I'll finish this command once I figure out how to export mongodb data :D
+// I'll finish this command once I figure out how to export mongodb data :D

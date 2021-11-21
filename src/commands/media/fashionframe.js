@@ -1,8 +1,8 @@
 import { MessageEmbed } from 'discord.js';
 import got from 'got';
 
-export const name = "fashionframe";
-export const aliases = ["capturapics", "captura"];
+export const name = 'fashionframe';
+export const aliases = ['capturapics', 'captura'];
 export const description = '';
 export const args = 0;
 export const customCommand = true;
@@ -21,4 +21,4 @@ export const execute = (message) => {
 		message.channel.send({ embeds: [embed] });
 
 	});
-}
+};

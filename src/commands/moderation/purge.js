@@ -1,5 +1,5 @@
 export const name = 'purge';
-export const aliases = ["clear", "remove"];
+export const aliases = ['clear', 'remove'];
 export const description = 'Deletes a given number of messages from the channel';
 export const permissions = ['Manage Messages'];
 export const args = 1;
@@ -19,4 +19,4 @@ export const execute = (message, args) => {
 
 	message.channel.bulkDelete(deleteAmount + 1, true);
 	message.channel.send({ content: `Deleted ***${deleteAmount}*** Messages.` }).then(i => i.delete({ timeout: 5000 }));
-}
+};

@@ -1,4 +1,4 @@
-import config from "../../../botconfig.json";
+import config from '../../../botconfig.json';
 import fetch from 'node-fetch';
 
 export const name = 'happygif';
@@ -12,4 +12,4 @@ export const execute = async (message) => {
 	const index = Math.floor(Math.random() * json.results.length);
 
 	message.channel.send({ content: `${json.results[index].url}` });
-}
+};

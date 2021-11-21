@@ -1,4 +1,4 @@
-import config from "../../../botconfig.json";
+import config from '../../../botconfig.json';
 import fetch from 'node-fetch';
 
 export const name = 'sadgif';
@@ -13,4 +13,4 @@ export const execute = async (message) => {
 
 	message.channel.send({ content: `${json.results[index].url}` });
 
-}
+};

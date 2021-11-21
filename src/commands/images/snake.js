@@ -1,8 +1,8 @@
 import { MessageEmbed } from 'discord.js';
 import got from 'got';
 
-export const name = "snake";
-export const aliases = ["snakepicture", "SNAKE", "snake"];
+export const name = 'snake';
+export const aliases = ['snakepicture', 'SNAKE', 'snake'];
 export const description = 'Shows a picture of a snake from r/snakes';
 export const args = 0;
 export const execute = (message) => {
@@ -20,4 +20,4 @@ export const execute = (message) => {
 		message.channel.send({ embeds: [embed] });
 
 	});
-}
+};

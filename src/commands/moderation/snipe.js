@@ -14,4 +14,4 @@ export const execute = (message, args, prefix, client) => {
 		.setTimestamp();
 
 	message.channel.send({ embeds: [embed] });
-}
+};

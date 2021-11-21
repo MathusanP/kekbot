@@ -8,13 +8,13 @@ export const execute = (message) => {
 
 	const embed = new MessageEmbed()
 		.setColor('RANDOM')
-		.setDescription(`Here are my socials!`)
+		.setDescription('Here are my socials!')
 		.addFields(
-			{ name: `**Twitter:**`, value: `https://twitter.com/k3kbot`, inline: true },
-			{ name: `**Instagram:**`, value: `https://www.instagram.com/k3kbot/`, inline: true }
+			{ name: '**Twitter:**', value: 'https://twitter.com/k3kbot', inline: true },
+			{ name: '**Instagram:**', value: 'https://www.instagram.com/k3kbot/', inline: true },
 		)
-		.setFooter(`Email: kekbot6@gmail.com`);
+		.setFooter('Email: kekbot6@gmail.com');
 
 	message.channel.send({ embeds: [embed] });
 
-}
+};

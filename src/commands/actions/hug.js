@@ -1,9 +1,9 @@
 import { MessageEmbed } from 'discord.js';
 
 const huggifs = [
-	"https://media1.tenor.com/images/23f263940d5d2bb8e8eaeb3c128e748f/tenor.gif?itemid=17750778",
-	"https://media0.giphy.com/media/sUIZWMnfd4Mb6/200.gif",
-	"https://acegif.com/wp-content/gif/anime-hug-38.gif"
+	'https://media1.tenor.com/images/23f263940d5d2bb8e8eaeb3c128e748f/tenor.gif?itemid=17750778',
+	'https://media0.giphy.com/media/sUIZWMnfd4Mb6/200.gif',
+	'https://acegif.com/wp-content/gif/anime-hug-38.gif',
 ];
 
 export const name = 'hug';
@@ -23,7 +23,7 @@ export const execute = (message) => {
 		message.channel.send({ embeds: [embed] });
 	}
 	else {
-		message.channel.send({ content: "Please provide a user mention to hug!" });
+		message.channel.send({ content: 'Please provide a user mention to hug!' });
 	}
 
-}
+};

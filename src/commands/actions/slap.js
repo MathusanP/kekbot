@@ -1,9 +1,9 @@
 import { MessageEmbed } from 'discord.js';
 
 const slapgifs = [
-	"https://media1.tenor.com/images/74db8b0b64e8d539aebebfbb2094ae84/tenor.gif?itemid=15144612",
-	"https://i.pinimg.com/originals/a8/7d/e2/a87de27396fae40e3ea92190566531ec.gif",
-	"https://i.imgur.com/o2SJYUS.gif"
+	'https://media1.tenor.com/images/74db8b0b64e8d539aebebfbb2094ae84/tenor.gif?itemid=15144612',
+	'https://i.pinimg.com/originals/a8/7d/e2/a87de27396fae40e3ea92190566531ec.gif',
+	'https://i.imgur.com/o2SJYUS.gif',
 ];
 
 export const name = 'slap';
@@ -23,7 +23,7 @@ export const execute = (message) => {
 		message.channel.send({ embeds: [embed] });
 	}
 	else {
-		message.channel.send({ content: "Please provide a user mention to slap!" });
+		message.channel.send({ content: 'Please provide a user mention to slap!' });
 	}
 
-}
+};

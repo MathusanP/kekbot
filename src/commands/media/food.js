@@ -1,8 +1,8 @@
 import { MessageEmbed } from 'discord.js';
 import got from 'got';
 
-export const name = "food";
-export const aliases = ["foodpic", "foodpics"];
+export const name = 'food';
+export const aliases = ['foodpic', 'foodpics'];
 export const description = 'View food made from other people in r/food!';
 export const args = 0;
 export const execute = (message) => {
@@ -20,4 +20,4 @@ export const execute = (message) => {
 		message.channel.send({ embeds: [embed] });
 
 	});
-}
+};

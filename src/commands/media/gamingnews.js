@@ -1,7 +1,7 @@
 import { MessageEmbed } from 'discord.js';
 import got from 'got';
 
-export const name = "gamingnews";
+export const name = 'gamingnews';
 export const description = 'Get the latest gaming news from r/gamingnews!';
 export const args = 0;
 export const execute = (message) => {
@@ -19,4 +19,4 @@ export const execute = (message) => {
 		message.channel.send({ embeds: [embed] });
 
 	});
-}
+};

@@ -1,8 +1,8 @@
 import { MessageEmbed } from 'discord.js';
 import got from 'got';
 
-export const name = "quote";
-export const aliases = ["quotes"];
+export const name = 'quote';
+export const aliases = ['quotes'];
 export const description = 'Fetches a quote from r/quotes';
 export const args = 0;
 export const execute = (message) => {
@@ -20,4 +20,4 @@ export const execute = (message) => {
 		message.channel.send({ embeds: [embed] });
 
 	});
-}
+};
