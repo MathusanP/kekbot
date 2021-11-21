@@ -12,9 +12,8 @@ const client = new Discord.Client({
 
 client.snipes = new Discord.Collection();
 client.text_commands = new Discord.Collection();
-client.commands= new Discord.Collection();
 
-const { connect, set } = require('mongoose');
+const { connect, set} = require('mongoose');
 connect('mongodb+srv://kekbot:kekbot6@kekbot.2g0yc.mongodb.net/test', { useNewUrlParser: true, useUnifiedTopology: true });
 set('useFindAndModify', false);
 
@@ -27,19 +26,10 @@ const fs = require('fs');
 		for (const file of commandFiles) {
 
 			const command = await import(`./commands/${category}/${file}`);
-			client.text_commands.set(command.name, command);
 		}
 	}
-	// Slash command handler
-	const s_categories = fs.readdirSync(`${__dirname}/slashcommands/`);
-	for (const category of s_categories) {
-		const commandFiles = fs.readdirSync(`${__dirname}/slashcommands/${category}`).filter(File => File.endsWith('.js'));
-		for (const file of commandFiles) {
-			
-			const command = await import(`./slashcommands/${category}/${file}`);
-			client.commands.set(command.name, command);
-		}
-	}
+	// Slash command handler is found in the ready.js file
+
 	//Event handler
 	const eventFiles = fs.readdirSync(`${__dirname}/events`).filter(file => file.endsWith('.js'));
 	for (const file of eventFiles) {
