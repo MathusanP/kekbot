@@ -1,10 +1,4 @@
-import { createRequire } from "module";
-const require = createRequire(import.meta.url)
 import { Collection } from 'discord.js'
-import path from 'path';
-import { fileURLToPath } from 'url';
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
 import fs from 'fs'
 
 export const name = 'ready';
@@ -17,21 +11,23 @@ export const execute = async (client) => {
 		status: "online",
 		activities: [{ type: `PLAYING`, name: `Version 3.7 - kekhelp` }]
 	});
-/* Registering slash commands */
-client.commands = new Collection();
-const data = [];
 
-const categories = fs.readdirSync(`${__dirname}/../slashcommands/`);
-for (const category of categories) {
-	const commandFiles = fs.readdirSync(`${__dirname}/../slashcommands/${category}`).filter(file => file.endsWith('.js'));
-	for (const file of commandFiles) {
+	/* Registering slash commands */
+	client.interactions = new Collection();
+	const data = [];
 
-		const command = await import(`../slashcommands/${category}/${file}`);
-		client.commands.set(command.name, command);
-		data.push(command);
+	const categories = fs.readdirSync('./src/slashcommands/');
+	for (const category of categories) {
+		const commandFiles = fs.readdirSync(`./src/slashcommands/${category}`).filter(file => file.endsWith('.js'));
+		for (const file of commandFiles) {
 
+			const command = await import(`../../src/slashcommands/${category}/${file}`);
+			client.interactions.set(command.name, command);
+			data.push(command);
+
+		}
 	}
-}
 
-await client.application.commands.set(data);
+	/* Set ApplicationCommand data */
+	await client.application.commands.set(data);
 }

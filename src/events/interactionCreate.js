@@ -3,7 +3,7 @@ export const once = false
 
 export const execute = async (interaction, client) => {
     if (interaction.isCommand()) {
-        const cmd = client.commands.get(interaction.commandName);
+        const cmd = client.interactions.get(interaction.commandName);
         if (!cmd) return;
 
 

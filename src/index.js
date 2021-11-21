@@ -18,7 +18,7 @@ connect('mongodb+srv://kekbot:kekbot6@kekbot.2g0yc.mongodb.net/test', { useNewUr
 set('useFindAndModify', false);
 
 const fs = require('fs');
-// Text command handler
+client.commands = new Discord.Collection();
 (async () => {
 	const categories = fs.readdirSync(`${__dirname}/commands/`);
 	for (const category of categories) {
@@ -26,11 +26,11 @@ const fs = require('fs');
 		for (const file of commandFiles) {
 
 			const command = await import(`./commands/${category}/${file}`);
+			client.commands.set(command.name, command)
 		}
 	}
-	// Slash command handler is found in the ready.js file
 
-	//Event handler
+
 	const eventFiles = fs.readdirSync(`${__dirname}/events`).filter(file => file.endsWith('.js'));
 	for (const file of eventFiles) {
 
