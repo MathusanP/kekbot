@@ -9,7 +9,7 @@ export const execute = async (client) => {
 
 	client.user.setPresence({
 		status: 'online',
-		activities: [{ type: 'PLAYING', name: 'Version 3.7 - kekhelp' }],
+		activities: [{ type: 'PLAYING', name: 'Slash commands! - kekhelp' }],
 	});
 
 	/* Registering slash commands */
