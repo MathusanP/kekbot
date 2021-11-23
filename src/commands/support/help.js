@@ -22,6 +22,7 @@ export const execute = (message, args) => {
 			{ name: 'Actions', value: 'kekhelp actions', inline: true },
 			{ name: 'Media', value: 'kekhelp media', inline: true },
 			{ name: 'Support', value: 'kekhelp support', inline: true },
+			{ name: 'slash commands', value: 'kekhelp slashcommands', inline: true },
 		);
 
 	const media = new MessageEmbed()
@@ -80,14 +81,6 @@ export const execute = (message, args) => {
 			{ name: 'parrot', value: 'Shows a parrot picture from r/parrots!', inline: true },
 			{ name: 'turtle', value: 'Shows turtle pics from r/turtle!', inline: true },
 			{ name: 'snake', value: 'Shows a snake pic from r/snakes', inline: true },
-		);
-
-	const games = new MessageEmbed()
-		.setTitle('Here are the minigames available!')
-		.setFooter('All minigames are currently in beta, expect them to be buggy!')
-		.setColor('RANDOM')
-		.addFields(
-			{ name: 'kekspeedtype', value: 'Compete with your friends to enter the words that gets displayed by the bot! (in beta)', inline: true },
 		);
 
 
@@ -155,6 +148,15 @@ export const execute = (message, args) => {
 			{ name: 'say', value: 'Get the bot to say whatever you want!', inline: true },
 		);
 
+	const slashcommands = new MessageEmbed()
+		.setTitle('Slash commands!')
+		.setFooter('All slashcommands are currently in beta, expect them to be buggy!')
+		.setColor('RANDOM')
+		.addFields(
+			{ name: 'Slashcommands', value: 'To view the slash commands available, please press / on your keyboard and click on kekbot', inline: true },
+		);
+
+
 	if (!args[0]) { return message.channel.send({ embeds: [help] }); }
 
 	else if (args[0] == 'moderation') {
@@ -175,9 +177,6 @@ export const execute = (message, args) => {
 	else if (args[0] == 'dev') {
 		return message.channel.send({ embeds: [dev] });
 	}
-	else if (args[0] == 'games') {
-		return message.channel.send({ embeds: [games] });
-	}
 	else if (args[0] == 'images') {
 		return message.channel.send({ embeds: [images] });
 	}
@@ -189,6 +188,9 @@ export const execute = (message, args) => {
 	}
 	else if (args[0] == 'media') {
 		return message.channel.send({ embeds: [media] });
+	}
+	else if (args[0] == 'slashcommands') {
+		return message.channel.send({ embeds: [slashcommands] });
 	}
 	else {
 		return message.channel.send({ embeds: [help] });

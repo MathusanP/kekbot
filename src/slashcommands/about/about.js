@@ -3,7 +3,8 @@ import { MessageEmbed } from 'discord.js';
 export const name = 'about';
 export const description = 'shows lots of cool information about the bot.';
 export const args = 0;
-export const execute = (message, args, prefix, client) => {
+export const permissions = [];
+export const execute = ({ interaction, args, prefix, client }) => {
 
 	const servers = client.guilds.cache.size;
 	const users = client.guilds.cache.reduce((acc, guild) => acc + guild.memberCount, 0);
@@ -26,6 +27,6 @@ export const execute = (message, args, prefix, client) => {
 		)
 		.setFooter(`Do '${prefix}help' to get started`);
 
-	message.channel.send({ embeds: [embed] });
+	interaction.reply({ embeds: [embed] });
 
 };

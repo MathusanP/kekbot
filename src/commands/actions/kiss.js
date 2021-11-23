@@ -7,19 +7,20 @@ const kissgifs = [
 ];
 
 export const name = 'kiss';
-export const description = 'Kiss a user!';
+export const description = 'kiss a user!';
 export const args = 1;
 export const usage = '<member>';
 export const execute = (message) => {
 
 	if (message.mentions.members.first()) {
+
 		const member = message.mentions.members.first();
 		const embed = new MessageEmbed()
 			.setDescription(`${message.author} kisses ${member}!`)
 			.setColor('RANDOM')
 			.setImage(`${kissgifs[Math.floor(Math.random() * [kissgifs.length])]}`)
 			.setTimestamp();
-		message.channel.send({ emebds: [embed] });
+		message.channel.send({ embeds: [embed] });
 	}
 	else {
 		message.channel.send({ content: 'Please provide a user mention to kiss!' });

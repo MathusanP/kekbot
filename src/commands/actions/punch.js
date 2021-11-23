@@ -9,6 +9,7 @@ const punchgif = [
 export const name = 'punch';
 export const description = 'Punch a user!';
 export const args = 1;
+export const usage = '<member>';
 export const execute = (message) => {
 
 	if (message.mentions.members.first()) {

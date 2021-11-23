@@ -18,7 +18,6 @@ connect('mongodb+srv://kekbot:kekbot6@kekbot.2g0yc.mongodb.net/test', { useNewUr
 set('useFindAndModify', false);
 
 const fs = require('fs');
-client.commands = new Discord.Collection();
 (async () => {
 	const categories = fs.readdirSync(`${__dirname}/commands/`);
 	for (const category of categories) {
@@ -26,7 +25,7 @@ client.commands = new Discord.Collection();
 		for (const file of commandFiles) {
 
 			const command = await import(`./commands/${category}/${file}`);
-			client.commands.set(command.name, command);
+			client.text_commands.set(command.name, command);
 		}
 	}
 
