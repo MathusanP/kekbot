@@ -1,1 +1,1 @@
-worker: node --experimental-json-modules .
+worker: node .
