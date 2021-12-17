@@ -6,7 +6,7 @@ module.exports = {
 
 		/* Is interaction a command? */
 		if (interaction.isCommand()) {
-			await interaction.referReply();
+			await interaction.deferReply();
 
 			const cmd = client.commands.get(interaction.commandName);
 			if (!cmd) return;
