@@ -1,9 +1,10 @@
-const { MessageEmbed } = require('discord.js')
+const { MessageEmbed } = require('discord.js');
 
 module.exports = {
 	name: 'about',
 	description: 'shows lots of cool information about the bot.',
 	usage: '',
+	aliases: ['botinfo'],
 
 	permissions: [],
 	ownerOnly: false,
@@ -26,17 +27,17 @@ module.exports = {
 				{ name: '**Total Servers:**', value: `${servers}`, inline: true },
 				{ name: '**Total Users:**', value: `${users}`, inline: true },
 				{ name: '**Total Commands:**', value: '1', inline: true },
-		
+
 				{ name: '**Version:**', value: '4.0.0', inline: true },
 				{ name: '**Uptime:**', value: `${uptime}`, inline: true },
 				{ name: '**Birthday:**', value: '18/06/2020', inline: true },
 
 				{ name: '**Developers:**', value: '[Bagel#1475](https://github.com/bagelwastaken)\n**[ThatsLiamS#6950](https://github.com/ThatsLiamS)**', inline: true },
-				
+
 			)
-			.setFooter(`Do '/help' to get started`);
+			.setFooter('Do \'/help\' to get started');
 
-		interaction.reply({ embeds: [embed] });
+		interaction.followUp({ embeds: [embed] });
 
-	}
+	},
 };
