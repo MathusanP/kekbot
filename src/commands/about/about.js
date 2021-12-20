@@ -1,10 +1,10 @@
 import { MessageEmbed } from 'discord.js';
-const prefix = 'kek';
+
 
 export const name = 'about';
 export const description = 'shows lots of cool information about the bot.';
 export const args = 0;
-export const execute = (message, client) => {
+export const execute = (message, args, prefix, client) => {
 
 	const servers = client.guilds.cache.size;
 	const users = client.guilds.cache.reduce((acc, guild) => acc + guild.memberCount, 0);
