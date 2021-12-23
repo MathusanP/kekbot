@@ -2,9 +2,8 @@ const abc = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N
 
 module.exports = {
 	name: 'abc',
-	description: 'Replies with "test"',
+	description: 'Replies with a random letter.',
 	usage: '',
-	aliases: [],
 
 	permissions: [],
 	ownerOnly: true,

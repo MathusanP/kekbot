@@ -4,7 +4,6 @@ module.exports = {
 	name: 'about',
 	description: 'shows lots of cool information about the bot.',
 	usage: '',
-	aliases: ['botinfo'],
 
 	permissions: [],
 	ownerOnly: false,
