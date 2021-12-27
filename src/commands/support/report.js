@@ -20,13 +20,13 @@ module.exports = {
 		const embed = new MessageEmbed()
 			.setColor('#0099ff')
 			.setDescription(`**${client.user.tag}**\n${interaction.options.getString('description')}`)
-			.setAuthor(interaction.user.username, interaction.user.displayAvatarURL())
+			.setAuthor({ name: interaction.user.username, iconURL: interaction.user.displayAvatarURL() })
 			.setFooter(`ID: ${interaction.member.id}`)
 			.setTimestamp();
 
-		const webhook = new WebhookClient({ url: process.env['ReportWebhook'] });
+		const webhook = new WebhookClient({ url: 'https://discord.com/api/webhooks/923721864382132255/gk5Q7Xm06ysV-W8_1B-y44fimtu0lfLzDQ6ZenGTToAMAKQvn7dw0vggb4HFCEW2r2_S'});
 		webhook.send({ username: interaction.guild.name, avatarURL, embeds: [embed] });
 
-		interaction.followUp({ content: 'Thank you for helping us make autoMod even better.', ephemeral: true });
+		interaction.followUp({ content: 'This report will help improve kekbot! Thank you!.', ephemeral: true });
 	},
 };

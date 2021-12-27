@@ -1,4 +1,4 @@
-const { MessageEmbed } = require('discord.js');
+const { MessageEmbed, MessageButton, MessageActionRow } = require('discord.js');
 
 module.exports = {
 	name: 'about',
@@ -31,12 +31,24 @@ module.exports = {
 				{ name: '**Uptime:**', value: `${uptime}`, inline: true },
 				{ name: '**Birthday:**', value: '18/06/2020', inline: true },
 
-				{ name: '**Developers:**', value: '[Bagel#1475](https://github.com/bagelwastaken)\n**[ThatsLiamS#6950](https://github.com/ThatsLiamS)**', inline: true },
+				{ name: '**Developers:**', value: '**[Bagel#1475](https://github.com/bagelwastaken)**\n[ThatsLiamS#6950](https://github.com/ThatsLiamS)', inline: true },
 
 			)
 			.setFooter('Do \'/help\' to get started');
 
-		interaction.followUp({ embeds: [embed] });
+
+		const row = new MessageActionRow()
+			.addComponents(
+				new MessageButton()
+					.setStyle('LINK').setLabel('Support Server').setURL('https://dsc.gg/kekbot'),
+				new MessageButton()
+					.setStyle('LINK').setLabel('Invite the bot!').setURL('https://dsc.gg/kekinv'),
+				new MessageButton()
+					.setStyle('LINK').setLabel('Website').setURL('https://www.kekbot.cf'),
+
+			);
+
+		interaction.followUp({ embeds: [embed], components: [row], ephemeral: false });
 
 	},
 };
