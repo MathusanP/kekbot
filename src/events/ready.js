@@ -9,7 +9,7 @@ export const execute = async (client) => {
 
 	client.user.setPresence({
 		status: 'online',
-		activities: [{ type: 'PLAYING', name: 'Merry Christmas! 🎅' }],
+		activities: [{ type: 'PLAYING', name: 'with nukes...' }],
 	});
 
 	/* Registering slash commands */
