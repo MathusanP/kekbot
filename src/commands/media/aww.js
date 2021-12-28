@@ -1,9 +1,9 @@
-const { MessageEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js'); 
 
 module.exports = {
     
-    name: 'meme',
-    description: 'Shows a reddit meme from r/meme',
+    name: 'aww',
+    description: 'Shows a reddit aww from r/aww',
     usage: '',
     aliases: [],
 
@@ -15,7 +15,7 @@ module.exports = {
     execute: async ({ interaction, client }) => {
         const { got } = await import('got');
         const embed = new MessageEmbed()
-        got('https://www.reddit.com/r/memes/random/.json').then(response => {
+        got('https://www.reddit.com/r/awws/random/.json').then(response => {
             const content = JSON.parse(response.body);
 
             const embed = new MessageEmbed()
