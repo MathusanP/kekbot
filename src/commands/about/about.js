@@ -14,18 +14,21 @@ export const execute = (message, args, prefix, client) => {
 	const embed = new MessageEmbed()
 		.setTitle('My Information')
 		.setColor('RANDOM')
-		.setDescription(`Hey, I'm **${client.user.tag}**! My prefix is: \`${prefix}\`\nYou can also mention me as a prefix!`)
+		.setDescription(`Hey, I'm **${client.user.tag}**! My prefix is: \`kek\`.`)
 		.addFields(
 
 			{ name: '**Total Servers:**', value: `${servers}`, inline: true },
 			{ name: '**Total Users:**', value: `${users}`, inline: true },
-			{ name: '**Total Commands:**', value: '54', inline: true },
-			{ name: '**Version:**', value: '3.8.0', inline: true },
-			{ name: '**Developers:**', value: '**[Bagel#1475](https://github.com/bagelwastaken)**\n**[ThatsLiamS#6950](https://github.com/ThatsLiamS)**', inline: true },
+			{ name: '**Total Commands:**', value: '1', inline: true },
+
+			{ name: '**Version:**', value: `3.8.1`, inline: true },
 			{ name: '**Uptime:**', value: `${uptime}`, inline: true },
 			{ name: '**Birthday:**', value: '18/06/2020', inline: true },
+
+			{ name: '**Developers:**', value: '[Bagel#1475](https://github.com/bagelwastaken)\n**[ThatsLiamS#6950](https://github.com/ThatsLiamS)**', inline: true },
+
 		)
-		.setFooter(`Do '${prefix}help' to get started`);
+		.setFooter({ text: 'Do \'kek help\' to get started' });
 
 	message.channel.send({ embeds: [embed] });
 

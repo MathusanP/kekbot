@@ -15,7 +15,7 @@ export const execute = async (interaction, client) => {
 		if (cmd['permissions'] != []) {
 			for (const permission of cmd['permissions']) {
 				/* Loops through and checks all permissions agasint the user */
-				if (!interaction.member.permissions.has(permission)) {
+				if (!interaction.member.permissions.has(permission.toUpperCase().replace(' ', '_'))) {
 					interaction.reply({ content: 'Sorry, you do not have permission to run this command.', ephemeral: true });
 					return;
 				}
