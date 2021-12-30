@@ -14,7 +14,7 @@ module.exports = {
     error: false,
     execute: async ({ interaction, client }) => {
         const { got } = await import('got');
-        const embed = new MessageEmbed()
+
         got('https://www.reddit.com/r/awws/random/.json').then(response => {
             const content = JSON.parse(response.body);
 
@@ -27,7 +27,7 @@ module.exports = {
 
             interaction.followUp({ embeds: [embed] });
 
-        },
-        )
+        })
+        .catch(() => { interaction.followUp({ content: 'Sorry, an error occured with that command.' }); });
     }
 }

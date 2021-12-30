@@ -16,7 +16,7 @@ module.exports = {
 		const embed = new MessageEmbed()
 			.setTitle('Pong!')
 			.setDescription(`The number no one has asked for is: ${client.ws.ping}ms.`)
-			.setColor('RANDOM')
+			.setColor('GREEN')
 			.setTimestamp();
 
 		interaction.followUp({ embeds: [embed] });
