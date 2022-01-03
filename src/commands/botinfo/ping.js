@@ -4,7 +4,6 @@ module.exports = {
 	name: 'ping',
 	description: 'Shows the latency for the bot',
 	usage: '',
-	aliases: [],
 
 	permissions: [],
 	ownerOnly: false,
