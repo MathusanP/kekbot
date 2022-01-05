@@ -38,9 +38,6 @@ const fs = require('fs');
 		else { client.on(name, (...args) => execute(...args, client)); }
 	}
 })();
-/*
+
 require('dotenv').config();
 client.login(process.env['Token']);
-*/
-
-client.login('NzM2NTQ3Mjc5MzIxNjk0MjA5.XxwZGw.HiDUw-9LvSI-IZ8hpwd9fsArapo');
