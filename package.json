@@ -1,6 +1,6 @@
 {
 	"name": "kekbot",
-	"version": "3.8.1",
+	"version": "3.8.2",
 	"description": "",
 	"type": "module",
 	"engines": {
@@ -28,7 +28,7 @@
 		"dotenv": "^10.0.0",
 		"got": "^11.8.2",
 		"moment": "^2.29.1",
-		"mongoose": "^5.13.6",
+		"mongoose": "^5.13.14",
 		"node-fetch": "^2.6.1",
 		"popcat-wrapper": "^1.4.6",
 		"quick.db": "^7.1.3",
