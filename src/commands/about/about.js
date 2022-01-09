@@ -19,7 +19,7 @@ export const execute = (message, args, prefix, client) => {
 
 			{ name: '**Total Servers:**', value: `${servers}`, inline: true },
 			{ name: '**Total Users:**', value: `${users}`, inline: true },
-			{ name: '**Total Commands:**', value: '1', inline: true },
+			{ name: '**Total Commands:**', value: '54', inline: true },
 
 			{ name: '**Version:**', value: '3.8.2', inline: true },
 			{ name: '**Uptime:**', value: `${uptime}`, inline: true },
