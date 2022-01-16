@@ -1,3 +1,5 @@
+// Err command
+/*
 module.exports = {
 	name: 'purge',
 	description: 'Mass delete messages',
@@ -27,3 +29,4 @@ module.exports = {
 
 	},
 };
+*/

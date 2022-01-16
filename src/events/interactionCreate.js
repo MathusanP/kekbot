@@ -20,7 +20,7 @@ module.exports = {
 			if (cmd['permissions'] != []) {
 				for (const permission of cmd['permissions']) {
 					/* Loops through and check permissions agasint the user */
-					if (!interaction.member.permissions.has(permission.replce(' ', '_').toUpperCase())) {
+					if (!interaction.member.permissions.has(permission.replace(' ', '_').toUpperCase())) {
 						interaction.followUp({ content: 'Sorry, you do not have permission to run this command.', ephemeral: true });
 						return;
 					}
