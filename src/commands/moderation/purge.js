@@ -1,4 +1,4 @@
-// Err command
+// Err command requiring fixing
 /*
 module.exports = {
 	name: 'purge',
