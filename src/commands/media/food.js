@@ -2,8 +2,8 @@ const { MessageEmbed } = require('discord.js');
 
 module.exports = {
 	name: 'food',
-	description: 'Delicous 😍',
-	usage: '',
+	description: 'Delicous...',
+	usage: '[command]',
 
 	permissions: [],
 	ownerOnly: false,

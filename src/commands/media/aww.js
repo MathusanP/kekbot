@@ -3,7 +3,7 @@ const { MessageEmbed } = require('discord.js');
 module.exports = {
 	name: 'aww',
 	description: 'Shows a reddit aww from r/aww',
-	usage: '',
+	usage: '[command]',
 
 	permissions: [],
 	ownerOnly: false,

@@ -3,7 +3,7 @@ const { MessageEmbed } = require('discord.js');
 module.exports = {
 	name: 'meme',
 	description: 'Shows a reddit meme from r/meme',
-	usage: '',
+	usage: '[command]',
 
 	permissions: [],
 	ownerOnly: false,
