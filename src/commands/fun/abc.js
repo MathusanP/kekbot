@@ -6,7 +6,7 @@ module.exports = {
 	usage: '',
 
 	permissions: [],
-	ownerOnly: true,
+	ownerOnly: false,
 	guildOnly: false,
 
 	error: false,
