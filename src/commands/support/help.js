@@ -54,7 +54,7 @@ module.exports = {
 				.setThumbnail(client.user.displayAvatarURL())
 				.setTimestamp();
 
-			for (const category of ['fun', 'moderation', 'support']) {
+			for (const category of ['botinfo', 'fun', 'media', 'moderation', 'support']) {
 
 				const commandFiles = readdirSync(__dirname + '/../../commands/' + category).filter(file => file.endsWith('.js'));
 				const commands = commandFiles.map(f => f.slice(0, f.length - 3));
