@@ -1,33 +1,50 @@
-import { Collection } from 'discord.js';
-import fs from 'fs';
+const { Collection } = require('discord.js');
+const fs = require('fs');
 
-export const name = 'ready';
-export const once = true;
-export const execute = async (client) => {
+module.exports = {
+	name: 'ready',
+	once: true,
 
-	console.log(`${client.user.tag} has started, with ${client.users.cache.size} users, in ${client.channels.cache.size} channels of ${client.guilds.cache.size} guilds.`);
+	execute: async (client) => {
 
+<<<<<<< HEAD
+		console.log(`Logged in as ${client.user.tag}!`);
+=======
 	client.user.setPresence({
 		status: 'online',
 		activities: [{ type: 'PLAYING', name: 'with nukes...' }],
 	});
+>>>>>>> master
 
-	/* Registering slash commands */
-	client.interactions = new Collection();
-	const data = [];
+		/* Set client status */
+		client.user.setPresence({
+			status: 'online',
+			activities: [{ type: 'PLAYING', name: 'slash commands! do /help for more.' }],
+		});
 
-	const categories = fs.readdirSync('./src/slashcommands/');
-	for (const category of categories) {
-		const commandFiles = fs.readdirSync(`./src/slashcommands/${category}`).filter(file => file.endsWith('.js'));
-		for (const file of commandFiles) {
+		/* Registering slash commands */
+		client.commands = new Collection();
+		const data = [];
 
-			const command = await import(`../../src/slashcommands/${category}/${file}`);
-			client.interactions.set(command.name, command);
-			data.push(command);
+		const categories = fs.readdirSync(`${__dirname}/../commands/`);
+		for (const category of categories) {
+			const commandFiles = fs.readdirSync(`${__dirname}/../commands/${category}`).filter(file => file.endsWith('.js'));
+			for (const file of commandFiles) {
 
+				const command = require(`${__dirname}/../commands/${category}/${file}`);
+				client.commands.set(command.name, command);
+				data.push(command);
+
+			}
 		}
-	}
 
+<<<<<<< HEAD
+		/* Set ApplicationCommand data */
+		await client.application.commands.set(data);
+
+	},
+=======
 	/* Set ApplicationCommand data */
 	await client.application.commands.set(data);
+>>>>>>> master
 };

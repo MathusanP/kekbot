@@ -1,20 +1,24 @@
-import { Util } from 'discord.js';
+module.exports = {
+	name: 'say',
+	description: 'Makes me repeat your message!',
+	usage: '<message>',
 
-export const name = 'say';
-export const description = 'Make me repeat your sentence!';
-export const aliases = ['repeat'];
-export const usage = '<message>';
-export const args = 1;
-export async function execute(message, args) {
+	permissions: [],
+	ownerOnly: false,
+	guildOnly: false,
 
-	const userMentions = Util.cleanContent(args.slice(0).join(' '), message);
-	const everyoneMentions = Util.removeMentions(userMentions);
+	options: [
+		{ name: 'message', description: 'What should I say?', type: 'STRING', required: true },
+	],
 
-	if (everyoneMentions.length > 2000) {
-		message.channel.send({ content: 'Sorry, your message was too long. I have a max of 2,000 chars.' });
-		return;
-	}
+	error: false,
+	execute: async ({ interaction }) => {
 
-	message.channel.send({ content: `${everyoneMentions}\n\n**-  ${message.author.tag}**`, allowedMentions: { parse: [], users: [], roles: [] } });
-}
+		interaction.followUp({
+			content: interaction.options.getString('message'),
+			allowedMentions: { parse: [], users: [], roles: [] },
+			ephemeral: false,
+		});
 
+	},
+};

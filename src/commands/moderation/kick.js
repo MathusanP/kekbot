@@ -1,19 +1,41 @@
-export const name = 'kick';
-export const description = 'kick a member from your server!';
-export const permissions = ['KICK_MEMBERS'];
-export const args = 1;
-export const usage = '<member> [reason]';
-export const execute = async (message, args) => {
-	const member = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
-	if (member) {
-		try {
-			await message.guild.members.ban(member);
-			message.channel.send({ content: `:wave: ${member} has been banned!` });
-		}
-		catch (err) {
-			message.channel.send({ content: `Hmmm, I can't seem to kick ${member}! This could be due to ${member} being higher in the role hierachy, or because I don't have permissions to ban or kick people.` });
-			return;
+const { MessageEmbed } = require('discord.js');
 
-		}
-	}
+module.exports = {
+	name: 'kick',
+	description: 'Kicks a member from the server.',
+	usage: '<user> [reason]',
+
+	permissions: ['Kick Members'],
+	ownerOnly: false,
+	guildOnly: true,
+
+	options: [
+		{ name: 'user', description: 'Who are you wanting to kick?', type: 'USER', required: true },
+		{ name: 'reason', description: 'Why?', type: 'STRING', required: false },
+	],
+
+	error: false,
+	execute: async ({ interaction }) => {
+
+		const user = interaction.options.getUser('user');
+		const reason = interaction.options.getString('reason') ? interaction.options.getString('reason') : 'No reason specified';
+
+		interaction.guild.members.kick(user, `Mod: ${interaction.user.tag}\nReason: ${reason}`)
+			.then(async () => {
+
+				const embed = new MessageEmbed()
+					.setAuthor({ name: interaction.user.tag, iconURL: interaction.user.displayAvatarURL() })
+					.setTitle(`🔨 Kicked: ${user.tag}`)
+					.setColor('#DC143C')
+					.addFields(
+						{ name: '**User**', value: `${user.tag} (${user.id})`, inline: false },
+						{ name: '**Moderator**', value: `${interaction.user.tag} (${interaction.user.id})`, inline: false },
+						{ name: '**Reason**', value: `${reason}`, inline: false },
+					)
+					.setTimestamp();
+
+				interaction.followUp({ embeds: [embed], ephemeral: true });
+			})
+			.catch(() => interaction.followUp({ content: 'Sorry, an error has occurred, please double check my permissions.', ephemeral: true }));
+	},
 };

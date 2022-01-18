@@ -1,54 +1,47 @@
-import { Util } from 'discord.js';
+const { MessageEmbed } = require('discord.js');
 
-import punishments from './../../../models/ModSchema.js';
+module.exports = {
+	name: 'warn',
+	description: 'Warns a member.',
+	usage: '<user> [reason]',
 
-export const name = 'warn';
-export const description = 'Warns a member for breaking the rules.';
-export const permissions = ['Kick Members'];
-export const args = 1;
-export const usage = '<member> [reason]';
-export const execute = async (message, args) => {
+	permissions: ['Kick Members'],
+	ownerOnly: false,
+	guildOnly: true,
 
-	const toWarn = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(x => x.user.username.toLowerCase() === args.slice(0).join(' ') || x.user.username === args[0]);
+	options: [
+		{ name: 'user', description: 'Who are you wanting to warn?', type: 'USER', required: true },
+		{ name: 'reason', description: 'Why?', type: 'STRING', required: false },
+	],
 
-	if (message.author.id === toWarn.id) {return;}
+	error: false,
+	execute: async ({ interaction }) => {
 
-	let reason = args[1] ? args.slice(1).join(' ') : 'No reason specified';
-	if (reason.length > 1024) {
-		message.channel.send({ content: 'The reason specified was too long. Please keep reasons under 1024 characters' });
-		return;
-	}
-	reason = Util.cleanContent(reason, message);
+		const user = interaction.options.getUser('user');
+		const reason = interaction.options.getString('reason') ? interaction.options.getString('reason') : 'No reason specified';
 
-	const data = await punishments.findOne({
-		GuildID: message.guild.id,
-		UserID: toWarn.id,
-	});
+		const logEmbed = new MessageEmbed()
+			.setAuthor({ name: interaction.user.tag, iconURL: interaction.user.displayAvatarURL() })
+			.setTitle(`⚠️ Warned: ${user.tag}`)
+			.setColor('#DC143C')
+			.addFields(
+				{ name: '**User**', value: `${user.tag} (${user.id})`, inline: false },
+				{ name: '**Moderator**', value: `${interaction.user.tag} (${interaction.user.id})`, inline: false },
+				{ name: '**Reason**', value: `${reason}`, inline: false },
+			)
+			.setTimestamp();
 
-	if (data) {
-		data.Punishments.unshift({
-			PunishType: 'Warn',
-			Moderator: message.author.id,
-			Reason: reason,
-		});
-		data.save();
+		const userEmbed = new MessageEmbed()
+			.setTitle('⚠️ You have been warned!')
+			.setColor('#DC143C')
+			.addFields(
+				{ name: '**Server**', value: `${interaction.guild} (${interaction.id})`, inline: false },
+				{ name: '**Reason**', value: `${reason}`, inline: false },
+			)
+			.setTimestamp();
 
-		message.channel.send({ content: `Warned ${toWarn} for \`${reason}\`` });
-	}
-	else if (!data) {
-		const newData = new punishments({
-			GuildID: message.guild.id,
-			UserID: toWarn.id,
-			Punishments: [{
-				PunishType: 'Warn',
-				Moderator: message.author.id,
-				Reason: reason,
-			}],
-		});
-		newData.save();
+		user.send({ embeds: [userEmbed] }).catch(() => { return; });
 
-		message.channel.send({ content: `Warned ${toWarn} for \`${reason}\`` });
-	}
+		interaction.followUp({ embeds: [logEmbed], ephemeral: true });
+	},
 };
-
-// I'll finish this command once I figure out how to export mongodb data :D

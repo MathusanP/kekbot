@@ -1,10 +1,18 @@
 const abc = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
 
-export const name = 'abc';
-export const description = 'generates a random English letter!';
-export const args = 0;
-export const execute = (message) => {
+module.exports = {
+	name: 'abc',
+	description: 'Replies with a random letter.',
+	usage: '',
 
-	message.channel.send({ content: `${abc[Math.floor(Math.random() * [abc.length])]}` });
+	permissions: [],
+	ownerOnly: false,
+	guildOnly: false,
 
+	error: false,
+	execute: ({ interaction }) => {
+
+		interaction.followUp({ content: `${abc[Math.floor(Math.random() * [abc.length])]}` });
+
+	},
 };
