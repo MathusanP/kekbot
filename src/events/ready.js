@@ -7,7 +7,14 @@ module.exports = {
 
 	execute: async (client) => {
 
+<<<<<<< HEAD
 		console.log(`Logged in as ${client.user.tag}!`);
+=======
+	client.user.setPresence({
+		status: 'online',
+		activities: [{ type: 'PLAYING', name: 'with nukes...' }],
+	});
+>>>>>>> master
 
 		/* Set client status */
 		client.user.setPresence({
@@ -31,8 +38,13 @@ module.exports = {
 			}
 		}
 
+<<<<<<< HEAD
 		/* Set ApplicationCommand data */
 		await client.application.commands.set(data);
 
 	},
+=======
+	/* Set ApplicationCommand data */
+	await client.application.commands.set(data);
+>>>>>>> master
 };
