@@ -24,7 +24,7 @@ module.exports = {
 			.setFooter({ text: `ID: ${interaction.member.id}` })
 			.setTimestamp();
 
-		const webhook = new WebhookClient({ url: 'https://discord.com/api/webhooks/932268074474815568/1Wyfa2A5pW9DQnvZSyJrKa0PvLyNAq5efW1mlTJUrteP8HByp0o0KopHSmw1chd084dY' });
+		const webhook = new WebhookClient({ url: process.env['ReporterWebhookUrl'] });
 		webhook.send({ username: interaction.guild.name, avatarURL, embeds: [embed] });
 
 		interaction.followUp({ content: 'This report will help improve kekbot! Thank you!.', ephemeral: true });
