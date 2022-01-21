@@ -12,7 +12,7 @@ module.exports = {
 		/* Set client status */
 		client.user.setPresence({
 			status: 'online',
-			activities: [{ type: 'PLAYING', name: 'slash commands! do /help for more.' }],
+			activities: [{ type: 'PLAYING', name: 'Update 4.0 - /help' }],
 		});
 
 		/* Registering slash commands */
