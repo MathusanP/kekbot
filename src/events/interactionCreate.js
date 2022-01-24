@@ -11,7 +11,6 @@ module.exports = {
 			const cmd = client.commands.get(interaction.commandName);
 			if (!cmd) return;
 
-<<<<<<< HEAD
 			/* Is the command working? */
 			if (cmd['error'] == true) {
 				interaction.followUp({ content: 'Sorry, this command is currently unavailable. Please try again later.', ephemeral: true });
@@ -31,13 +30,6 @@ module.exports = {
 			if (cmd['guildOnly'] == true) {
 				if (!interaction.member.id == interaction.guild.ownerId) {
 					interaction.followUp({ content: 'Sorry, this command can only be used within a server.', ephemeral: true });
-=======
-		if (cmd['permissions'] != []) {
-			for (const permission of cmd['permissions']) {
-				/* Loops through and checks all permissions agasint the user */
-				if (!interaction.member.permissions.has(permission.toUpperCase().replace(' ', '_'))) {
-					interaction.reply({ content: 'Sorry, you do not have permission to run this command.', ephemeral: true });
->>>>>>> master
 					return;
 				}
 			}

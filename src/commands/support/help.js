@@ -23,7 +23,7 @@ module.exports = {
 		if (cmd) {
 
 			const embed = new MessageEmbed()
-				.setColor('#0099FF')
+				.setColor('RANDOM')
 				.setTitle(cmd.name.charAt(0).toUpperCase() + cmd.name.slice(1) + ' Command')
 				.setURL('https://dsc.gg/kekinv')
 				.setDescription(cmd.description)
@@ -47,7 +47,7 @@ module.exports = {
 		else {
 
 			const embed = new MessageEmbed()
-				.setColor('#0099FF')
+				.setColor('RANDOM')
 				.setTitle(client.user.username + ' Commands')
 				.setURL('https://dsc.gg/kekinv')
 				.setDescription('To view the information about a certain command\ndo `/help <command>`.')
