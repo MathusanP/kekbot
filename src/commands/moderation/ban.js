@@ -32,7 +32,8 @@ module.exports = {
 						{ name: '**Moderator**', value: `${interaction.user.tag} (${interaction.user.id})`, inline: false },
 						{ name: '**Reason**', value: `${reason}`, inline: false },
 					)
-					.setTimestamp();
+					.setTimestamp()
+					.setFooter({ iconURL: 'https://automod.liamskinner.co.uk/invite', text: 'Moderation brought to you by autoMod!' });
 
 				interaction.followUp({ embeds: [embed], ephemeral: true });
 
