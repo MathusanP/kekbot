@@ -31,7 +31,7 @@ module.exports = {
 				{ name: '**Uptime:**', value: `${uptime}`, inline: true },
 				{ name: '**Birthday:**', value: '18/06/2020', inline: true },
 
-				{ name: '**Developers:**', value: '[Bagel#1475](https://github.com/bagelwastaken)\n**[ThatsLiamS#6950](https://github.com/ThatsLiamS)**', inline: true },
+				{ name: '**Developers:**', value: '[Bagel#1475](https://github.com/bagelwastaken)\n**[ThatsLiamS#6950](https://liamskinner.co.uk)**', inline: true },
 
 			)
 			.setFooter({ text: 'Do \'/help\' to get started' });
