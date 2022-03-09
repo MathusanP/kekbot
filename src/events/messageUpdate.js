@@ -6,7 +6,7 @@ module.exports = {
 
 	execute: async (oldMessage, newMessage) => {
 
-		detector('messageUpdate', oldMessage, newMessage).catch(() => { return; });
+		detector('messageUpdate', oldMessage, newMessage);
 
 	},
 };

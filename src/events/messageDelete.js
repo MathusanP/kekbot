@@ -6,7 +6,7 @@ module.exports = {
 
 	execute: async (message) => {
 
-		detector('messageDelete', message).catch(() => { return; });
+		detector('messageDelete', message);
 
 	},
 };
