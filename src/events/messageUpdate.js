@@ -1,3 +1,4 @@
+/*
 const { detector } = require('discord.js-ghost-ping');
 
 module.exports = {
@@ -10,3 +11,4 @@ module.exports = {
 
 	},
 };
+*/
