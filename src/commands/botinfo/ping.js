@@ -1,3 +1,4 @@
+const { SlashCommandBuilder } = require('@discordjs/builders');
 const { MessageEmbed } = require('discord.js');
 
 module.exports = {
@@ -8,6 +9,10 @@ module.exports = {
 	permissions: [],
 	ownerOnly: false,
 	guildOnly: true,
+
+	data: new SlashCommandBuilder()
+		.setName('ping')
+		.setDescription('Shows the latency for the bot!'),
 
 	error: false,
 	execute: ({ interaction, client }) => {

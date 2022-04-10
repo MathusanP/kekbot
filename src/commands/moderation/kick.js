@@ -1,3 +1,4 @@
+const { SlashCommandBuilder } = require('@discordjs/builders');
 const { MessageEmbed } = require('discord.js');
 
 module.exports = {
@@ -9,10 +10,20 @@ module.exports = {
 	ownerOnly: false,
 	guildOnly: true,
 
-	options: [
-		{ name: 'user', description: 'Who are you wanting to kick?', type: 'USER', required: true },
-		{ name: 'reason', description: 'Why?', type: 'STRING', required: false },
-	],
+	data: new SlashCommandBuilder()
+		.setName('kick')
+		.setDescription('Kicks a member from the server!')
+		.addUsergOption(option => option
+			.setName('user')
+			.setDescription('User to kick')
+			.setRequired(true),
+		)
+
+		.addStringOption(option => option
+			.setName('reason')
+			.setDescription('Why did you kick them?')
+			.setRequired(false),
+		),
 
 	error: false,
 	execute: async ({ interaction }) => {

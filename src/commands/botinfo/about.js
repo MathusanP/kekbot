@@ -1,3 +1,4 @@
+const { SlashCommandBuilder } = require('@discordjs/builders');
 const { MessageEmbed, MessageButton, MessageActionRow } = require('discord.js');
 
 module.exports = {
@@ -8,6 +9,10 @@ module.exports = {
 	permissions: [],
 	ownerOnly: false,
 	guildOnly: true,
+
+	data: new SlashCommandBuilder()
+		.setName('about')
+		.setDescription('Shows lots of cool information about the bot!'),
 
 	error: false,
 	execute: ({ interaction, client }) => {

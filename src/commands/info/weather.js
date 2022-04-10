@@ -1,17 +1,24 @@
+const { SlashCommandBuilder } = require('@discordjs/builders');
 const { MessageEmbed } = require('discord.js');
 const weather = require('weather-js');
-
 
 module.exports = {
 	name: 'weather',
 	description: 'Shows the weather of a specified area',
-	usage: '[member]',
+	usage: '<area>',
+
 	permissions: [],
 	ownerOnly: false,
 	guildOnly: true,
-	options: [
-		{ name: 'area', description: 'User to get information for', type: 'STRING', required: true },
-	],
+
+	data: new SlashCommandBuilder()
+		.setName('weather')
+		.setDescription('Shows the wather if a specified area!')
+		.addStringOption(option => option
+			.setName('area')
+			.setDescription('Location to get infromation for')
+			.setRequired(true),
+		),
 
 	error: false,
 	execute: async ({ interaction }) => {

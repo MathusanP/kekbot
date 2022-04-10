@@ -1,13 +1,18 @@
+const { SlashCommandBuilder } = require('@discordjs/builders');
 const { MessageEmbed } = require('discord.js');
 
 module.exports = {
 	name: 'random',
 	description: 'Shows a random picture from r/pictures',
-	usage: '[command]',
+	usage: '',
 
 	permissions: [],
 	ownerOnly: false,
 	guildOnly: true,
+
+	data: new SlashCommandBuilder()
+		.setName('random')
+		.setDescription('Shows a random picture from r/pictures!'),
 
 	error: false,
 	execute: async ({ interaction }) => {

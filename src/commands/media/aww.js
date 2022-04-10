@@ -1,13 +1,18 @@
+const { SlashCommandBuilder } = require('@discordjs/builders');
 const { MessageEmbed } = require('discord.js');
 
 module.exports = {
 	name: 'aww',
 	description: 'Shows a reddit aww from r/aww',
-	usage: '[command]',
+	usage: '',
 
 	permissions: [],
 	ownerOnly: false,
 	guildOnly: true,
+
+	data: new SlashCommandBuilder()
+		.setName('aww')
+		.setDescription('Shows a post from r/aww!'),
 
 	error: false,
 	execute: async ({ interaction }) => {
