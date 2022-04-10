@@ -13,7 +13,7 @@ module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('warn')
 		.setDescription('Warns a member in the server!')
-		.addUsergOption(option => option
+		.addUserOption(option => option
 			.setName('user')
 			.setDescription('User to warn')
 			.setRequired(true),

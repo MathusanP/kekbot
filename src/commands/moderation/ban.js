@@ -13,7 +13,7 @@ module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('ban')
 		.setDescription('Bans a member from the server!')
-		.addUsergOption(option => option
+		.addUserOption(option => option
 			.setName('user')
 			.setDescription('User to ban')
 			.setRequired(true),

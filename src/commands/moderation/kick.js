@@ -13,7 +13,7 @@ module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('kick')
 		.setDescription('Kicks a member from the server!')
-		.addUsergOption(option => option
+		.addUserOption(option => option
 			.setName('user')
 			.setDescription('User to kick')
 			.setRequired(true),

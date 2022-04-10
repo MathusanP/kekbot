@@ -14,7 +14,7 @@ module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('whois')
 		.setDescription('Shows information about a user!')
-		.addUsergOption(option => option
+		.addUserOption(option => option
 			.setName('user')
 			.setDescription('User to get information for')
 			.setRequired(false),
