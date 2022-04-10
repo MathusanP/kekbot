@@ -13,8 +13,5 @@ for (const file of eventFiles) {
 	else client.on(event.name, (...args) => event.execute(...args, client));
 }
 
-/*
 require('dotenv').config();
 client.login(process.env['Token']);
-*/
-client.login('NzM2NTQ3Mjc5MzIxNjk0MjA5.XxwZGw.DzxcZ9qIm3jgpeWPsgK8FKNiVpE');
