@@ -29,11 +29,10 @@ module.exports = {
 
 	error: false,
 	execute: ({ interaction }) => {
-		const selection = interaction.options.getString('Choice');
+		const selection = interaction.options.getString('choice');
 		const rpsEmbed = new MessageEmbed()
 			.setColor('#fafbfc')
-			.setDescription(`Computer chose ${computer} You chose ${selection}.`);
-
+			.setDescription(`Computer chose ${computer}. You chose ${selection}.`);
 		interaction.followUp({ embeds: [rpsEmbed] });
 
 	},
