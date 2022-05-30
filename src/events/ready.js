@@ -1,6 +1,14 @@
 const { Collection } = require('discord.js');
 const fs = require('fs');
 
+const app = require('express')();
+
+app.get('/', (req, res) => {
+	res.send('Hello World');
+});
+
+app.listen(8080, () => console.log('Listening in port 8080'));
+
 module.exports = {
 	name: 'ready',
 	once: true,
