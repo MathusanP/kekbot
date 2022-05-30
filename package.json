@@ -27,6 +27,7 @@
 		"express": "^4.18.1",
 		"got": "^12.0.0",
 		"moment": "^2.29.1",
+		"sys": "^0.0.1",
 		"weather-js": "^2.0.0"
 	},
 	"devDependencies": {
