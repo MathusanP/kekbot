@@ -14,4 +14,4 @@ If the bot redirects you to a third party I.e: Another server or to a website, w
 We are entitled to changing our privacy policy and if we do, we will announce this 2 weeks in advance to avoid any conflicts or misunderstandings. 
 
 ##### Contact us
-Should you feel the need to contact us, you may do so by joining the Support [server](https://dsc.gg/mathusan).
+Should you feel the need to contact us, you may do so by joining the Support [server](https://dsc.gg/mathusan), or email Bagel at me@mathusan.co.uk
