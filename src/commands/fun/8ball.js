@@ -2,10 +2,10 @@ const { SlashCommandBuilder } = require('@discordjs/builders');
 const { MessageEmbed } = require('discord.js');
 
 const possibleAnswers = [
-	'Hohoho... no.',
+	'That is a no from me.',
 	'Yees.',
 	'No.',
-	'Hohoho...',
+	'???',
 	'It is certain.',
 	'It is decidedly so.',
 	'Most likely.',
@@ -20,7 +20,7 @@ const possibleAnswers = [
 module.exports = {
 	name: '8ball',
 	description: 'Ask the all knowing, magic 8ball a question!',
-	usage: '`/8ball <question>`',
+	usage: '`<question>`',
 
 	permissions: [],
 	ownerOnly: false,
