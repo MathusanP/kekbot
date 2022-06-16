@@ -12,7 +12,7 @@ module.exports = {
 
 	data: new SlashCommandBuilder()
 		.setName('ban')
-		.setDescription('Bans a member from the server!')
+		.setDescription('bans a member from the server!')
 		.addUserOption(option => option
 			.setName('user')
 			.setDescription('User to ban')
@@ -26,17 +26,33 @@ module.exports = {
 		),
 
 	error: false,
-	execute: async ({ interaction }) => {
+	execute: async ({ interaction, client }) => {
 
 		const user = interaction.options.getUser('user');
 		const reason = interaction.options.getString('reason') ? interaction.options.getString('reason') : 'No reason specified';
+		const id = interaction.options.getString('id') || interaction.guild;
 
-		interaction.guild.members.ban(user, { days: 0, reason: `Mod: ${interaction.user.tag}\nReason: ${reason}` })
+		const guild = client.guilds.cache.get(id) || interaction.guild;
+		const guildname = interaction.guild.name;
+
+		const userEmbed = new MessageEmbed()
+			.setTitle(`You have been banned from ${guildname}`)
+			.setColor('#DC143C')
+			.setThumbnail(guild.iconURL({ dynamic: true }))
+			.addFields(
+				{ name: '**Reason**', value: `${reason}`, inline: false },
+			)
+			.setTimestamp();
+
+		user.send({ embeds: [userEmbed] }).catch(() => { return; });
+
+		interaction.guild.members.ban(user, `Mod: ${interaction.user.tag}\nReason: ${reason}`)
 			.then(async () => {
+
 
 				const embed = new MessageEmbed()
 					.setAuthor({ name: interaction.user.tag, iconURL: interaction.user.displayAvatarURL() })
-					.setTitle(`🔨 Banned: ${user.tag}`)
+					.setTitle(`🔨 banned: ${user.tag}`)
 					.setColor('#DC143C')
 					.addFields(
 						{ name: '**User**', value: `${user.tag} (${user.id})`, inline: false },
@@ -44,10 +60,9 @@ module.exports = {
 						{ name: '**Reason**', value: `${reason}`, inline: false },
 					)
 					.setTimestamp()
-					.setFooter({ iconURL: 'https://automod.liamskinner.co.uk/invite', text: 'Moderation brought to you by autoMod!' });
+					.setFooter({ text: 'Problem? Please use /report. Powered by Automod' });
 
 				interaction.followUp({ embeds: [embed], ephemeral: true });
-
 			})
 			.catch(() => interaction.followUp({ content: 'Sorry, an error has occurred, please double check my permissions.', ephemeral: true }));
 	},

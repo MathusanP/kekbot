@@ -26,13 +26,29 @@ module.exports = {
 		),
 
 	error: false,
-	execute: async ({ interaction }) => {
+	execute: async ({ interaction, client }) => {
 
 		const user = interaction.options.getUser('user');
 		const reason = interaction.options.getString('reason') ? interaction.options.getString('reason') : 'No reason specified';
+		const id = interaction.options.getString('id') || interaction.guild;
+
+		const guild = client.guilds.cache.get(id) || interaction.guild;
+		const guildname = interaction.guild.name;
+
+		const userEmbed = new MessageEmbed()
+			.setTitle(`You have been kicked from ${guildname}`)
+			.setColor('#DC143C')
+			.setThumbnail(guild.iconURL({ dynamic: true }))
+			.addFields(
+				{ name: '**Reason**', value: `${reason}`, inline: false },
+			)
+			.setTimestamp();
+
+		user.send({ embeds: [userEmbed] }).catch(() => { return; });
 
 		interaction.guild.members.kick(user, `Mod: ${interaction.user.tag}\nReason: ${reason}`)
 			.then(async () => {
+
 
 				const embed = new MessageEmbed()
 					.setAuthor({ name: interaction.user.tag, iconURL: interaction.user.displayAvatarURL() })
@@ -44,7 +60,7 @@ module.exports = {
 						{ name: '**Reason**', value: `${reason}`, inline: false },
 					)
 					.setTimestamp()
-					.setFooter({ iconURL: 'https://automod.liamskinner.co.uk/invite', text: 'Moderation brought to you by autoMod!' });
+					.setFooter({ text: 'Problem? Please use /report. Powered by Automod' });
 
 				interaction.followUp({ embeds: [embed], ephemeral: true });
 			})
