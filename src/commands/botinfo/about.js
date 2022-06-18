@@ -32,9 +32,9 @@ module.exports = {
 				{ name: '**Total Users:**', value: `${users}`, inline: true },
 				{ name: '**Total Commands:**', value: '23', inline: true },
 
-				{ name: '**Version:**', value: '4.4.0', inline: true },
+				{ name: '**Version:**', value: '4.4.1', inline: true },
 				{ name: '**Uptime:**', value: `${uptime}`, inline: true },
-				{ name: '**Birthday:**', value: '18/06/2020', inline: true },
+				{ name: '**Birthday:**', value: '18/07/2020', inline: true },
 
 				{ name: '**Developers:**', value: '[Bagel#1475](https://github.com/bagelwastaken)\n**[ThatsLiamS#6950](https://liamskinner.co.uk)**', inline: true },
 
