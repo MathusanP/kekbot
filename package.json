@@ -1,6 +1,6 @@
 {
 	"name": "kekbot",
-	"version": "4.4.1",
+	"version": "4.4.2",
 	"description": "",
 	"engines": {
 		"node": "16.6"
