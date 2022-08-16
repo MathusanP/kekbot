@@ -32,7 +32,7 @@ module.exports = {
 				{ name: '**Total Users:**', value: `${users}`, inline: true },
 				{ name: '**Total Commands:**', value: '23', inline: true },
 
-				{ name: '**Version:**', value: '4.4.2', inline: true },
+				{ name: '**Version:**', value: '4.4.3', inline: true },
 				{ name: '**Uptime:**', value: `${uptime}`, inline: true },
 				{ name: '**Birthday:**', value: '18/07/2020', inline: true },
 
