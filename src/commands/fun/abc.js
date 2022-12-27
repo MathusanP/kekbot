@@ -1,3 +1,5 @@
+const { SlashCommandBuilder } = require('@discordjs/builders');
+
 const abc = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
 
 module.exports = {
@@ -8,6 +10,10 @@ module.exports = {
 	permissions: [],
 	ownerOnly: false,
 	guildOnly: false,
+
+	data: new SlashCommandBuilder()
+		.setName('abc')
+		.setDescription('Replies with a random letter!'),
 
 	error: false,
 	execute: ({ interaction }) => {

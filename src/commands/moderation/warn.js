@@ -1,3 +1,4 @@
+const { SlashCommandBuilder } = require('@discordjs/builders');
 const { MessageEmbed } = require('discord.js');
 
 module.exports = {
@@ -9,10 +10,20 @@ module.exports = {
 	ownerOnly: false,
 	guildOnly: true,
 
-	options: [
-		{ name: 'user', description: 'Who are you wanting to warn?', type: 'USER', required: true },
-		{ name: 'reason', description: 'Why?', type: 'STRING', required: false },
-	],
+	data: new SlashCommandBuilder()
+		.setName('warn')
+		.setDescription('Warns a member in the server!')
+		.addUserOption(option => option
+			.setName('user')
+			.setDescription('User to warn')
+			.setRequired(true),
+		)
+
+		.addStringOption(option => option
+			.setName('reason')
+			.setDescription('Why are you warning them?')
+			.setRequired(false),
+		),
 
 	error: false,
 	execute: async ({ interaction }) => {
@@ -29,7 +40,8 @@ module.exports = {
 				{ name: '**Moderator**', value: `${interaction.user.tag} (${interaction.user.id})`, inline: false },
 				{ name: '**Reason**', value: `${reason}`, inline: false },
 			)
-			.setTimestamp();
+			.setTimestamp()
+			.setFooter({ iconURL: 'https://automod.liamskinner.co.uk/invite', text: 'Moderation brought to you by autoMod!' });
 
 		const userEmbed = new MessageEmbed()
 			.setTitle('⚠️ You have been warned!')

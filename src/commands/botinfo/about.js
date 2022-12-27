@@ -1,3 +1,4 @@
+const { SlashCommandBuilder } = require('@discordjs/builders');
 const { MessageEmbed, MessageButton, MessageActionRow } = require('discord.js');
 
 module.exports = {
@@ -8,6 +9,10 @@ module.exports = {
 	permissions: [],
 	ownerOnly: false,
 	guildOnly: true,
+
+	data: new SlashCommandBuilder()
+		.setName('about')
+		.setDescription('Shows lots of cool information about the bot!'),
 
 	error: false,
 	execute: ({ interaction, client }) => {
@@ -25,13 +30,13 @@ module.exports = {
 
 				{ name: '**Total Servers:**', value: `${servers}`, inline: true },
 				{ name: '**Total Users:**', value: `${users}`, inline: true },
-				{ name: '**Total Commands:**', value: '1', inline: true },
+				{ name: '**Total Commands:**', value: '23', inline: true },
 
-				{ name: '**Version:**', value: '4.0.1', inline: true },
+				{ name: '**Version:**', value: '4.4.3', inline: true },
 				{ name: '**Uptime:**', value: `${uptime}`, inline: true },
-				{ name: '**Birthday:**', value: '18/06/2020', inline: true },
+				{ name: '**Birthday:**', value: '18/07/2020', inline: true },
 
-				{ name: '**Developers:**', value: '[Bagel#1475](https://github.com/bagelwastaken)\n**[ThatsLiamS#6950](https://github.com/ThatsLiamS)**', inline: true },
+				{ name: '**Developers:**', value: '[Bagel#1475](https://github.com/bagelwastaken)\n**[ThatsLiamS#6950](https://liamskinner.co.uk)**', inline: true },
 
 			)
 			.setFooter({ text: 'Do \'/help\' to get started' });

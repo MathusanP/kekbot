@@ -1,19 +1,24 @@
+const { SlashCommandBuilder } = require('@discordjs/builders');
 const { MessageEmbed } = require('discord.js');
 
 module.exports = {
 	name: 'aww',
-	description: 'Shows a reddit aww from r/aww',
-	usage: '[command]',
+	description: 'Shows a cute photo from r/aww',
+	usage: '',
 
 	permissions: [],
 	ownerOnly: false,
 	guildOnly: true,
 
+	data: new SlashCommandBuilder()
+		.setName('aww')
+		.setDescription('Shows a post from r/aww!'),
+
 	error: false,
 	execute: async ({ interaction }) => {
 		const { got } = await import('got');
 
-		got('https://www.reddit.com/r/awws/random/.json').then(response => {
+		got('https://www.reddit.com/r/aww/random/.json').then(response => {
 			const content = JSON.parse(response.body);
 
 			const embed = new MessageEmbed()

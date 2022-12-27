@@ -1,6 +1,14 @@
 const { Collection } = require('discord.js');
 const fs = require('fs');
 
+const app = require('express')();
+
+app.get('/', (req, res) => {
+	res.send('Hello World');
+});
+
+app.listen(8080, () => console.log('Listening in port 8080'));
+
 module.exports = {
 	name: 'ready',
 	once: true,
@@ -12,7 +20,7 @@ module.exports = {
 		/* Set client status */
 		client.user.setPresence({
 			status: 'online',
-			activities: [{ type: 'PLAYING', name: 'Update 4.0 - /help' }],
+			activities: [{ type: 'PLAYING', name: 'Update 4.4.1 - /help' }],
 		});
 
 		/* Registering slash commands */
@@ -26,7 +34,7 @@ module.exports = {
 
 				const command = require(`${__dirname}/../commands/${category}/${file}`);
 				client.commands.set(command.name, command);
-				data.push(command);
+				data.push(command.data.toJSON());
 
 			}
 		}

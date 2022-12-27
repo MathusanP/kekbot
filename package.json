@@ -1,6 +1,6 @@
 {
 	"name": "kekbot",
-	"version": "4.0.1",
+	"version": "4.4.3",
 	"description": "",
 	"engines": {
 		"node": "16.6"
@@ -20,10 +20,15 @@
 	},
 	"homepage": "https://github.com/bagelwastaken/kekbot#readme",
 	"dependencies": {
-		"discord.js": "^13.5.0",
+		"@discordjs/builders": "^0.12.0",
+		"discord.js": "^13.6.0",
+		"discord.js-ghost-ping": "^2.1.4",
 		"dotenv": "^10.0.0",
+		"express": "^4.18.1",
 		"got": "^12.0.0",
-		"moment": "^2.29.1"
+		"moment": "^2.29.1",
+		"sys": "^0.0.1",
+		"weather-js": "^2.0.0"
 	},
 	"devDependencies": {
 		"eslint": "^8.6.0"

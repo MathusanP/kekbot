@@ -2,8 +2,8 @@ const { SlashCommandBuilder } = require('@discordjs/builders');
 const { MessageEmbed } = require('discord.js');
 
 module.exports = {
-	name: 'quote',
-	description: 'Shows a reddit quote from r/quotes',
+	name: 'random',
+	description: 'Shows a random picture from r/pictures',
 	usage: '',
 
 	permissions: [],
@@ -11,14 +11,14 @@ module.exports = {
 	guildOnly: true,
 
 	data: new SlashCommandBuilder()
-		.setName('quote')
-		.setDescription('Shows a post from r/quotes!'),
+		.setName('random')
+		.setDescription('Shows a random picture from r/pictures!'),
 
 	error: false,
 	execute: async ({ interaction }) => {
 		const { got } = await import('got');
 
-		got('https://www.reddit.com/r/quotes/random/.json').then(response => {
+		got('https://www.reddit.com/r/pics/random/.json').then(response => {
 			const content = JSON.parse(response.body);
 
 			const embed = new MessageEmbed()
@@ -31,6 +31,6 @@ module.exports = {
 			interaction.followUp({ embeds: [embed] });
 
 		})
-			.catch(() => { interaction.followUp({ content: 'Sorry, an error occured with that command.' }); });
+			.catch(() => { interaction.followUp({ content: 'Sorry, an error occured with that command, please report this using the /report command.' }); });
 	},
 };

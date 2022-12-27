@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client({
-	intents: ['GUILDS', 'GUILD_MESSAGES', 'GUILD_WEBHOOKS', 'GUILD_MESSAGE_REACTIONS'],
+	intents: ['GUILDS', 'GUILD_MESSAGES', 'GUILD_WEBHOOKS'],
 });
 
 
@@ -12,7 +12,6 @@ for (const file of eventFiles) {
 	if (event.once) client.once(event.name, (...args) => event.execute(...args, client));
 	else client.on(event.name, (...args) => event.execute(...args, client));
 }
-
 
 require('dotenv').config();
 client.login(process.env['Token']);

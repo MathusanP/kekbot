@@ -1,3 +1,4 @@
+const { SlashCommandBuilder } = require('@discordjs/builders');
 const { MessageEmbed, MessageButton, MessageActionRow } = require('discord.js');
 const { readdirSync } = require('fs');
 
@@ -10,9 +11,14 @@ module.exports = {
 	ownerOnly: false,
 	guildOnly: false,
 
-	options: [
-		{ name: 'command', description: 'Shows details about how to use a command', type: 'STRING', required: false },
-	],
+	data: new SlashCommandBuilder()
+		.setName('help')
+		.setDescription('Provides a list of all my commands!')
+		.addStringOption(option => option
+			.setName('command')
+			.setDescription('Shows details about how to use a command')
+			.setRequired(false),
+		),
 
 	error: false,
 	execute: async ({ interaction, client }) => {
@@ -54,7 +60,7 @@ module.exports = {
 				.setThumbnail(client.user.displayAvatarURL())
 				.setTimestamp();
 
-			for (const category of ['botinfo', 'fun', 'media', 'moderation', 'support']) {
+			for (const category of ['botinfo', 'fun', 'info', 'media', 'moderation', 'support']) {
 				let description = '';
 
 				const commandFiles = readdirSync(__dirname + '/../../commands/' + category).filter(file => file.endsWith('.js'));
