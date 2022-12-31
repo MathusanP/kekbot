@@ -1,6 +1,6 @@
-const Discord = require('discord.js');
-const client = new Discord.Client({
-	intents: ['GUILDS', 'GUILD_MESSAGES', 'GUILD_WEBHOOKS'],
+const { Client, GatewayIntentBits } = require('discord.js');
+const client = new Client({
+	intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.GuildWebhooks],
 });
 
 
