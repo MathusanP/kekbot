@@ -1,3 +1,5 @@
+const { InteractionType } = require('discord.js');
+
 module.exports = {
 	name: 'interactionCreate',
 	once: false,
@@ -5,7 +7,7 @@ module.exports = {
 	execute: async (interaction, client) => {
 
 		/* Is interaction a command? */
-		if (interaction.isCommand()) {
+		if (interaction.type === InteractionType.ApplicationCommand) {
 			await interaction.deferReply();
 
 			const cmd = client.commands.get(interaction.commandName);
@@ -47,7 +49,7 @@ module.exports = {
 		}
 
 		/* Is interaction a button? */
-		if (interaction.isButton()) {
+		if (interaction.type === InteractionType.MessageComponent) {
 
 			/* Locating button file */
 			const category = interaction.customId.split('-')[0];

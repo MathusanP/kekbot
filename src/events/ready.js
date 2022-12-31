@@ -2,11 +2,7 @@ const { Collection } = require('discord.js');
 const fs = require('fs');
 
 const app = require('express')();
-
-app.get('/', (req, res) => {
-	res.send('Hello World');
-});
-
+app.get('/', (_req, res) => res.send('Hello World'));
 app.listen(8080, () => console.log('Listening in port 8080'));
 
 module.exports = {
@@ -18,9 +14,9 @@ module.exports = {
 		console.log(`Logged in as ${client.user.tag}!`);
 
 		/* Set client status */
-		client.user.setPresence({
+		await client.user.setPresence({
 			status: 'online',
-			activities: [{ type: 'PLAYING', name: 'Update 4.4.1 - /help' }],
+			activities: [{ type: 0, name: 'Update 4.5.0 - /help' }],
 		});
 
 		/* Registering slash commands */

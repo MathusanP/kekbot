@@ -1,5 +1,4 @@
-const { SlashCommandBuilder } = require('@discordjs/builders');
-const { MessageEmbed } = require('discord.js');
+const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
 
 const coinflip = ['Heads', 'Tails'];
 
@@ -20,9 +19,9 @@ module.exports = {
 	execute: ({ interaction }) => {
 		const result = (`${coinflip[Math.floor(Math.random() * [coinflip.length])]}`);
 
-		const flipcoinEmbed = new MessageEmbed()
+		const flipcoinEmbed = new EmbedBuilder()
 			.setTitle(`**${result}**`)
-			.setColor('RANDOM')
+			.setColor('Random')
 			.setTimestamp();
 
 		if (result === 'Heads') {

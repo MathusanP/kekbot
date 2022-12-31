@@ -1,5 +1,4 @@
-const { SlashCommandBuilder } = require('@discordjs/builders');
-const { MessageEmbed } = require('discord.js');
+const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
 
 module.exports = {
 	name: 'ping',
@@ -17,10 +16,10 @@ module.exports = {
 	error: false,
 	execute: ({ interaction, client }) => {
 
-		const embed = new MessageEmbed()
+		const embed = new EmbedBuilder()
 			.setTitle('Pong!')
 			.setDescription(`The number no one has asked for is: ${client.ws.ping}ms.`)
-			.setColor('GREEN')
+			.setColor('Green')
 			.setTimestamp();
 
 		interaction.followUp({ embeds: [embed] });

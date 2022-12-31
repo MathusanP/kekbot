@@ -1,5 +1,4 @@
-const { SlashCommandBuilder } = require('@discordjs/builders');
-const { MessageEmbed, MessageButton, MessageActionRow } = require('discord.js');
+const { SlashCommandBuilder, EmbedBuilder, ButtonBuilder, ButtonStyle, ActionRowBuilder } = require('discord.js');
 const { readdirSync } = require('fs');
 
 module.exports = {
@@ -14,11 +13,8 @@ module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('help')
 		.setDescription('Provides a list of all my commands!')
-		.addStringOption(option => option
-			.setName('command')
-			.setDescription('Shows details about how to use a command')
-			.setRequired(false),
-		),
+
+		.addStringOption(option => option.setName('command').setDescription('Shows details about how to use a command').setRequired(false)),
 
 	error: false,
 	execute: async ({ interaction, client }) => {
@@ -28,23 +24,23 @@ module.exports = {
 
 		if (cmd) {
 
-			const embed = new MessageEmbed()
-				.setColor('RANDOM')
+			const embed = new EmbedBuilder()
+				.setColor('Random')
 				.setTitle(cmd.name.charAt(0).toUpperCase() + cmd.name.slice(1) + ' Command')
 				.setURL('https://dsc.gg/kekinv')
 				.setDescription(cmd.description)
 				.setTimestamp();
 
-			embed.addField('__Usage:__', '/' + cmd.name + (cmd.usage ? ' ' + cmd.usage : ''), false);
+			embed.addFields({ name: '__Usage:__', value: '/' + cmd.name + (cmd.usage ? ' ' + cmd.usage : ''), inline: false });
 
 			if (cmd.permissions[0] && cmd.ownerOnly == false) {
-				embed.addField('__Permissions:__', '`' + cmd.permissions.join('` `') + '`', false);
+				embed.addFields({ name: '__Permissions:__', value: '`' + cmd.permissions.join('` `') + '`' });
 			}
 			if (!cmd.permissions[0] && cmd.ownerOnly == true) {
-				embed.addField('__Permissions:__', '**Server Owner Only**', false);
+				embed.addFields({ name: '__Permissions:__', value: '**Server Owner Only**', inline: false });
 			}
 			if (cmd.error == true) {
-				embed.addField('__Error:__', 'This command is currently unavailable, please try again later.', false);
+				embed.addFields({ name: '__Error:__', value: 'This command is currently unavailable, please try again later.', inline: false });
 			}
 
 			interaction.followUp({ embeds: [embed], ephemeral: false });
@@ -52,8 +48,8 @@ module.exports = {
 		}
 		else {
 
-			const embed = new MessageEmbed()
-				.setColor('RANDOM')
+			const embed = new EmbedBuilder()
+				.setColor('Random')
 				.setTitle(client.user.username + ' Commands')
 				.setURL('https://dsc.gg/kekinv')
 				.setDescription('To view the information about a certain command\ndo `/help <command>`.')
@@ -69,15 +65,15 @@ module.exports = {
 					description += `/${command.name}${command.usage ? ` ${command.usage}` : ''}\n`;
 				}
 
-				embed.addField(`__${category.charAt(0).toUpperCase() + category.slice(1)}__`, description, false);
+				embed.addFields({ name: `__${category.charAt(0).toUpperCase() + category.slice(1)}__`, value: description, inline: false });
 			}
 
-			const row = new MessageActionRow()
+			const row = new ActionRowBuilder()
 				.addComponents(
-					new MessageButton()
-						.setStyle('LINK').setLabel('Support Server').setURL('https://dsc.gg/kekbot'),
-					new MessageButton()
-						.setStyle('LINK').setLabel('Invite').setURL('https://dsc.gg/kekinv'),
+					new ButtonBuilder()
+						.setStyle(ButtonStyle.Link).setLabel('Support Server').setURL('https://dsc.gg/kekbot'),
+					new ButtonBuilder()
+						.setStyle(ButtonStyle.Link).setLabel('Invite').setURL('https://dsc.gg/kekinv'),
 				);
 
 			interaction.followUp({ embeds: [embed], components: [row], ephemeral: false });

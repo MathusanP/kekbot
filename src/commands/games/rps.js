@@ -1,13 +1,10 @@
-// This command is currently undergoing iterative testing, it will be tested as we add on to it.
-const { SlashCommandBuilder } = require('@discordjs/builders');
-const { MessageEmbed } = require('discord.js');
-const outcomes = ['Rock', 'Paper', 'Scissors'];
-const computer = outcomes[Math.floor(Math.random() * [outcomes.length])];
+const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
+
 
 module.exports = {
 	name: 'rps',
 	description: 'Play rock paper scissors against the bot!',
-	usage: '[user]',
+	usage: '<choice>',
 
 	permissions: [],
 	ownerOnly: false,
@@ -16,23 +13,29 @@ module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('rps')
 		.setDescription('Play rock paper scissors against the bot!')
-		.addStringOption(option => option
-			.setName('choice')
-			.setRequired(true)
-			.addChoice('Rock', 'rock')
-			.setDescription('Use rock')
-			.addChoice('Paper', 'paper')
-			.setDescription('Use paper ')
-			.addChoice('Scissors', 'scissors')
-			.setDescription('Use Scissors'),
+
+		.addStringOption(option => option.setName('choice').setDescription('Chose Rock, Paper or Scissors!').setRequired(true).addChoices(
+			{ name: 'Rock', value: 'rock' }, { name: 'Paper', value: 'paper' }, { name: 'Scissors', value: 'scissors' }),
 		),
 
 	error: false,
 	execute: ({ interaction }) => {
+
+		const outcomes = ['Rock', 'Paper', 'Scissors'];
+		const computer = outcomes[Math.floor(Math.random() * [outcomes.length])];
 		const selection = interaction.options.getString('choice');
-		const rpsEmbed = new MessageEmbed()
+
+		/* Select the winning result */
+		let result = '';
+		if (selection == computer) result = 'Draw!';
+		else if (selection == 'rock') result = computer == 'Paper' ? 'You Lost!' : 'You Won!';
+		else if (selection == 'scissors') result = computer == 'Rock' ? 'You Lost!' : 'You Won!';
+		else if (selection == 'paper') result = computer == 'Scissors' ? 'You Lost!' : 'You Won!';
+
+		const rpsEmbed = new EmbedBuilder()
+			.setTitle(result)
 			.setColor('#fafbfc')
-			.setDescription(`Computer chose ${computer}. You chose ${selection}.`);
+			.setDescription(`Computer chose **${computer}**. You chose **${selection}**.`);
 		interaction.followUp({ embeds: [rpsEmbed] });
 
 	},

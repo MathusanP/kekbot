@@ -1,5 +1,4 @@
-const { SlashCommandBuilder } = require('@discordjs/builders');
-const { MessageEmbed } = require('discord.js');
+const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
 
 module.exports = {
 	name: 'ban',
@@ -13,30 +12,19 @@ module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('ban')
 		.setDescription('bans a member from the server!')
-		.addUserOption(option => option
-			.setName('user')
-			.setDescription('User to ban')
-			.setRequired(true),
-		)
 
-		.addStringOption(option => option
-			.setName('reason')
-			.setDescription('Why did you ban them?')
-			.setRequired(false),
-		),
+		.addUserOption(option => option.setName('user').setDescription('User to ban').setRequired(true))
+		.addStringOption(option => option.setName('reason').setDescription('Why did you ban them?').setRequired(false)),
 
 	error: false,
-	execute: async ({ interaction, client }) => {
+	execute: async ({ interaction }) => {
 
 		const user = interaction.options.getUser('user');
 		const reason = interaction.options.getString('reason') ? interaction.options.getString('reason') : 'No reason specified';
-		const id = interaction.options.getString('id') || interaction.guild;
+		const guild = interaction.guild;
 
-		const guild = client.guilds.cache.get(id) || interaction.guild;
-		const guildname = interaction.guild.name;
-
-		const userEmbed = new MessageEmbed()
-			.setTitle(`You have been banned from ${guildname}`)
+		const userEmbed = new EmbedBuilder()
+			.setTitle(`You have been banned from ${guild.name}`)
 			.setColor('#DC143C')
 			.setThumbnail(guild.iconURL({ dynamic: true }))
 			.addFields(
@@ -44,13 +32,13 @@ module.exports = {
 			)
 			.setTimestamp();
 
-		user.send({ embeds: [userEmbed] }).catch(() => { return; });
+		user.send({ embeds: [userEmbed] }).catch(() => false);
 
 		interaction.guild.members.ban(user, `Mod: ${interaction.user.tag}\nReason: ${reason}`)
 			.then(async () => {
 
 
-				const embed = new MessageEmbed()
+				const embed = new EmbedBuilder()
 					.setAuthor({ name: interaction.user.tag, iconURL: interaction.user.displayAvatarURL() })
 					.setTitle(`🔨 banned: ${user.tag}`)
 					.setColor('#DC143C')

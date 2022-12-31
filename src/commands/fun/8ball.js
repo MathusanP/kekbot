@@ -1,5 +1,4 @@
-const { SlashCommandBuilder } = require('@discordjs/builders');
-const { MessageEmbed } = require('discord.js');
+const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
 
 const possibleAnswers = [
 	'That is a no from me.',
@@ -20,7 +19,7 @@ const possibleAnswers = [
 module.exports = {
 	name: '8ball',
 	description: 'Ask the all knowing, magic 8ball a question!',
-	usage: '`<question>`',
+	usage: '<question>',
 
 	permissions: [],
 	ownerOnly: false,
@@ -29,20 +28,19 @@ module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('8ball')
 		.setDescription('Ask the all knowing, magic 8ball a question!')
-		.addStringOption(option => option
-			.setName('question')
-			.setDescription('What is your question')
-			.setRequired(true),
-		),
+
+		.addStringOption(option => option.setName('question').setDescription('What is your question').setRequired(true)),
 
 	error: false,
 	execute: async ({ interaction }) => {
 
-		const embed = new MessageEmbed()
+		const embed = new EmbedBuilder()
 			.setTitle('Magic 8 Ball')
-			.addField('**Your Question:**', `${interaction.options.getString('question')}`)
-			.addField('**My Answer**', `${possibleAnswers[Math.floor((Math.random() * possibleAnswers.length) + 0)]}`)
-			.setColor('RANDOM')
+			.addFields(
+				{ name: '**Your Question:**', value: `${interaction.options.getString('question')}` },
+				{ name: '**My Answer**', value: `${possibleAnswers[Math.floor((Math.random() * possibleAnswers.length) + 0)]}` },
+			)
+			.setColor('Random')
 			.setThumbnail('https://i.imgur.com/SD5OXUV.jpg')
 			.setFooter({ text: 'Powered by automod#8328' });
 

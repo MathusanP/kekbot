@@ -1,4 +1,4 @@
-const { SlashCommandBuilder } = require('@discordjs/builders');
+const { SlashCommandBuilder } = require('discord.js');
 
 module.exports = {
 	name: 'say',
@@ -12,11 +12,8 @@ module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('say')
 		.setDescription('Makes me repeat your message!')
-		.addStringOption(option => option
-			.setName('message')
-			.setDescription('What should I say?')
-			.setRequired(true),
-		),
+
+		.addStringOption(option => option.setName('message').setDescription('What should I say?').setRequired(true)),
 
 	error: false,
 	execute: async ({ interaction }) => {

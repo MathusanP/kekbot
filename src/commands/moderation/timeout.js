@@ -1,5 +1,4 @@
-const { SlashCommandBuilder } = require('@discordjs/builders');
-const { MessageEmbed } = require('discord.js');
+const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
 
 const conversions = {
 	's': 1000,
@@ -11,7 +10,7 @@ const conversions = {
 module.exports = {
 	name: 'timeout',
 	description: 'Applies a timeout to a user.',
-	usage: '`/timeout <member> <duration> <units> [reason]`',
+	usage: '<member> <duration> <units> [reason]',
 
 	permissions: ['Manage Members'],
 	ownerOnly: false,
@@ -20,31 +19,29 @@ module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('timeout')
 		.setDescription('Applies a timout to a user')
+
 		.addUserOption(option => option.setName('user').setDescription('The person you want to timeout').setRequired(true))
-		.addIntegerOption(option => option.setName('duration').setDescription('How long do you want to ban this user for?').setRequired(true))
+		.addIntegerOption(option => option.setName('duration').setDescription('How long for?').setRequired(true))
 
 		.addStringOption(option => option
-			.setName('units')
-			.setDescription('What units?')
-			.addChoice('Seconds', 's')
-			.addChoice('Minutes', 'm')
-			.addChoice('Hours', 'h')
-			.addChoice('Days', 'd')
-			.setRequired(true),
+			.setName('units').setRequired(true).setDescription('How long for?')
+			.addChoices(
+				{ name: 'Seconds', value: 's' }, { name: 'Minutes', value: 'm' }, { name: 'Hours', value: 'h' },
+				{ name: 'Days', value: 'd' }, { name: 'Weeks', value: 'w' },
+			),
 		)
-		.addStringOption(option => option.setName('reason').setDescription('Why are you putting them on timeout?').setRequired(false)),
+		.addStringOption(option => option.setName('reason').setDescription('Why are we muting them?')),
 
 	error: false,
 
-	execute: async ({ interaction, client }) => {
+	execute: async ({ interaction }) => {
+
 		// Fetching user detail
 		const user = interaction.options.getMember('user');
 		const reason = interaction.options.getString('reason') ? interaction.options.getString('reason') : 'No reason specified';
-		const id = interaction.options.getString('id') || interaction.guild;
 
 		// Fetching guild detail
-		const guild = client.guilds.cache.get(id) || interaction.guild;
-		const guildname = interaction.guild.name;
+		const guild = interaction.guild;
 
 		// Fetching time details; units
 		const amount = interaction.options.getInteger('duration');
@@ -54,17 +51,17 @@ module.exports = {
 		// Putting the user on timeout
 		await user.timeout(time);
 
-		const userEmbed = new MessageEmbed()
-			.setTitle(`You have been timed out in ${guildname}`)
+		const userEmbed = new EmbedBuilder()
+			.setTitle(`You have been timed out in ${guild.name}`)
 			.setThumbnail(guild.iconURL({ dynamic: true }))
 			.addFields(
 				{ name: '**Duration**', value: `${amount}${unit}`, inline: true },
 				{ name: '**Reason**', value: `${reason}`, inline: true },
 			)
-			.setColor('RED')
+			.setColor('Red')
 			.setTimestamp();
 
-		user.send({ embeds: [userEmbed] }).catch(() => { return; });
+		user.send({ embeds: [userEmbed] }).catch(() => false);
 		interaction.followUp(`${user} has been timed out for ${amount}${unit}. :thumbsup:`);
 
 	},
