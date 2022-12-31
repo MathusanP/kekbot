@@ -24,7 +24,10 @@ module.exports = {
 
 
 			if (error) return interaction.deferReply(error);
-			if (result == undefined || result.length === 0) return interaction.reply('I do not recognise the location mentioned.');
+			if (result == undefined || result.length === 0) {
+				interaction.followUp({ content: 'I do not recognise the location mentioned.' });
+				return false;
+			}
 
 			const current = result[0].current;
 

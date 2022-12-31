@@ -19,7 +19,7 @@ const possibleAnswers = [
 module.exports = {
 	name: '8ball',
 	description: 'Ask the all knowing, magic 8ball a question!',
-	usage: '`<question>`',
+	usage: '<question>',
 
 	permissions: [],
 	ownerOnly: false,
@@ -29,7 +29,7 @@ module.exports = {
 		.setName('8ball')
 		.setDescription('Ask the all knowing, magic 8ball a question!')
 
-		.addStringOption(option => option.setName('question') .setDescription('What is your question') .setRequired(true)),
+		.addStringOption(option => option.setName('question').setDescription('What is your question').setRequired(true)),
 
 	error: false,
 	execute: async ({ interaction }) => {

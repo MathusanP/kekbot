@@ -10,7 +10,7 @@ const conversions = {
 module.exports = {
 	name: 'timeout',
 	description: 'Applies a timeout to a user.',
-	usage: '`/timeout <member> <duration> <units> [reason]`',
+	usage: '<member> <duration> <units> [reason]',
 
 	permissions: ['Manage Members'],
 	ownerOnly: false,
@@ -19,8 +19,10 @@ module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('timeout')
 		.setDescription('Applies a timout to a user')
+
 		.addUserOption(option => option.setName('user').setDescription('The person you want to timeout').setRequired(true))
 		.addIntegerOption(option => option.setName('duration').setDescription('How long for?').setRequired(true))
+
 		.addStringOption(option => option
 			.setName('units').setRequired(true).setDescription('How long for?')
 			.addChoices(
