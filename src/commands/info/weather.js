@@ -23,8 +23,7 @@ module.exports = {
 		weather.find({ search: `${place}`, degreeType: 'C' }, (error, result) => {
 
 
-			if (error) return interaction.deferReply(error);
-			if (result == undefined || result.length === 0) {
+			if (error || result == undefined || result.length === 0) {
 				interaction.followUp({ content: 'I do not recognise the location mentioned.' });
 				return false;
 			}
