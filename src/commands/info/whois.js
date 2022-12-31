@@ -1,5 +1,4 @@
-const { SlashCommandBuilder } = require('@discordjs/builders');
-const { MessageEmbed } = require('discord.js');
+const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
 const moment = require('moment');
 
 module.exports = {
@@ -32,7 +31,7 @@ module.exports = {
 		const roles = [];
 		member.roles.cache.forEach(r => roles.push(r));
 
-		const embed = new MessageEmbed()
+		const embed = new EmbedBuilder()
 			.setColor(user.hexAccentColor)
 			.setAuthor({ name: interaction.member.user.username, iconURL: interaction.member.displayAvatarURL() })
 			.setTitle(`${member.displayName}'s Information`)

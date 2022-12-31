@@ -1,5 +1,4 @@
-const { SlashCommandBuilder } = require('@discordjs/builders');
-const { MessageEmbed } = require('discord.js');
+const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
 
 module.exports = {
 	name: 'warn',
@@ -13,17 +12,9 @@ module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('warn')
 		.setDescription('Warns a member in the server!')
-		.addUserOption(option => option
-			.setName('user')
-			.setDescription('User to warn')
-			.setRequired(true),
-		)
 
-		.addStringOption(option => option
-			.setName('reason')
-			.setDescription('Why are you warning them?')
-			.setRequired(false),
-		),
+		.addUserOption(option => option.setName('user').setDescription('User to warn').setRequired(true))
+		.addStringOption(option => option.setName('reason').setDescription('Why are you warning them?').setRequired(false)),
 
 	error: false,
 	execute: async ({ interaction }) => {
@@ -31,7 +22,7 @@ module.exports = {
 		const user = interaction.options.getUser('user');
 		const reason = interaction.options.getString('reason') ? interaction.options.getString('reason') : 'No reason specified';
 
-		const logEmbed = new MessageEmbed()
+		const logEmbed = new EmbedBuilder()
 			.setAuthor({ name: interaction.user.tag, iconURL: interaction.user.displayAvatarURL() })
 			.setTitle(`⚠️ Warned: ${user.tag}`)
 			.setColor('#DC143C')
@@ -41,9 +32,9 @@ module.exports = {
 				{ name: '**Reason**', value: `${reason}`, inline: false },
 			)
 			.setTimestamp()
-			.setFooter({ iconURL: 'https://automod.liamskinner.co.uk/invite', text: 'Moderation brought to you by autoMod!' });
+			.setFooter({ text: 'Moderation brought to you by autoMod!' });
 
-		const userEmbed = new MessageEmbed()
+		const userEmbed = new EmbedBuilder()
 			.setTitle('⚠️ You have been warned!')
 			.setColor('#DC143C')
 			.addFields(
@@ -52,7 +43,7 @@ module.exports = {
 			)
 			.setTimestamp();
 
-		user.send({ embeds: [userEmbed] }).catch(() => { return; });
+		user.send({ embeds: [userEmbed] }).catch(() => false);
 
 		interaction.followUp({ embeds: [logEmbed], ephemeral: true });
 	},

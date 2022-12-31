@@ -1,5 +1,4 @@
-const { SlashCommandBuilder } = require('@discordjs/builders');
-const { MessageEmbed } = require('discord.js');
+const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
 
 module.exports = {
 	name: 'serverinfo',
@@ -16,14 +15,13 @@ module.exports = {
 
 	error: false,
 	execute: ({ interaction, client }) => {
+
 		const id = interaction.options.getString('id') || interaction.guild;
 		const guild = client.guilds.cache.get(id) || interaction.guild;
 
-		const guildname = interaction.guild.name;
-
-		const embed = new MessageEmbed()
+		const embed = new EmbedBuilder()
 			.setColor('#0000FF')
-			.setTitle(`${guildname}`)
+			.setTitle(`${guild.name}'s Information`)
 			.setThumbnail(guild.iconURL({ dynamic: true }))
 			.addFields(
 				{ name: '**Owner**', value: `<@!${guild.ownerId}>`, inline: true },
@@ -31,6 +29,7 @@ module.exports = {
 
 			)
 			.setFooter({ text: 'Any issues? Use the /report feature' });
+
 		interaction.followUp({ embeds: [embed] });
 	},
 };
