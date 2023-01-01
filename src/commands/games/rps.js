@@ -1,4 +1,5 @@
 const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
+const format = (str) => `${str.charAt(0).toUpperCase()}${str.slice(1)}`;
 
 
 module.exports = {
@@ -22,19 +23,19 @@ module.exports = {
 	execute: ({ interaction }) => {
 
 		const outcomes = ['Rock', 'Paper', 'Scissors'];
-		const computer = outcomes[Math.floor(Math.random() * [outcomes.length])];
-		const selection = interaction.options.getString('choice');
+		const computer = format(outcomes[Math.floor(Math.random() * [outcomes.length])]);
+		const selection = format(interaction.options.getString('choice'));
 
 		/* Select the winning result */
 		let result = '';
 		if (selection == computer) result = 'Draw!';
-		else if (selection == 'rock') result = computer == 'Paper' ? 'You Lost!' : 'You Won!';
-		else if (selection == 'scissors') result = computer == 'Rock' ? 'You Lost!' : 'You Won!';
-		else if (selection == 'paper') result = computer == 'Scissors' ? 'You Lost!' : 'You Won!';
+		else if (selection == 'Rock') result = computer == 'Paper' ? 'You Lost!' : 'You Won!';
+		else if (selection == 'Paper') result = computer == 'Scissors' ? 'You Lost!' : 'You Won!';
+		else if (selection == 'Scissors') result = computer == 'Rock' ? 'You Lost!' : 'You Won!';
 
 		const rpsEmbed = new EmbedBuilder()
 			.setTitle(result)
-			.setColor('#fafbfc')
+			.setColor('#FAFBFC')
 			.setDescription(`Computer chose **${computer}**. You chose **${selection}**.`);
 		interaction.followUp({ embeds: [rpsEmbed] });
 
