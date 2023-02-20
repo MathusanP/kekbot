@@ -1,7 +1,6 @@
 const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
 const format = (str) => `${str.charAt(0).toUpperCase()}${str.slice(1)}`;
 
-
 module.exports = {
 	name: 'rps',
 	description: 'Play rock paper scissors against the bot!',
