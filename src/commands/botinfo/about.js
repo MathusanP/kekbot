@@ -29,9 +29,9 @@ module.exports = {
 
 				{ name: '**Total Servers:**', value: `${servers}`, inline: true },
 				{ name: '**Total Users:**', value: `${users}`, inline: true },
-				{ name: '**Total Commands:**', value: '23', inline: true },
+				{ name: '**Total Commands:**', value: '24', inline: true },
 
-				{ name: '**Version:**', value: '4.5.0', inline: true },
+				{ name: '**Version:**', value: '4.6.0', inline: true },
 				{ name: '**Uptime:**', value: `${uptime}`, inline: true },
 				{ name: '**Birthday:**', value: '18/07/2020', inline: true },
 
