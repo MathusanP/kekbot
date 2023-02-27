@@ -16,7 +16,7 @@ module.exports = {
 		/* Set client status */
 		await client.user.setPresence({
 			status: 'online',
-			activities: [{ type: 0, name: 'Update 4.5.0 - /help' }],
+			activities: [{ type: 0, name: 'Update 4.6.0 - /help' }],
 		});
 
 		/* Registering slash commands */
