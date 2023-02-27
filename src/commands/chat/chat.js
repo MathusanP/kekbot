@@ -1,4 +1,4 @@
-const { SlashCommandBuilder } = require('@discordjs/builders');
+const { SlashCommandBuilder } = require('discord.js');
 const axios = require('axios');
 
 module.exports = {
@@ -39,7 +39,7 @@ module.exports = {
 						interaction.followUp(reply);
 					}
 					else if (!reply) {
-						interaction.followUp('Hmmm, I don\'t know how to respond to that...');
+						interaction.followUp({ content: 'Hmmm, I don\'t know how to respond to that...' });
 					}
 				});
 		}
