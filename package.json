@@ -22,7 +22,7 @@
 		"discord.js-ghost-ping": "^3.0.0",
 		"dotenv": "^16.0.3",
 		"express": "^4.18.1",
-		"got": "^13.0.0",
+		"got": "^14.0.0",
 		"moment": "^2.29.1",
 		"sys": "^0.0.1",
 		"weather-js": "^2.0.0"
