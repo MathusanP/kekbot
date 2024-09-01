@@ -9,7 +9,7 @@ using the **/report <issue>** command! Another way is by heading to the issues t
 ### Authors
 
 key contributors:
-- [@bagelwastaken](https://github.com/bagelwastaken) _(founder)_
+- [@bagelwastaken](https://github.com/bagelwastaken)
 - [@ThatsLiamS](https://github.com/ThatsLiamS)
 
 #### Contact
